@@ -1,5 +1,5 @@
 ---
-title: Regexp
+title: regexp
 date: 2017-02-07 15:19:23
 categories: javascript
 ---

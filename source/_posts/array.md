@@ -1,5 +1,5 @@
 ---
-title: Array
+title: array
 date: 2017-02-07 15:17:54
 categories: javascript
 ---

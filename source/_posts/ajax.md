@@ -1,5 +1,5 @@
 ---
-title: Ajax
+title: ajax
 date: 2017-02-07 15:20:45
 categories: javascript
 ---

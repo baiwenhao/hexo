@@ -1,5 +1,5 @@
 ---
-title: Object
+title: object
 date: 2017-02-07 15:33:37
 categories: javascript
 ---
