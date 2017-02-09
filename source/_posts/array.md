@@ -24,19 +24,19 @@ map() 处理完数组中的元素后返回
 reduce(): 数组中的每个值（从左到右）开始合并，最终为一个值
 reduceRight(): 数组中的每个值（从右到左）开始合并，最终为一个值
 
-判断数组
+### 判断数组
 Array.isArray()
 arr.constructor === Array
 arr instanceof Array
 Object.prototype.toString.call(obj) == "[object Array]”
 
-转换方法
+### 转换方法
 .toString
 .valueOf
 .toLocaleString
 .join
 
-栈方法
+### 栈方法
 .push
 .pop
 .unshift
@@ -90,6 +90,8 @@ if (typeof Array.prototype.forEach != "function") {
     }
   };
 }
+
+### 复制数组
 
 原生方法实现
 Array.prototype.map = function(fn, context) {//arg没找到具体应用场景
