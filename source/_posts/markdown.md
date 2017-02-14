@@ -1,6 +1,7 @@
 ---
 title: markdown语法
 date: 2017-02-07 10:59:01
+categories: javascript
 ---
 
 参考地址 https://wizardforcel.gitbooks.io/markdown-simple-world/content/2.html

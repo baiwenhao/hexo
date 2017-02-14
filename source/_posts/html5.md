@@ -1,7 +1,7 @@
 ---
 title: html5
 date: 2017-02-07 18:15:23
-tags:
+categories: javascript
 ---
 
 ```

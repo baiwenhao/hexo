@@ -15,7 +15,6 @@ slice(): 指定的位置开始删除指定的数组项，并且将删除的数�
 splice(): 对一个数组做删除、插入和替换，从1开始计算，返回数组对象
 indexOf(): 从前向后查找 从0开始
 lastIndexOf(): 从后向前查找元素在数组中位置
-
 forEach()
 every() 循环在第一次return false后返回
 some() 循环在第一次return true后返回

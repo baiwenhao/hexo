@@ -1,6 +1,7 @@
 ---
 title: npm
 date: 2017-02-07 11:19:11
+categories: javascript
 ---
 
 npm list #列出已安装模块

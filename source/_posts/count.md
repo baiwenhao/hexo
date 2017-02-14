@@ -1,5 +1,5 @@
 ---
-title: count
+title: LeetCode 
 date: 2017-02-09 18:45:41
 categories: javascript
 ---
@@ -18,4 +18,6 @@ var twoSum = function(nums, target) {
     }
   }
 }
+
+
 ```

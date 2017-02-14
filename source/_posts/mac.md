@@ -1,6 +1,7 @@
 ---
 title: mac
 date: 2017-02-07 11:19:11
+categories: javascript
 ---
 
 创建文件

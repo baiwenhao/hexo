@@ -1,6 +1,7 @@
 ---
 title: linux
 date: 2017-02-07 11:44:11
+categories: javascript
 ---
 
 搬瓦工vps
