@@ -24,10 +24,10 @@ code_dir: downloads/code
 i18n_dir: :lang
 skip_render:
 
-new_post_name: :title.md 
+new_post_name: :title.md
 default_layout: post
-titlecase: true 
-external_link: true 
+titlecase: true
+external_link: true
 filename_case: 0
 render_drafts: false
 post_asset_folder: false
@@ -60,7 +60,7 @@ pagination_dir: page
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: landscape
+theme: gstyle
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html

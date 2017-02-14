@@ -41,3 +41,9 @@ curl -O https://raw.githubusercontent.com/nicolashery/mac-dev-setup/master/.bash
 .bash_prompt
 .aliases
 
+### 关闭提示音
+Profiles -> Terminal -> silence bell
+
+### 新窗口保持当前路径
+Profiles -> general -> working directory -> Reuse previous session's directory
+
