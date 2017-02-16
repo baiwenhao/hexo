@@ -1,7 +1,8 @@
 ---
 title: vscode
-date: 2017-02-07 11:43:58
 categories: javascript
+abbrlink: 83363fd2
+date: 2017-02-07 11:43:58
 ---
 
 命令行启动

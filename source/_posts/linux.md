@@ -1,7 +1,8 @@
 ---
 title: linux
-date: 2017-02-07 11:44:11
 categories: javascript
+abbrlink: 53d0684b
+date: 2017-02-07 11:44:11
 ---
 
 ### 搬瓦工

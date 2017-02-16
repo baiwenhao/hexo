@@ -1,7 +1,8 @@
 ---
 title: event
-date: 2017-02-06 18:32:09
 categories: javascript
+abbrlink: fa6f25a3
+date: 2017-02-06 18:32:09
 ---
 
 ### window

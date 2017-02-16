@@ -1,7 +1,8 @@
 ---
 title: git
-date: 2017-02-07 11:18:58
 categories: javascript
+abbrlink: 69c3279c
+date: 2017-02-07 11:18:58
 ---
 
 ### 基本命令

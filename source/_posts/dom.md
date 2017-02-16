@@ -1,7 +1,8 @@
 ---
 title: dom
-date: 2017-02-07 15:17:54
 categories: javascript
+abbrlink: 59b49683
+date: 2017-02-07 15:17:54
 ---
 
 ### window属性

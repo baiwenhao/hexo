@@ -1,7 +1,8 @@
 ---
-title: LeetCode 
-date: 2017-02-09 18:45:41
+title: LeetCode
 categories: javascript
+abbrlink: 6096f3d5
+date: 2017-02-09 18:45:41
 ---
 
 ### 1 第一题

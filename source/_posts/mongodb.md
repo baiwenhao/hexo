@@ -1,7 +1,8 @@
 ---
 title: mongodb
-date: 2017-02-07 11:19:33
 categories: javascript
+abbrlink: '20475214'
+date: 2017-02-07 11:19:33
 ---
 
 配置文件

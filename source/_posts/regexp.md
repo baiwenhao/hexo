@@ -1,7 +1,8 @@
 ---
 title: regexp
-date: 2017-02-07 15:19:23
 categories: javascript
+abbrlink: fe58b4d1
+date: 2017-02-07 15:19:23
 ---
 
 待拷贝

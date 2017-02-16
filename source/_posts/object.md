@@ -1,7 +1,8 @@
 ---
 title: object
-date: 2017-02-07 15:33:37
 categories: javascript
+abbrlink: af01aeda
+date: 2017-02-07 15:33:37
 ---
 
 .propertyIsEnumerable()

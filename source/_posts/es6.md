@@ -1,7 +1,8 @@
 ---
 title: ES6
-date: 2017-02-13 09:54:09
 categories: javascript
+abbrlink: d73c0d37
+date: 2017-02-13 09:54:09
 ---
 
 ### 对象的扩展运算符

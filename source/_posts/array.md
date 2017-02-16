@@ -1,7 +1,8 @@
 ---
 title: array
-date: 2017-02-07 15:17:54
 categories: javascript
+abbrlink: 60cdc1b3
+date: 2017-02-07 15:17:54
 ---
 
 push():向数组末尾添加一个或多个元素

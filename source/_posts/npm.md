@@ -1,7 +1,8 @@
 ---
 title: npm
-date: 2017-02-07 11:19:11
 categories: javascript
+abbrlink: 99791dcb
+date: 2017-02-07 11:19:11
 ---
 
 npm list #列出已安装模块

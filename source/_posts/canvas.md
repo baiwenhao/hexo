@@ -1,7 +1,8 @@
 ---
 title: canvas
-date: 2017-02-07 15:36:40
 categories: javascript
+abbrlink: a233692e
+date: 2017-02-07 15:36:40
 ---
 
 ### 绘制环境
