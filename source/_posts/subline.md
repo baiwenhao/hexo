@@ -10,12 +10,15 @@ Command+p
 搜索文件css文件定位类 main@.banner
 
 ## 搜索排除
+```
 "folder_exclude_patterns":
 [
   "node_modules"
 ]
+```
 
 ## 快捷键
+```
 control＋tab 切换标签
 cmd + 数字 标签切换
 cmd + option + 2 双屏
@@ -49,7 +52,7 @@ auto-save  保存
 bracketHighlighter 标签闭合提示
 sideBarEnhancements 增强右键菜单 
 { "keys": ["ctrl+shift+c"], "command": "copy_path" }
-
+```
 
 ## 模版 - File​Header 
 http://shiyanhui.github.io/FileHeader/
@@ -77,6 +80,7 @@ http://shiyanhui.github.io/FileHeader/
 }
 
 ## 编译es6
+```
 npm install -g babel 全局安装babel
 添加新的build
 {
@@ -95,7 +99,9 @@ npm install -g babel 全局安装babel
         "cmd": ["killall node >/dev/null 2>&1; babel-node $file"]
     }
 }
+```
 
+```
 "always_show_minimap_viewport": true,//小地图加背景
 "bold_folder_labels": true,//加粗文件夹名称
 "trim_trailing_white_space_on_save": true,//保存去掉取用空格
@@ -131,7 +137,7 @@ npm install -g babel 全局安装babel
 "draw_normal",
 "draw_active"
 ]
-
+```
 
 ## 配置文件
 ```

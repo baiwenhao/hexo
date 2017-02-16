@@ -5,7 +5,8 @@ abbrlink: 65b69107
 date: 2017-02-07 11:19:16
 ---
 
-#nginx mac
+### nginx mac
+<pre>
 1. 安装
 brew install nginx 安装
 brew uninstall nginx卸载
@@ -14,7 +15,7 @@ brew cleanup 清理
 brew info nginx 依赖
 
 2. 目录
-/usr/local/etc/nginx/nginx.conf 
+/usr/local/etc/nginx/nginx.conf
 /usr/local/Cellar/nginx/1.8.0/html
 
 3. 命令
@@ -22,54 +23,58 @@ nginx -s reload 重载
 nginx -s reopen 重启
 nginx -s stop 停止
 nginx -s quit 退出
-nginx -t 测配 
+nginx -t 测配
 
 4. 配置
 server {
-listen 80;
-server_name locahost *.iwjw.com;
-location ~* /(resource/)?([a-z,-]*)(_.*)?/(.*)_\d.*.(css|js){
-add_header Access-Control-Allow-Origin *;
-alias /Users/baiwenhao/work/static/$2/dist/$4.$5;
-}
+  listen 80;
+  server_name locahost *.iwjw.com;
 
-location ~* /(resource/)?([a-z,-]*)(_.*)?/(.*){
-add_header Access-Control-Allow-Origin *;
-alias /Users/baiwenhao/work/static/$2/dist/$4;
-}
-}
+  location ~* /(resource/)?([a-z,-]*)(_.*)?/(.*)_\d.*.(css|js){
+    add_header Access-Control-Allow-Origin *;
+    alias /Users/baiwenhao/work/static/$2/dist/$4.$5;
+  }
 
+  location ~* /(resource/)?([a-z,-]*)(_.*)?/(.*){
+    add_header Access-Control-Allow-Origin *;
+    alias /Users/baiwenhao/work/static/$2/dist/$4;
+  }
+}
+</pre>
+
+<pre>
 server {
-listen 8088;
-server_name localhost *.iwjw.com;
-location / {
-root html;
-index index.html index.htm;
-}
-location ~* /(resource/)?([a-z,-]*)(_.*)?/(.*)_\d.*.(css|js){
-add_header Access-Control-Allow-Origin *;
-alias /Users/baiwenhao/work/static/$2/dist/$4.$5;
-}
+  listen 8088;
+  server_name localhost *.iwjw.com;
+  location / {
+    root html;
+    index index.html index.htm;
+  }
+  location ~* /(resource/)?([a-z,-]*)(_.*)?/(.*)_\d.*.(css|js){
+    add_header Access-Control-Allow-Origin *;
+    alias /Users/baiwenhao/work/static/$2/dist/$4.$5;
+  }
 
-location ~* /(resource/)?([a-z,-]*)(_.*)?/(.*){
-add_header Access-Control-Allow-Origin *;
-alias /Users/baiwenhao/work/static/$2/dist/$4;
+  location ~* /(resource/)?([a-z,-]*)(_.*)?/(.*){
+    add_header Access-Control-Allow-Origin *;
+    alias /Users/baiwenhao/work/static/$2/dist/$4;
+  }
+
+  # location ~* /fbh-(\w*)/(.*)_\d.*.(css|js){
+  # add_header Access-Control-Allow-Origin *;
+  # alias /Users/baiwenhao/work/static/fbh-$1/dist/$2.$3;
+  # proxy_pass http://localhost:5000/$2.$3;
+  # }
+
+  # location ~* /fbh-(\w*)/(.*){
+  # add_header Access-Control-Allow-Origin *;
+  # alias /Users/baiwenhao/work/static/fbh-$1/dist/$2;
+  # proxy_pass http://localhost:5000/$2;
+  # }
 }
+</pre>
 
-# location ~* /fbh-(\w*)/(.*)_\d.*.(css|js){
-# add_header Access-Control-Allow-Origin *;
-# alias /Users/baiwenhao/work/static/fbh-$1/dist/$2.$3;
-# proxy_pass http://localhost:5000/$2.$3;
-# }
-
-# location ~* /fbh-(\w*)/(.*){
-# add_header Access-Control-Allow-Origin *;
-# alias /Users/baiwenhao/work/static/fbh-$1/dist/$2;
-# proxy_pass http://localhost:5000/$2;
-# }
-}
-
-cnetOs安装nginx
+### cnetOs安装nginx
 第一步，在/etc/yum.repos.d/目录下创建一个源配置文件nginx.repo：
 cd /etc/yum.repos.d/
 vim nginx.repo
@@ -109,33 +114,33 @@ chkconfig nginx on #设为开机启动
 在你的nginx通过代理的方式转发请求：配置如下
 vi /etc/nginx/nginx.conf
 在http加入下面的内容，参考：http://wiki.nginx.org/FullExample
-http {
-
 server {
-listen 80;
-server_name www.a.com;
-charset utf-8;
-access_log /home/a.com.access.log main;
-location / {
-proxy_pass http://127.0.0.1:80
-}
+  listen 80;
+  server_name www.a.com;
+  charset utf-8;
+  access_log /home/a.com.access.log main;
+  location / {
+    proxy_pass http://127.0.0.1:80
+  }
 }
 
 server {
-listen 80;
-server_name www.b.com;
-charset utf-8;
-access_log /home/b.com.access.log main;
-location / {
-proxy_pass http://127.0.0.1:81
-}
+  listen 80;
+  server_name www.b.com;
+  charset utf-8;
+  access_log /home/b.com.access.log main;
+  location / {
+    proxy_pass http://127.0.0.1:81
+  }
 }
 
-设置代理
+### 设置代理
+```
 server{
-listen 80;
-server_name *.haokebaba.com;
-location / {
-proxy_pass http://104.224.160.141:8080;
+  listen 80;
+  server_name *.haokebaba.com;
+  location / {
+    proxy_pass http://104.224.160.141:8080;
+  }
 }
-}
+```
