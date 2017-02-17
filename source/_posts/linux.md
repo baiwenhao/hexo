@@ -5,25 +5,40 @@ abbrlink: 53d0684b
 date: 2017-02-07 11:44:11
 ---
 
-### 搬瓦工
+##### telnet
+```
+netstat -nat | grep 3306
+nslookup nodejs.org 查看域名地址
+telnet 192.168.1.1 80 链接地址
+GET /api/http.html HTTP/1.1 发起请求 
+Host: nodejs.org 两个回车发送请求 
+```
+
+##### 杀端口
+```
+lsof -i tcp:3888 //查看
+kill -9 26019 //杀端口
+```
+
+##### 搬瓦工
 ssh root@104.224.160.141 -p 27850 连接linux主机
 yum install git
 curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.32.1/install.sh | bash
 然后source .bashrc 在用nvm install node
 
-### 下载插件
+##### 下载插件
 wget https://services.gradle.org/distributions/gradle-2.4-all.zip
 本地拷贝远程文件,本地拷远程顺序颠倒一下
 scp -P 27850 root@104.224.160.141:/root/gradle-2.4-all.zip ./
 scp -P 27850 ./vuejs_note.zip root@104.224.160.141:/root/
 
-### zip压缩解压
+##### zip压缩解压
 zip -r 1 2 new 压12
 unzip new.zip 解压
 unzip -v new.zip 查看
 unzip -t new.zip 完整
 
-### mv
+##### mv
 mv file1 file2
 将文件file1改名为file2,
 
@@ -44,7 +59,7 @@ mv -f file1 file2
 mv dir1 dir2
 如果目录dir2不存在，将目录dir1改名为dir2；否则，将dir1移动到dir2中
 
-### kuoruan配置
+##### kuoruan配置
 服务器IP:  104.224.160.141
 端口:  17899
 加速地址: 127.0.0.1:443
@@ -94,7 +109,7 @@ Kcptun 日志目录: /var/log/kcptun
 http://www.jianshu.com/p/172c38ba6cee
 欢迎访问扩软博客: https://blog.kuoruan.com/
 
-### 服务端配置
+##### 服务端配置
 wget https://raw.githubusercontent.com/kuoruan/kcptun_installer/master/kcptun.sh
 chmod +x ./kcptun.sh
 ./kcptun.sh
@@ -105,7 +120,7 @@ chmod +x ./kcptun.sh
 # Github: https://github.com/kuoruan/kcptun_installer   #
 # QQ交流群: 43391448, 68133628
 
-### 客户端安装
+##### 客户端安装
 下载地址
 https://github.com/xtaci/kcptun/releases/
 kcptun-darwin-amd64-20170117.tar.gz

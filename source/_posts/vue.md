@@ -156,5 +156,15 @@ function isWeixin(){
 transform: translate3d(0,0,0)
 ```
 
+##### 数组
+初始化一个data对象位，当数据返回null或者string,在组件内部循环data数组就会报错，webview报错就会推出
+因此即使status给的是0,也要加上res.data.length >= 1 的判断
+
+
+
+
+
+
+
 
 

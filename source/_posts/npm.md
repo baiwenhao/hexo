@@ -5,6 +5,7 @@ abbrlink: 99791dcb
 date: 2017-02-07 11:19:11
 ---
 
+sudo npm cache clean -f清除缓存
 npm list #列出已安装模块
 npm install -g gulp安装
 npm install --save-dev gulp下载插件
@@ -88,7 +89,7 @@ npm config set proxy http://proxy.com:8081/
   npm config set registry https://registry.npm.taobao.org
   npm config get registry// 验证
   npm config delete registry 删除淘宝源 
-  
+
 路径
   /usr/local/n/versions/node/5.5.0
   nrm 切换npm的源

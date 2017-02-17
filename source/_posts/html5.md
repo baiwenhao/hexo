@@ -184,3 +184,9 @@ webkit-playsinline="true"
 <video x-webkit-airplay="true" webkit-playsinline="true" preload="auto" autoplay src="http://"></video>
 ```
 
+##### 自动大写与修正
+```
+<input type="text" autocapitalize="off" autocorrect="off" />
+```
+
+

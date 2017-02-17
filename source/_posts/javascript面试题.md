@@ -43,9 +43,9 @@ Object.prototype.toString.call(obj) == "[object Array]";
 
 通过原型继承创建一个新对象
 function inherit(p){
-    if(!p){
-        throw TypeError("p is not an object or null");
-    }
+  if(!p){
+    throw TypeError("p is not an object or null");
+  }
     if(Object.create){
         return Object.create(p);
     }
@@ -99,5 +99,21 @@ function clone(obj) {
     2.避免文件跨域；
     3.修改及时生效；
 ```
+
+##### server状态码
+```
+301永久重定向
+302临时重定向
+304未修改，从本地度缓存
+404未找到
+500服务器
+favicon.ico 默认请求ico
+response.setHeader(‘Cache-Control’, ‘public, max-age=3600’); //缓存一小时
+
+```
+
+
+
+
 
 
