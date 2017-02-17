@@ -111,3 +111,50 @@ iphone6plus 字符串是.的时候不吃行高,要加vertical-align: top;
 
 当一个值被记录的时候要考虑他的进场 改变 出场 状态
 ```
+
+##### JS判断设备
+```
+function deviceType(){
+  var ua = navigator.userAgent
+  var agent = ["Android", "iPhone", "SymbianOS", "Windows Phone", "iPad", "iPod"];
+  for(var i=0; i<len,len = agent.length; i++) {
+    if(ua.indexOf(agent[i])>0){
+      break
+    }
+  }
+}
+deviceType()
+window.addEventListener('resize', function() {
+    deviceType()
+})
+```
+
+##### 消除transition闪屏
+```
+-webkit-transform-style: preserve-3d;
+-webkit-backface-visibility: hidden;
+-webkit-perspective: 1000;
+```
+
+##### JS判断微信浏览器
+```
+function isWeixin(){
+  var ua = navigator.userAgent.toLowerCase()
+  if(ua.match(/MicroMessenger/i)=='micromessenger') {
+    return true
+  } else {
+    return false
+  }
+}
+```
+
+###### 硬件加速
+```
+-webkit-transform: translate3d(0,0,0)
+-moz-transform: translate3d(0,0,0)
+-ms-transform: translate3d(0,0,0)
+transform: translate3d(0,0,0)
+```
+
+
+

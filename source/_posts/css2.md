@@ -1,5 +1,5 @@
 ---
-title: css2
+title: css2.0
 abbrlink: '32978573'
 date: 2017-02-16 18:21:13
 tags:
@@ -8,6 +8,28 @@ tags:
 http://isux.tencent.com/css3/?animation-fill-mode
 http://www.17sucai.com/boards/73928.html
 http://www.cnblogs.com/chocking/p/4672191.html
+
+#### 移动端定义字体
+
+```
+@ --------------------------------------中文字体的英文名称
+@ 宋体      SimSun
+@ 黑体      SimHei
+@ 微信雅黑   Microsoft Yahei
+@ 微软正黑体 Microsoft JhengHei
+@ 新宋体    NSimSun
+@ 新细明体  MingLiU
+@ 细明体    MingLiU
+@ 标楷体    DFKai-SB
+@ 仿宋     FangSong
+@ 楷体     KaiTi
+@ 仿宋_GB2312  FangSong_GB2312
+@ 楷体_GB2312  KaiTi_GB2312
+@
+@ 说明：中文字体多数使用宋体、雅黑，英文用Helvetica
+body { font-family: Microsoft Yahei,SimSun,Helvetica; }
+```
+
 
 css3图标
 http://fortawesome.github.io/Font-Awesome/examples/

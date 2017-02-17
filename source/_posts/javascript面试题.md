@@ -86,3 +86,18 @@ function clone(obj) {
     }
     throw new Error("Unable to copy obj! Its type isn't supported.");
 }
+
+##### 渲染优化
+```
+1.禁止使用iframe（阻塞父文档onload事件）
+2.禁止使用gif图片实现loading效果（降低CPU消耗，提升渲染性能）
+使用CSS3代码代替JS动画；
+开启GPU加速；
+使用base64位编码图片(不小图而言，大图不建议使用)
+对于一些小图标，可以使用base64位编码，以减少网络请求。但不建议大图使用，比较耗费CPU。小图标优势在于：
+    1.减少HTTP请求；
+    2.避免文件跨域；
+    3.修改及时生效；
+```
+
+

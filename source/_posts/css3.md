@@ -1,12 +1,12 @@
 ---
-title: css3
+title: css3.0
 abbrlink: 4590b5e5
 date: 2017-02-16 14:07:51
 tags:
 ---
 
-### background
-<pre>
+##### background
+```
 // 背景色设置
 bg:-webkit-gradient(linear, 0 0, 0 100%, from(#fff), to(#ccc));上下
 bg:-webkit-gradient(linear, 0 100%, 0 0, from(#fff), to(#ccc));下上
@@ -45,10 +45,10 @@ background-break:
 continuous;此属性是默认值，忽视区域之间的间隔空隙（给它们应用图片就好像把它们看成一个区域一样）
 bounding-box;重新考虑区域之间的间隔
 each-box;对每一个独立的标签区域进行背景的重新划分
-</pre>
+```
 
-### transfrom
-<pre>
+##### transfrom
+```
 角度   rotateX( -5deg )
 倾斜   skew( 20deg,20deg )
 比例   scale( 2.0 )
@@ -57,20 +57,20 @@ each-box;对每一个独立的标签区域进行背景的重新划分
 改变元素基点 transform-origin: left top; //默认中心点开始变形
 
 transform: matrix(1, 0, 0, 1, 30, 30)/* a=1, b=0, c=0, d=1, e=30, f=30 */
-</pre>
+```
 
 ![logo](css3/1.png)
-
-<pre>
+```
 transform: matrix(2, 0, 0, 2, 30, 30); a=1, b=0, c=0, d=1, e=30, f=30
 matrix(缩放X, 0, 0, 缩放Y, x坐标, y坐标)
 transform-style:
 flat 子元素将保留其3d位置
 preserve-3d 不保留
 el.style.transformStyle = flat
-</pre>
-### transition
-<pre>
+```
+
+##### transition
+```
 属性
 过渡性质    transition-property：height;
 过渡时间    transition-duration：.3s;
@@ -106,10 +106,10 @@ transition动画执行结束,会触发webkitTransition事件
 webkitAnimationEnd事件只在元素向右移动,然后向左返回之后触发一次,而webkitTransitionEnd事件将在元素向右移动之后触发一次,在元素向左返回之后再触发一次
 
 http://www.ruanyifeng.com/blog/2014/02/css_transition_and_animation.html
-</pre>
+```
 
-### animate
-<pre>
+##### animate
+```
 属性
 animation-name: rainbow;
 animation-duration: 1s;
@@ -166,10 +166,10 @@ h1 {
 }
 @keyframes typing { from { width: 0; } }
 @keyframes blink-caret { 50% { border-color: transparent; } }
-</pre>
+```
 
-### 选择器
-<pre>
+##### 选择器
+```
 属性选择器
 a[href^="http://“]
 a[href^="png“]
@@ -241,6 +241,101 @@ input::-webkit-inner-spin-button {
 div > * :not(:first-child) {
   margin-left:10px
 }
+```
 
-</pre>
+##### 去掉点击元素产生背景或者边框
+```
+// ios用户点击一个链接，会出现一个半透明灰色遮罩, 如果想要禁用，可设置-webkit-tap-highlight-color的alpha值为0去除灰色半透明遮罩；
+// android用户点击一个链接，会出现一个边框或者半透明灰色遮罩, 不同生产商定义出来额效果不一样，可设置-webkit-tap-highlight-color的alpha值为0去除部分机器自带的效果；
+// winphone系统,点击标签产生的灰色半透明背景，能通过设置<meta name="msapplication-tap-highlight" content="no">去掉；
+// 特殊说明：有些机型去除不了，如小米2。对于按钮类还有个办法，不使用a或者input标签，直接用div标签
+a,button,input,textarea {
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    -webkit-user-modify:read-write-plaintext-only; //-webkit-user-modify有个副作用，就是输入法不再能够输入多个字符
+}
+// 也可以
+* { -webkit-tap-highlight-color: rgba(0,0,0,0); }
+// winphone下
+<meta name="msapplication-tap-highlight" content="no">
+```
+
+###### 美化表单
+```
+// 一、使用appearance改变webkit浏览器的默认外观
+input,select { -webkit-appearance:none; appearance: none; }
+
+// 二、winphone下，使用伪元素改变表单元素默认外观
+//1.禁用select默认箭头，::-ms-expand修改表单控件下拉箭头，设置隐藏并使用背景图片来修饰
+select::-ms-expand { display:none; }
+
+// 2.禁用radio和checkbox默认样式，::-ms-check修改表单复选框或单选框默认图标，设置隐藏并使用背景图片来修饰
+input[type=radio]::-ms-check,
+input[type=checkbox]::-ms-check { display:none; }
+
+// 3.禁用pc端表单输入框默认清除按钮，::-ms-clear修改清除按钮，设置隐藏并使用背景图片来修饰
+input[type=text]::-ms-clear,
+input[type=tel]::-ms-clear,
+input[type=number]::-ms-clear { display:none; }
+```
+
+```
+// 禁止长按链接与图片弹出菜单
+a,img { -webkit-touch-callout: none }
+
+// 禁止ios和android用户选中文字
+html,body {-webkit-user-select:none; user-select: none; }
+
+// 改变输入框placeholder的颜色值
+::-webkit-input-placeholder { /* WebKit browsers */
+color: #999; }
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+color: #999; }
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+color: #999; }
+:-ms-input-placeholder { /* Internet Explorer 10+ */
+color: #999; }
+input:focus::-webkit-input-placeholder{ color:#999; }
+
+// android上去掉语音输入按钮
+input::-webkit-input-speech-button {display: none}
+
+// 阻止windows Phone的默认触摸事件
+/*说明：winphone下默认触摸事件事件使用e.preventDefault是无效的，可通过样式来禁用，如：*/
+html { -ms-touch-action:none; } //禁止winphone默认触摸事件
+
+// 取消input在ios下，输入的时候英文首字母的默认大写
+input autocapitalize="off" autocorrect="off"\
+
+//IOS有拍照、录像、选取本地图片功能，部分Android只有选择本地图片功能。Winphone不支持
+input type="file" accept="images/*"
+input type="file" accept="video/*"
+```
+##### 重力感应事件
+```
+// 运用HTML5的deviceMotion，调用重力感应事件
+if(window.DeviceMotionEvent){
+    document.addEventListener('devicemotion', deviceMotionHandler, false)
+}
+
+var speed = 30;
+var x = y = z = lastX = lastY = lastZ = 0;
+function deviceMotionHandler(eventData){
+    var acceleration = event.accelerationIncludingGravity;
+    x = acceleration.x;
+    y = acceleration.y;
+    z = acceleration.z;
+    if(Math.abs(x-lastX)>speed || Math.abs(y-lastY)>speed || Math.abs(z-lastZ)>speed ){
+        //这里是摇动后要执行的方法
+        yaoAfter();
+    }
+    lastX = x;
+    lastY = y;
+    lastZ = z;
+}
+
+function yaoAfter(){
+    //do something
+}
+```
+
 

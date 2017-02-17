@@ -62,7 +62,7 @@ performance.timing.responseEnd
 如:article,footer,header,nav,section
 
 新的表单控件
-calendar,date,time,email,url,search 
+calendar,date,time,email,url,search
 
 Jquery Mobile事件
 pageinit ＝dom加载完成后出发
@@ -75,7 +75,9 @@ scrollstart =开始滑动
 scrollstop =停止滑动
 
 
-css中Media Query
+##### css中Media Query
+
+```
 设备高度:     device-width, device-height
 渲染窗口宽高:     width, height
 设备手持方向:     orientaion
@@ -87,20 +89,22 @@ css中Media Query
 
 页面宽大于680px调用此样式
 @media screen and (min-width:680px){...}
+```
 
-html5拖拽
-拖拽对象
+##### html5拖拽
+
+```
 draggable="true"  可拖拽
 ondragstart - 开始拖动  event.dataTransfer.setData("Text", event.target.id); 拖拽id
 ondrag - 正在拖动
-ondragend - 完成拖动 
+ondragend - 完成拖动
 接收对象
 ondragenter - 进入容器范围
 ondragover - 容器范围内拖动
 ondragleave - 对象离开容器范围
 ondrop - 拖动过程中，释放拖拽对象
 
-xhr.upload 这是html5新增的api,储存了上传过程中的信息 
+xhr.upload 这是html5新增的api,储存了上传过程中的信息
 xhr.upload.onprogress = function (ev) {
     var percent = 0;
     if(ev.lengthComputable) {
@@ -108,4 +112,75 @@ xhr.upload.onprogress = function (ev) {
         //document.getElementById('progress').innerHTML = percent;
         document.getElementById('bar').style.width = percent + '%';
     }
-} 
+}
+```
+
+##### 移动端电话短信邮件
+
+```
+// 一、打电话
+<a href="tel:0755-10086">打电话给:0755-10086</a>
+
+//  二、发短信，winphone系统无效
+<a href="sms:10086">发短信给: 10086</a>
+
+// 三、写邮件
+//注：在添加这些功能时，第一个功能以"?"开头，后面的以"&"开头
+// 1.普通邮件
+<a href="mailto:863139978@qq.com">点击我发邮件</a>
+// 2.收件地址后添加?cc=开头，可添加抄送地址（Android存在兼容问题）
+<a href="mailto:863139978@qq.com?cc=zhangqian0406@yeah.net">点击我发邮件</a>
+// 3.跟着抄送地址后，写上&bcc=,可添加密件抄送地址（Android存在兼容问题）
+<a href="mailto:863139978@qq.com?cc=zhangqian0406@yeah.net&bcc=384900096@qq.com">点击我发邮件</a>
+// 4.包含多个收件人、抄送、密件抄送人，用分号(;)隔开多个邮件人的地址
+<a href="mailto:863139978@qq.com;384900096@qq.com">点击我发邮件</a>
+// 5.包含主题，用?subject=
+<a href="mailto:863139978@qq.com?subject=邮件主题">点击我发邮件</a>
+// 6.包含内容，用?body=;如内容包含文本，使用%0A给文本换行
+<a href="mailto:863139978@qq.com?body=邮件主题内容%0A腾讯诚信%0A期待您的到来">点击我发邮件</a>
+// 7.内容包含链接，含http(s)://等的文本自动转化为链接
+<a href="mailto:863139978@qq.com?body=http://www.baidu.com">点击我发邮件</a>
+// 8.内容包含图片（PC不支持）
+<a href="mailto:863139978@qq.com?body=<img src='images/1.jpg' />">点击我发邮件</a>
+// 9.完整示例
+<a href="mailto:863139978@qq.com;384900096@qq.com?cc=zhangqian0406@yeah.net&bcc=993233461@qq.com&subject=[邮件主题]&body=腾讯诚邀您参与%0A%0Ahttp://www.baidu.com%0A%0A<img src='images/1.jpg' />">点击我发邮件</a>
+```
+
+##### html5 audio和video
+```
+// 音频，写法一
+<audio src="music/bg.mp3" autoplay loop controls>你的浏览器还不支持哦</audio>
+
+// 音频，写法二
+<audio controls="controls">
+    <source src="music/bg.ogg" type="audio/ogg"></source>
+    <source src="music/bg.mp3" type="audio/mpeg"></source>
+    优先播放音乐bg.ogg，不支持在播放bg.mp3
+</audio>
+
+// JS绑定自动播放（操作window时，播放音乐）
+$(window).one('touchstart', function() {
+    music.play()
+})
+
+// 微信下兼容处理
+document.addEventListener("WeixinJSBridgeReady", function () {
+  music.play()
+}, false)
+
+// 小结
+// 1.audio元素的autoplay属性在IOS及Android上无法使用，在PC端正常
+// 2.audio元素没有设置controls时，在IOS及Android会占据空间大小，而在PC端Chrome是不会占据任何空间
+```
+##### 播放视频不全屏
+```
+<!--
+1.ios7+支持自动播放
+2.支持Airplay的设备（如：音箱、Apple TV)播放
+x-webkit-airplay="true"
+3.播放视频不全屏
+webkit-playsinline="true"
+-->
+<video x-webkit-airplay="true" webkit-playsinline="true" preload="auto" autoplay src="http://"></video>
+```
+

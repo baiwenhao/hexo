@@ -109,6 +109,14 @@ cat ~/.ssh/id_rsa.pub
 .gitmodules不要提交就可以
 ```
 
+### 恢复备份数据
+```
+git stash 备份当前工作区内容,从最近一次提交中读取内容,让工作区保证和上次提交内容一致
+git stash list 显示git栈内所有备份
+git stash pop 读取最近保存的内容
+git stash clear 清空git栈
+```
+
 ### 本地仓库关联远程仓库
     git remote add origin git@github.com:baiwenhao/baiwenhao.github.com.git
 
