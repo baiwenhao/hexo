@@ -119,7 +119,7 @@ npm install -g babel 全局安装babel
 "show_encoding": true,//编码
 "auto_match_enabled": false,//关闭括号自动补全
 "tab_size": 4,
-"translate_tabs_to_spaces": true,
+"translate_tabs_to_spaces": true, // 空格
 "line_padding_bottom": 2,
     "line_padding_top": 2,
 "rulers": [80], //宽度指导线
