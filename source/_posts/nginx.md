@@ -4,7 +4,7 @@ abbrlink: 65b69107
 date: 2017-02-07 11:19:16
 ---
 
-### nginx mac
+##### nginx mac
 <pre>
 1. 安装
 brew install nginx 安装
@@ -73,7 +73,8 @@ server {
 }
 </pre>
 
-### cnetOs安装nginx
+##### cnetOs安装nginx
+```
 第一步，在/etc/yum.repos.d/目录下创建一个源配置文件nginx.repo：
 cd /etc/yum.repos.d/
 vim nginx.repo
@@ -132,6 +133,7 @@ server {
     proxy_pass http://127.0.0.1:81
   }
 }
+```
 
 ### 设置代理
 ```

@@ -1,17 +1,18 @@
 ---
 title: git
+toc: true
 abbrlink: 69c3279c
 date: 2017-02-07 11:18:58
 ---
 
-####### 秘钥
+## 秘钥
 ```
 ls ~/.ssh  两个文件id_rsa和id_rsa.pub
 cat ~/.ssh/id_rea.pub 查看秘钥
 ssh-keygen 生成秘钥
 ```
 
-##### 基本命令
+## 基本命令
 ```
 git --version
 git config --list显示当前配置信息
@@ -23,7 +24,7 @@ git config --list --global --unset user.name 删除
 git config --global alias.st status 设置快捷键st
 ```
 
-##### 暂存区
+## 暂存区
 ```
 git init 初始化一个目录
 git add a 添加到暂存区
@@ -42,7 +43,7 @@ git mv a c 把a重名名为c
 **/res 所有目录下面的res都匹配到
 ```
 
-##### 分支
+## 分支
 ```
 git branch test 创建一个分支
 git branch -a 查看远程分支
@@ -53,7 +54,7 @@ git merge --abort 放弃合并
 git branch -d name 删除本地分支
 ```
 
-##### 查看对比历史记录
+## 查看对比历史记录
 ```
 git show HEAD 查看
 git show master^2
@@ -69,7 +70,7 @@ git diff --color-words 差异的单词
 git diff --word-diff
 ```
 
-##### 撤销修改
+## 撤销修改
 ```
 git reset --hard HEAD 撤销全部
 git checkout -- .a.txt 撤销上一步工作区修改
@@ -83,7 +84,7 @@ git revert HEAD撤销最近一次提交
 git revert HEAD^撤销上上次提交
 ```
 
-##### 重写历史记录
+## 重写历史记录
 ```
 git commit --amend
 git rebase 
@@ -91,7 +92,7 @@ git reset
 git reflog
 ```
 
-##### 远程操作
+## 远程操作
 ```
 git clone  复制
 git fetch origin master获取到本地
@@ -101,21 +102,21 @@ git push origin dev
 git pull origin dev
 ```
 
-##### 钥匙
+## 钥匙
 ```
 ls ~/.ssh 查看秘钥 id_rsa id_rsa.put
 ssh-keygen 生成秘钥
 cat ~/.ssh/id_rsa.pub
 ```
 
-##### 拉取子模块一直要输入密码
+## 拉取子模块一直要输入密码
 ```
 进入工程里git submodule init 查看子模块，进SourceTree右键点击子模块，
 更改源URL,加上自己的用户名 baiwnehao.sh@，然后 键入git submodule update
 .gitmodules不要提交就可以
 ```
 
-##### 恢复备份数据
+## 恢复备份数据
 ```
 git stash 备份当前工作区内容,从最近一次提交中读取内容,让工作区保证和上次提交内容一致
 git stash list 显示git栈内所有备份
@@ -123,16 +124,16 @@ git stash pop 读取最近保存的内容
 git stash clear 清空git栈
 ```
 
-##### 本地仓库关联远程仓库
+## 本地仓库关联远程仓库
     git remote add origin git@github.com:baiwenhao/baiwenhao.github.com.git
 
-##### 这是全局忽略设置
+## 这是全局忽略设置
 ```
 $ git check-ignore -v index.html
 /Users/baiwenhao/.gitignore_global:11:index.html  index.html
 ```
 
-##### 错误
+## 错误
 ```
 error: The requested URL returned error: 403 Forbidden while accessing
 nano .git/comfig  #然后添加url前面添加账户名称
