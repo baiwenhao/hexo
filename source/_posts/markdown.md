@@ -1,6 +1,5 @@
 ---
 title: markdown语法
-categories: javascript
 abbrlink: 3c50d03d
 date: 2017-02-07 10:59:01
 ---
@@ -29,7 +28,7 @@ _这也是斜体_
 
 
 ## 代码
-    四个空格开始 
+    四个空格开始
 
 
 ## 列表
@@ -76,5 +75,6 @@ _这也是斜体_
     \. 英文句号
     \! 感叹号
 
+# hexo new page "about"
 
 

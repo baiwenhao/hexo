@@ -1,6 +1,5 @@
 ---
 title: object
-categories: javascript
 abbrlink: af01aeda
 date: 2017-02-07 15:33:37
 ---

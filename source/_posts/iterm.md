@@ -1,6 +1,5 @@
 ---
 title: iterm
-categories: javascript
 abbrlink: 178af5b4
 date: 2017-02-07 11:19:11
 ---

@@ -1,6 +1,5 @@
 ---
 title: array
-categories: javascript
 abbrlink: 60cdc1b3
 date: 2017-02-07 15:17:54
 ---
@@ -48,7 +47,7 @@ Object.prototype.toString.call(obj) == "[object Array]”
 
 操作方法
 .concat
-.slice(1) 
+.slice(1)
 .splice
 
 位置方法

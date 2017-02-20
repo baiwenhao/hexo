@@ -1,6 +1,5 @@
 ---
 title: npm
-categories: javascript
 abbrlink: 99791dcb
 date: 2017-02-07 11:19:11
 ---

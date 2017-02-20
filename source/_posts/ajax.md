@@ -1,6 +1,5 @@
 ---
 title: ajax
-categories: javascript
 abbrlink: 65940d5a
 date: 2017-02-07 15:20:45
 ---

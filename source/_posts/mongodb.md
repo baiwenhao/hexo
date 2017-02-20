@@ -1,6 +1,5 @@
 ---
 title: mongodb
-categories: javascript
 abbrlink: '20475214'
 date: 2017-02-07 11:19:33
 ---
@@ -15,7 +14,7 @@ logappend = true   #写日志方式默认追加
 fork = true   #后台启动
 auth = false   #是否启动验证 window 下无效
 
-sudo mongod --config mongodb.conf 
+sudo mongod --config mongodb.conf
 /Users/baiwenhao/soft 存放目录
 /usr/local/Cellar/ 安装目录
 
@@ -24,7 +23,7 @@ mongod -f mongod.conf --repair
 
 然后接着在启动一次
 mongod -f mongod.conf --auth
- 
+
 查看进程是否运行
 ps aux|grep mongo
 

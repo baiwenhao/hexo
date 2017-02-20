@@ -1,6 +1,5 @@
 ---
 title: node
-categories: javascript
 abbrlink: 254d477b
 date: 2017-02-07 15:01:31
 ---

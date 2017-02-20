@@ -1,6 +1,5 @@
 ---
 title: ES6
-categories: javascript
 abbrlink: d73c0d37
 date: 2017-02-13 09:54:09
 ---
@@ -12,7 +11,7 @@ const [a, ...b] = [1, 2, 3] // 1, [2, 3]
 const {x, y, ...z} = {x: 1, y: 2, a: 3, b: 4} // 1, 2, {a: 3, b: 4}
 
 // 复制
-const obj = {a: 3, b: 4} 
+const obj = {a: 3, b: 4}
 const obj2 = {...obj} // 等同 Object.assign({}, obj)
 
 const arr = [1, 2, 3]

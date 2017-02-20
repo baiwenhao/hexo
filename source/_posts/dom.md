@@ -1,11 +1,10 @@
 ---
 title: dom
-categories: javascript
 abbrlink: 59b49683
 date: 2017-02-07 15:17:54
 ---
 
-### window属性
+##### window属性
 window.innerHeight(); 包括滚动条高度
 window.location
 window.outerHeight
@@ -158,7 +157,7 @@ el.insertAdjacentHTML('beforeend','<p>作为最后一个子元素类似appendChi
 el.insertAdjacentElement()
 插入文本
 document.body.insertAdjacentText('beforeend', ‘纯文本')
- 
+
 ### 赋值文本
 el.innerHTML()
 el.outerHTML(‘el也被替换了’);

@@ -1,6 +1,5 @@
 ---
 title: regexp
-categories: javascript
 abbrlink: fe58b4d1
 date: 2017-02-07 15:19:23
 ---

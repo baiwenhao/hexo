@@ -1,6 +1,5 @@
 ---
 title: mac
-categories: javascript
 abbrlink: 2f5ead85
 date: 2017-02-07 11:19:11
 ---

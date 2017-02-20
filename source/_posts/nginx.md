@@ -1,6 +1,5 @@
 ---
 title: nginx
-categories: javascript
 abbrlink: 65b69107
 date: 2017-02-07 11:19:16
 ---

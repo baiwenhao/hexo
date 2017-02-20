@@ -77,3 +77,4 @@ deploy:
   repo: https://github.com/baiwenhao/baiwenhao.github.com.git
   branch: master
   message: -hexo-generator-feed
+

@@ -1,6 +1,5 @@
 ---
 title: canvas
-categories: javascript
 abbrlink: a233692e
 date: 2017-02-07 15:36:40
 ---
@@ -20,7 +19,7 @@ date: 2017-02-07 15:36:40
 
 ### 边界绘制
      lineJoin (round,bevel)边界连接点样式(圆角,斜角)
-     
+
 ### 绘制路劲
      oCantext.beginPath();开始
      oCantext.moveTo(100,100);起点
@@ -31,7 +30,7 @@ date: 2017-02-07 15:36:40
 ### 绘制文本
      var text = 'hello';
      oContext.font = 'italic 12px impact';
-     oContext.fillText (text,10,10,400);        
+     oContext.fillText (text,10,10,400);
      oContext.textAlign = 'center';
 
 ### 擦除画布
@@ -52,7 +51,7 @@ date: 2017-02-07 15:36:40
      oContext.translate(150, 150);平移
      oContext.scale(2, 2);缩放
      oContext.rotate(0.7854);// Math.PI/4
-     oContext.transform(2,        0,       0,       2,       150,    150);     
+     oContext.transform(2,        0,       0,       2,       150,    150);
                                   x缩放, y倾斜, x倾斜, y缩放, x平移, y平移
 ### 全局阿尔法值
      oContext.globalAlpha = 0.5;  rgba的alpha 相乘
@@ -79,13 +78,13 @@ date: 2017-02-07 15:36:40
 
      var canvasCentreX = canvas.width/2
      var canvasCentreY = canvas.height/2
-     var gradient = context.createRadialGradient(canvasCentreX, canvasCentreY, 0, canvasCentreX, canvasCentreX, 250) 
+     var gradient = context.createRadialGradient(canvasCentreX, canvasCentreY, 0, canvasCentreX, canvasCentreX, 250)
      gradient.addColorStop(0, 'rgb(0, 0, 0)')
      gradient.addColorStop(1, 'rgb(150, 150, 150)')
      context.fillStyle = gradient
      context.fillRect(0, 0, canvas.width, canvas.height)
 
-### 圆形    
+### 圆形
      context.beginPath()
      context.arc( 230, 90, 50, 0, Math*2, false)
      context.arc( x, y, radius, startAngle, endAngle, anticlockwise)
@@ -100,21 +99,21 @@ date: 2017-02-07 15:36:40
      var yScale = Math.cos(0.7854)
      var xTrans = 200
      var yTrans = 200
-     
+
      oContext.transform(xScale,ySkew,xSkew,yScale,xTrans,yTrans)
      oContext.fillRect(-50, -50, 100, 100)
 
 
 ### 灰色方块充满canvas
-     $(document).ready(function() {     
+     $(document).ready(function() {
      var canvas = $("#myCanvas")
-     var context = canvas.get(0).getContext("2d") 
+     var context = canvas.get(0).getContext("2d")
 
      $(window).resize(resizeCanvas)
-          function resizeCanvas() { 
+          function resizeCanvas() {
                canvas.attr("width", $(window).get(0).innerWidth)
-               canvas.attr("height", $(window).get(0).innerHeight) 
-               context.fillRect(0, 0, canvas.width(), canvas.height()) 
+               canvas.attr("height", $(window).get(0).innerHeight)
+               context.fillRect(0, 0, canvas.width(), canvas.height())
           }
           resizeCanvas()
      })
