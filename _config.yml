@@ -6,7 +6,7 @@
 title: wenhao blog
 # toc: true
 subtitle: 时刻记录
-description: javascript
+description: blog
 author: wenhao
 language: zh-CN
 timezone:
@@ -33,7 +33,7 @@ skip_render:
 
 new_post_name: :title.md
 default_layout: post
-titlecase: true
+titlecase: false
 external_link: true
 filename_case: 0
 render_drafts: false
@@ -50,7 +50,6 @@ highlight:
 # Category & Tag
 default_category: uncategorized
 category_map:
-  javascript: javascript
 tag_map:
 
 # Date / Time format
@@ -78,3 +77,17 @@ deploy:
   branch: master
   message: -hexo-generator-feed
 
+# Extensions
+## Plugins: http://hexo.io/plugins/
+#RSS订阅 # 依赖插件
+plugin:
+- hexo-generator-feed
+#Feed Atom
+feed:
+type: atom
+path: atom.xml
+limit: 20
+
+# prism_plugin:
+#   mode: 'preprocess' # realtime / preprocess
+#   theme: 'default'
