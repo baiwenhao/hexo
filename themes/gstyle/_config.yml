@@ -1,0 +1,38 @@
+# main menu navigation
+menu:
+  home: /
+  archives: /archives
+  about: /about
+  rss: /atom.xml
+
+# Miscelaneous
+favicon: /favicon.ico
+
+show_post_category: true
+show_post_tags: true
+
+active_nav: true # show active status on nav menu
+
+sidebar: true # whether to show the sidebar
+widgets:
+  - category
+  - tag
+  - tagcloud
+  - archive
+  - recent_posts
+  - links
+links:
+  - title: "GitHub"
+    url: http://www.github.com/baiwenhao
+    intro: "码农之家"
+  - title: "vue1.0"
+    url: http://www.haokebaba.com/login
+    intro: "模仿有道笔记"
+
+# disqus_shortname: wayou
+duoshuo_shortname: wenhao.bai
+#site statistic
+google_analytics:
+# baidu_analytics: 392796d51567e848aebf813b65cb8656
+baidu_analytics:
+
