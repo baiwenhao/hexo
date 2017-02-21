@@ -1,71 +1,70 @@
 ---
 title: vue
+toc: true
 abbrlink: f8e09374
 date: 2017-02-07 15:06:10
 ---
 
-## template
-```
-div.innerHTML = template
-this.$parent.$compile(div)
-this.$el.appendChild(div)
-<my inline-template></my>
-```
-
-
-## vue
+## vue1
 ````
 events: {targetParentEvent() {}}
 this.$dispatch('targetParentEvent', params)
 
+:value.sync="status" :disabled="disabled"
+
+不加跨域xhr会发起options请求
+Vue.http.options.headers={
+  'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
+}
+
+post的时候会把JSON对象转成formdata
+Vue.http.options.emulateJSON = true
+
+// vue-resource
+['finally'](function() {
+  self.loading = false;
+})
+complete失败成功都会调用
+finally 最后
+
+// vue-router
 this.$router.go({name:'', query:{}})
 this.$route.query.name
 ```
 
+## vue2
+```js
+:style="{'width': w}"
 
-## 异步
-    <switch :value.sync="status" :disabled="disabled"></switch>
+// 父类调用子类方法
+this.$refs.child.reset()
+<child-component ref="child"></child-component>
 
-## 路由
-```
-this.$router.go({
-    name: 'detail', 
-    params:{
-        type: self.type,
-        subEstateId: self.areaTest.estateId,
-        building: self.building.buildingName,
-        room: self.roomTest
-    }, query: {
-        userId: self.$route.query.userId
-    }
-});
-v-link="{name: 'list', params: {taskId: v.taskId}, query: {userId: $route.query.userId}}”
+// 子类调用父类方法
+this.$parent.$emit('reset')
+// 或者父类在子组件上注册事件,子类可以在内部调用
+this.$emit('load')
+<child-component @load='reset'></child-component>
 
-http://www.jianshu.com/p/afd8e1db7d9b
-
-不加跨域xhr会发起options请求
-Vue.http.options.headers={
-    'Content-Type':'application/x-www-form-urlencoded; charset=UTF-8'
-};
-post的时候会把JSON对象转成formdata
-Vue.http.options.emulateJSON=true;
-
-then后面跟的函数
-['finally'](function() {
-  self.loading = false;
+// 过滤器
+Vue.filter('hightKey', function(key, word) {
+  const r = eval("/" + word + "/gi")
+  key.replace(r, function(code) {
+    return '<font color="green">' + code + '</font>'
+  })
+  return key
 })
+<span>{{item.name | hightKey(searchname)}}</span>
 
-complete失败成功都会调用
-finally 最后
 
-可读性
-1.上线代码不要有注释代码
-2.页面静态数据 放到单独js文件维护
+```
 
-踩坑记录
-<img :src="user.realName" />  不用:img={{d.d}}
+## 踩坑记录
+```
+<img :src="user.realName" />
 
 {{d.name}}  当d.name的值为 null 会报错
+
 过滤data中值等于null的对象即可, 存一个临时对象 然后赋值this.d = data
 
 this.$emit('on-confirm', params)触发当前实例events事件 
@@ -104,60 +103,17 @@ else{
     alert('离线')
 }
 
-iphone6plus 字符串是.的时候不吃行高,要加vertical-align: top;
+iphone6plus 字符串是.的时候不吃行高,要加vertical-align: top
 
 给window绑定匿名函数时在单页引用下,会绑定多次
 
 当一个值被记录的时候要考虑他的进场 改变 出场 状态
-```
 
-##### JS判断设备
-```
-function deviceType(){
-  var ua = navigator.userAgent
-  var agent = ["Android", "iPhone", "SymbianOS", "Windows Phone", "iPad", "iPod"];
-  for(var i=0; i<len,len = agent.length; i++) {
-    if(ua.indexOf(agent[i])>0){
-      break
-    }
-  }
-}
-deviceType()
-window.addEventListener('resize', function() {
-    deviceType()
-})
-```
-
-##### 消除transition闪屏
-```
--webkit-transform-style: preserve-3d;
--webkit-backface-visibility: hidden;
--webkit-perspective: 1000;
-```
-
-##### JS判断微信浏览器
-```
-function isWeixin(){
-  var ua = navigator.userAgent.toLowerCase()
-  if(ua.match(/MicroMessenger/i)=='micromessenger') {
-    return true
-  } else {
-    return false
-  }
-}
-```
-
-###### 硬件加速
-```
--webkit-transform: translate3d(0,0,0)
--moz-transform: translate3d(0,0,0)
--ms-transform: translate3d(0,0,0)
-transform: translate3d(0,0,0)
-```
-
-##### 数组
+// 数组
 初始化一个data对象位，当数据返回null或者string,在组件内部循环data数组就会报错，webview报错就会推出
 因此即使status给的是0,也要加上res.data.length >= 1 的判断
+
+```
 
 
 

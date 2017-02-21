@@ -1,5 +1,6 @@
 ---
 title: html5
+toc: true
 abbrlink: 95086ba5
 date: 2017-02-07 18:15:23
 ---
@@ -15,16 +16,21 @@ replace()将当前页面替换成另一个页面window.location.replace("http://
 html5 历史管理onhashchange: 当window.location.hash值有变化的时候，就会触发
 history: pushState( 数据, 标题(未实现) , 地址(可选) );
 popstate事件: 读取诗句 event.state
+<input type="text" autocapitalize="off" autocorrect="off" /> 自动修正大小写
+新的特殊内容元素
+如:article,footer,header,nav,section
+新的表单控件
+calendar,date,time,email,url,search
 ```
 
-应用缓存
+## 应用缓存
 html5Doctor
- 要将描述文件与页面关联起来,manifest要指定这个文件的路径
+要将描述文件与页面关联起来,manifest要指定这个文件的路径
 <html manifest=“/offline.manifest”>
 这个文件的MIME类型必须是text/cache-manifest
 applicationCache对象
 
-status状态码
+## status状态码
 0无缓存,没有与页面相关的应用缓存
 1闲置,应用缓存为得到更新
 2检查中,正在下载描述文件并检查更新
@@ -40,10 +46,11 @@ downloading
 progress
 updateready
 cached
-applicationCache.update()一经调用,应用缓存就会去检查描述文件是否更新,出发checking事件,如果触发cached事件,说明应用缓存准备就绪,不会触发其他事件了,如果触发updateready事件,说明新版本的应用缓存已经可用,此时需要调用swapCache来启用新应用缓存
+applicationCache.update()一经调用,应用缓存就会去检查描述文件是否更新,
+出发checking事件,如果触发cached事件,说明应用缓存准备就绪,不会触发其他事件了,
+如果触发updateready事件,说明新版本的应用缓存已经可用,此时需要调用swapCache来启用新应用缓存
 
-web计时
-
+## web计时
 window.performance
 performance导航相关属性
 performance.navigation.redirectCount页面加载前重定向次数
@@ -57,12 +64,6 @@ performance.timing.responseEnd
 全面了解页面在被加载到浏览器的过程中经历了哪些阶段,哪些阶段影响性能瓶颈,web Timing API
 
 
-新的特殊内容元素
-如:article,footer,header,nav,section
-
-新的表单控件
-calendar,date,time,email,url,search
-
 Jquery Mobile事件
 pageinit ＝dom加载完成后出发
 tap ＝触摸
@@ -73,9 +74,36 @@ swiperight =向右滑
 scrollstart =开始滑动
 scrollstop =停止滑动
 
+##### JS判断设备
+```
+function deviceType(){
+  var ua = navigator.userAgent
+  var agent = ["Android", "iPhone", "SymbianOS", "Windows Phone", "iPad", "iPod"];
+  for(var i=0; i<len,len = agent.length; i++) {
+    if(ua.indexOf(agent[i])>0){
+      break
+    }
+  }
+}
+deviceType()
+window.addEventListener('resize', function() {
+    deviceType()
+})
+```
 
-##### css中Media Query
+##### JS判断微信浏览器
+```
+function isWeixin(){
+  var ua = navigator.userAgent.toLowerCase()
+  if(ua.match(/MicroMessenger/i)=='micromessenger') {
+    return true
+  } else {
+    return false
+  }
+}
+```
 
+## Media Query
 ```
 设备高度:     device-width, device-height
 渲染窗口宽高:     width, height
@@ -83,15 +111,13 @@ scrollstop =停止滑动
 设备分辨率:     resolution
 
 页面宽小于640px调用此样式
-
 <link rel="stylesheet" href="?.css" type="text/css" media="only screen and (max-width:640px)">
 
 页面宽大于680px调用此样式
 @media screen and (min-width:680px){...}
 ```
 
-##### html5拖拽
-
+## html5拖拽
 ```
 draggable="true"  可拖拽
 ondragstart - 开始拖动  event.dataTransfer.setData("Text", event.target.id); 拖拽id
@@ -114,7 +140,7 @@ xhr.upload.onprogress = function (ev) {
 }
 ```
 
-##### 移动端电话短信邮件
+##移动端电话短信邮件
 
 ```
 // 一、打电话
@@ -145,7 +171,7 @@ xhr.upload.onprogress = function (ev) {
 <a href="mailto:863139978@qq.com;384900096@qq.com?cc=zhangqian0406@yeah.net&bcc=993233461@qq.com&subject=[邮件主题]&body=腾讯诚邀您参与%0A%0Ahttp://www.baidu.com%0A%0A<img src='images/1.jpg' />">点击我发邮件</a>
 ```
 
-##### html5 audio和video
+## html5 audio和video
 ```
 // 音频，写法一
 <audio src="music/bg.mp3" autoplay loop controls>你的浏览器还不支持哦</audio>
@@ -171,7 +197,8 @@ document.addEventListener("WeixinJSBridgeReady", function () {
 // 1.audio元素的autoplay属性在IOS及Android上无法使用，在PC端正常
 // 2.audio元素没有设置controls时，在IOS及Android会占据空间大小，而在PC端Chrome是不会占据任何空间
 ```
-##### 播放视频不全屏
+
+## 播放视频不全屏
 ```
 <!--
 1.ios7+支持自动播放
@@ -182,10 +209,3 @@ webkit-playsinline="true"
 -->
 <video x-webkit-airplay="true" webkit-playsinline="true" preload="auto" autoplay src="http://"></video>
 ```
-
-##### 自动大写与修正
-```
-<input type="text" autocapitalize="off" autocorrect="off" />
-```
-
-

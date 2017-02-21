@@ -1,5 +1,6 @@
 ---
-title: markdown语法
+title: markdown
+toc: true
 abbrlink: 3c50d03d
 date: 2017-02-07 10:59:01
 ---
@@ -14,6 +15,9 @@ _这也是斜体_
 **这是粗体**
 ***这是粗体+斜体***
 <!-- 注释 -->
+hexo server
+hexo deploy
+hexo new page "about"
 ```
 
 
@@ -75,6 +79,8 @@ _这也是斜体_
     \. 英文句号
     \! 感叹号
 
-# hexo new page "about"
+
+
+
 
 

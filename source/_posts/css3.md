@@ -57,6 +57,20 @@ each-box;对每一个独立的标签区域进行背景的重新划分
 
 transform: matrix(1, 0, 0, 1, 30, 30)/* a=1, b=0, c=0, d=1, e=30, f=30 */
 ```
+##### 消除transition闪屏
+```
+-webkit-transform-style: preserve-3d;
+-webkit-backface-visibility: hidden;
+-webkit-perspective: 1000;
+```
+
+###### 硬件加速
+```
+-webkit-transform: translate3d(0,0,0)
+-moz-transform: translate3d(0,0,0)
+-ms-transform: translate3d(0,0,0)
+transform: translate3d(0,0,0)
+```
 
 ![logo](css3/1.png)
 ```

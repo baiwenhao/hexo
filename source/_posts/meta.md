@@ -1,13 +1,12 @@
 ---
 title: meta
+toc: true
 abbrlink: 77c0bb0b
 date: 2017-02-17 10:09:11
 tags:
 ---
 
-
-
-### 基础设置
+## 基础设置
 ```
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=Edge">
@@ -15,23 +14,19 @@ tags:
 <meta name="description" content="爱屋吉屋，互联网房产中介!找二手房、新房、租房，透明中介、不加价、不独家、过户专业。四险一支持交易保障，马上约、实地看、快成交！">
 ```
 
-### h5页面自适应设备宽度，禁止缩放
-
+## h5页面自适应设备宽度，禁止缩放
 ```
-/*
-  width    设置viewport宽度，为一个正整数，或字符串‘device-width’
-  height   设置viewport高度，一般设置了宽度，会自动解析出高度，可以不用设置
-  initial-scale    默认缩放比例，为一个数字，可以带小数
-  minimum-scale    允许用户最小缩放比例，为一个数字，可以带小数
-  maximum-scale    允许用户最大缩放比例，为一个数字，可以带小数
-  user-scalable    是否允许手动缩放
-*/
+width    设置viewport宽度，为一个正整数，或字符串‘device-width’
+height   设置viewport高度，一般设置了宽度，会自动解析出高度，可以不用设置
+initial-scale    默认缩放比例，为一个数字，可以带小数
+minimum-scale    允许用户最小缩放比例，为一个数字，可以带小数
+maximum-scale    允许用户最大缩放比例，为一个数字，可以带小数
+user-scalable    是否允许手动缩放
 <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
-
 ```
 
-### 动态设置
-```
+## 动态设置
+```js
 var phoneWidth =  parseInt(window.screen.width)
 var phoneScale = phoneWidth / 640
 var ua = navigator.userAgent
@@ -47,8 +42,7 @@ if (/Android (\d+\.\d+)/.test(ua)) {
 }
 ```
 
-### 其他
-
+## 其他
 ```
 <!-- 设置缩放 -->
 <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, minimal-ui" />

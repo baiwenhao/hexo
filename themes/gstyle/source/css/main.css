@@ -382,6 +382,9 @@ ul.post-tag-list li.post-tag-list-item a::before{
 .post-content,.post-abstract{
     word-break: break-word;
 }
+.post-content h1,.post-content h2,.post-content h3,.post-content h4,.post-content h5{
+    color: #666;
+}
 
 article blockquote ol,article blockquote ul{
     padding-left: 20px;
