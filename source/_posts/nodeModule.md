@@ -1,5 +1,5 @@
 ---
-title: node_module
+title: node-module
 abbrlink: 3eaabc5a
 date: 2017-02-17 14:13:22
 tags:
@@ -35,3 +35,4 @@ https://www.npmjs.com/package/captcha.js
 
 webpack 
 http://crossingmay.com/2016/05/28/webpackshim/
+

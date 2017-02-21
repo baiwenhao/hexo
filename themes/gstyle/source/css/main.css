@@ -385,7 +385,17 @@ ul.post-tag-list li.post-tag-list-item a::before{
 .post-content h1,.post-content h2,.post-content h3,.post-content h4,.post-content h5{
     color: #666;
 }
-
+.post-content table{
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+    font-size: 14px;
+    color: #666;
+}
+.post-content td, .post-content th{
+    padding: 6px;
+    border: 1px solid #ddd;
+}
 article blockquote ol,article blockquote ul{
     padding-left: 20px;
 }

@@ -2,7 +2,6 @@
 title: flex
 toc: true
 abbrlink: 98a28c55
-cover: bg2015071002.png
 date: 2017-02-16 18:07:13
 ---
 
