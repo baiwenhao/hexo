@@ -6,7 +6,8 @@
     "version": "3.2.2"
   },
   "scripts": {
-    "gstyle": "cd themes && git clone https://github.com/baiwenhao/gstyle.git"
+    "gstyle": "cd themes && git clone https://github.com/baiwenhao/gstyle.git",
+    "asset": "git clone https://github.com/CodeFalling/hexo-asset-image.git"
   },
   "dependencies": {
     "hexo": "^3.2.0",

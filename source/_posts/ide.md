@@ -105,7 +105,7 @@ DocBlockr 代码注释 
 SideBarFolders 管理文件夹 
 javascript Next ES6 语法高亮
 caniuse 扩展右键菜单css
-Terminal 直接使用终端
+Terminal 右键使用终端
 allAutocomplete  匹配的提示词 
 html-css-js Prettify 格式化代码 
 auto-save  保存
@@ -124,6 +124,7 @@ sideBarEnhancements 增强右键菜单 
     "SideBarEnhancements",
     "SideBarFolders",
     "SyncedSideBar",
+    "Terminal",
     "Vue Syntax Highlight"
   ]
 }

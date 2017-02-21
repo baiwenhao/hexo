@@ -6,7 +6,7 @@ date: 2017-02-21 17:28:28
 tags:
 ---
 
-![logo](闭包/2.jpg)
+![logo](frontEnd/2.jpg)
 
 ## Javascript
 | Article | Article |
