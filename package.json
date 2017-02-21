@@ -7,7 +7,7 @@
   },
   "scripts": {
     "gstyle": "cd themes && git clone https://github.com/baiwenhao/gstyle.git",
-    "asset": "git clone https://github.com/CodeFalling/hexo-asset-image.git"
+    "asset": "cd node_modules && git clone https://github.com/CodeFalling/hexo-asset-image.git"
   },
   "dependencies": {
     "hexo": "^3.2.0",
