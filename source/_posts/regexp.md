@@ -61,8 +61,11 @@ http://114.xixik.com/character/
 
 ## replace
 ```
+* replace返回替换过后的字符,不匹配就返回原来的字符
+
 替换所有匹配,返回替换过后的字符串（敏感词过滤）
-t2.value=t1.value.replace( /北京|上海/g,'oo’);全局替换字符串（上海和北京为’00’）
+t2.value = t1.value.replace( /北京|上海/g,'oo’);
+全局替换字符串（上海和北京为’00’）
 var a = 'apc bpc kpc mpc wpc 1pc 22pc'
 var b = /[abc]pc/g;//匹配a或b开头的pc
 log( a.match(b) );
@@ -106,7 +109,7 @@ http://www.cnblogs.com/rubylouvre/archive/2010/03/09/1681222.html
 http://www.cnblogs.com/52XF/p/3740280.html
 ```
 
-## 正则加变量
+## 正则变量
 ```js
 // 方法1
 var v = "bl"

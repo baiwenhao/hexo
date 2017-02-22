@@ -69,6 +69,9 @@ figure.highlight table {
   margin-top: 0;
   border-spacing: 0;
 }
+figure.highlight td {
+  border: 0;
+}
 figure.highlight .gutter {
   color: color-meta;
   padding-right: 15px;
@@ -91,8 +94,7 @@ pre .doctype,
 pre .pi,
 pre .lisp .string,
 pre .javadoc {
-  color: #93a1a1;
-  font-style: italic;
+  color: #555;
 }
 pre .keyword,
 pre .winutils,

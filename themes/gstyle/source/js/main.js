@@ -1,18 +1,20 @@
 $(function() {
-    var isPhone = $(window).width() < 768;
 
-    init();
+    var isPhone = $(window).width() < 768
+    var nav = document.querySelector('nav')
+
+    init()
 
     function init() {
         // $('.material-preloader').hide();
-        initialNavToggle();
-        setupRipple();
-        slidingBorder();
-        toc();
+        initialNavToggle()
+        setupRipple()
+        slidingBorder()
+        toc()
 
         $('.post-content img').on('click',function(){
-            window.open($(this).attr('src'));
-        });
+            window.open($(this).attr('src'))
+        })
     }
 
     function slidingBorder() {
@@ -22,35 +24,35 @@ $(function() {
             overNav = false,
             $hoveredLink,
             $activeLink = $("ul.menus li.active a"),
-            activeHideTimeout;
-        setActiveLink(true);
-        $('.menu-wrapper ul.menus li').on('mousemove', onLinkHover);
-        $('.menu-wrapper').on('mouseleave', onLinksLeave);
+            activeHideTimeout
+        setActiveLink(true)
+        $('.menu-wrapper ul.menus li').on('mousemove', onLinkHover)
+        $('.menu-wrapper').on('mouseleave', onLinksLeave)
 
         function onLinkHover(e) {
             if (!isPhone) {
-                $hoveredLink = e.target ? $(e.target) : e;
+                $hoveredLink = e.target ? $(e.target) : e
                 if (!$hoveredLink.is('li')) {
-                    $hoveredLink = $hoveredLink.parent('li');
+                    $hoveredLink = $hoveredLink.parent('li')
                 }
                 var left = $hoveredLink.offset().left - $navParent.offset().left,
-                    width = $hoveredLink.width();
+                    width = $hoveredLink.width()
                 if (0 != $activeLink.length || overNav) {
                     $activeState.css({
                         transform: "translate3d(" + left + "px, 0, 0) scaleX(" + width / 100 + ")"
-                    });
+                    })
                 } else {
                     clearTimeout(activeHideTimeout),
                         $activeState.css({
                             transform: "translate3d(" + (left + width / 2) + "px, 0, 0) scaleX(0.001)"
-                        });
+                        })
                     setTimeout(function() {
                         $activeState.addClass("animate-indicator").css({
                             transform: "translate3d(" + left + "px, 0, 0) scaleX(" + width / 100 + ")"
                         })
-                    }, 10);
+                    }, 10)
                 }
-                overNav = true;
+                overNav = true
             }
         }
 
@@ -58,30 +60,30 @@ $(function() {
             if (!isPhone) {
                 if (0 == $activeLink.length) {
                     var left = $hoveredLink.offset().left - $navParent.offset().left,
-                        width = $hoveredLink.width();
+                        width = $hoveredLink.width()
                     $activeState.css({
                         'transform': "translate3d(" + (left + width / 2) + "px, 0, 0) scaleX(0.001)"
-                    });
+                    })
                     activeHideTimeout = setTimeout(function() {
                         $activeState.removeClass("animate-indicator")
-                    }, 200);
+                    }, 200)
                 } else {
-                    onLinkHover($activeLink);
+                    onLinkHover($activeLink)
                 }
-                overNav = false;
+                overNav = false
             }
         }
 
         function setActiveLink(load) {
             if ($activeLink.length > 0) {
-                var left = $activeLink.offset().left - $navParent.offset().left;
+                var left = $activeLink.offset().left - $navParent.offset().left
                 $activeState.css({
                     'transform': "translate3d(" + (left + $activeLink.width() / 2) + "px, 0, 0) scaleX(0.001)"
-                });
+                })
                 setTimeout(function() {
                     $activeState.addClass("animate-indicator"),
                         onLinkHover($activeLink)
-                }, 100);
+                }, 100)
             }
         }
     }
@@ -89,7 +91,7 @@ $(function() {
     function toc() {
         if (!isPhone) {
             //toc
-            $('#toc').html('');
+            $('#toc').html('')
             $('#toc').tocify({
                 'selectors': 'h2,h3',
                 'extendPage': false,
@@ -102,10 +104,10 @@ $(function() {
     function initialNavToggle() {
         //nav icon morphing
         $('.nav-toggle-icon').click(function() {
-            $('body').toggleClass('nav-active');
-            $(this).toggleClass('active').find('.material-hamburger').toggleClass('opened');
-            $('.menu-wrapper').toggleClass('active');
-            $('.logo').toggleClass('fixed');
+            $('body').toggleClass('nav-active')
+            $(this).toggleClass('active').find('.material-hamburger').toggleClass('opened')
+            $('.menu-wrapper').toggleClass('active')
+            $('.logo').toggleClass('fixed')
         });
     }
 
@@ -117,6 +119,11 @@ $(function() {
         Waves.attach('.pager .pager-item', ['waves-button']);
         Waves.attach('.btn', ['waves-button']);
         Waves.init();
+    }
+
+    function goTop() {
+        var b = document.createElement('div')
+        b.style.cssText = 'position: fixed;right: 10%;bottom: 10%;width: 20px;height: 20px;backgr'
     }
 
 })

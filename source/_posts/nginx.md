@@ -1,12 +1,13 @@
 ---
 title: nginx
+toc: true
 abbrlink: 65b69107
 date: 2017-02-07 11:19:16
 ---
 
-##### nginx mac
-<pre>
-1. 安装
+## nginx mac
+```
+安装
 brew install nginx 安装
 brew uninstall nginx卸载
 brew update nginx 更新
@@ -39,9 +40,9 @@ server {
     alias /Users/baiwenhao/work/static/$2/dist/$4;
   }
 }
-</pre>
+```
 
-<pre>
+```
 server {
   listen 8088;
   server_name localhost *.iwjw.com;
@@ -71,23 +72,22 @@ server {
   # proxy_pass http://localhost:5000/$2;
   # }
 }
-</pre>
+```
 
-##### cnetOs安装nginx
+## cnetOs安装nginx
 ```
 第一步，在/etc/yum.repos.d/目录下创建一个源配置文件nginx.repo：
 cd /etc/yum.repos.d/
 vim nginx.repo
 
 填写如下内容：
-
 [nginx]
 name=nginx repo
 baseurl=http://nginx.org/packages/centos/$releasever/$basearch/
 gpgcheck=0
 enabled=1
 
-保存，则会产生一个/etc/yum.repos.d/nginx.repo文件。
+保存，则会产生一个/etc/yum.repos.d/nginx.repo文件
 
 下面直接执行如下指令即可自动安装好Nginx：
 
@@ -135,13 +135,4 @@ server {
 }
 ```
 
-### 设置代理
-```
-server{
-  listen 80;
-  server_name *.haokebaba.com;
-  location / {
-    proxy_pass http://104.224.160.141:8080;
-  }
-}
-```
+

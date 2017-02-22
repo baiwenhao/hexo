@@ -1,17 +1,12 @@
 ---
-title: css2.0
+title: css2
+toc: true
 abbrlink: '32978573'
 date: 2017-02-16 18:21:13
 ---
 
-http://isux.tencent.com/css3/?animation-fill-mode
-http://www.17sucai.com/boards/73928.html
-http://www.cnblogs.com/chocking/p/4672191.html
-
-#### 移动端定义字体
-
+## 字体
 ```
-@ --------------------------------------中文字体的英文名称
 @ 宋体      SimSun
 @ 黑体      SimHei
 @ 微信雅黑   Microsoft Yahei
@@ -24,46 +19,44 @@ http://www.cnblogs.com/chocking/p/4672191.html
 @ 楷体     KaiTi
 @ 仿宋_GB2312  FangSong_GB2312
 @ 楷体_GB2312  KaiTi_GB2312
-@
 @ 说明：中文字体多数使用宋体、雅黑，英文用Helvetica
 body { font-family: Microsoft Yahei,SimSun,Helvetica; }
+font:120px bold 'Arial Rounded MT Bold'
 ```
 
-
-css3图标
+## iconfont
+```
 http://fortawesome.github.io/Font-Awesome/examples/
-<link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+<link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" />
 <i class="fa fa-camera-retro fa-globe"></i>
+```
 
-5环相连
-http://www.cnblogs.com/lianjun/archive/2011/03/11/1981606.html
-
-### 简写
-font:120px bold 'Arial Rounded MT Bold'
-加减号字体font-family: monospace
-大数字字体Georgia 
-p:first-line首单词大写
-p:first-letter首字母大写
-font-family:'Microsoft YaHei',arial,tahoma,宋体,sans-serif
-white-space: pre;段落文本不换行
-pointer-events:none;
-background-size:
-word-break : break-all;单词不被断开
-text-transform:capitalize首字大写
-text-transform:uppercase大写
-text-transform:lowercase小写
+## text
+```
+加减号字体 monospace
+大数字字体 Georgia 
+p:first-line 首单词大写
+p:first-letter 首字母大写
+font-family:'Microsoft YaHei', arial,tahoma, 宋体, sans-serif
+white-space: wpre 段落文本不换行
+pointer-events:none 不接受事件
+word-break : break-all 单词不被断开
+text-transform:capitalize 首字大写
+text-transform:uppercase 大写
+text-transform:lowercase 小写
 text-shadow x位移，y位移，阴影宽度（不能是负数），颜色 ，文字阴影
 text-stroke 文字描边
 text-fill-color 文字颜色填充
-direction: ltr; 文本排列方式
-letter-spacing：字间隔，英文是字母间隔
-word-spacing:英文单词间隔
-word-break:break-all;强制英文单词断行
-word-wrap:break-word;自动换行
-white-space:nowrap;强制不换行
-Microsoft YaHei
+direction: ltr 文本排列方式
+letter-spacing: 字间隔，英文是字母间隔
+word-spacing: 英文单词间隔
+word-break:break-all 强制英文单词断行
+word-wrap:break-word 自动换行
+white-space:nowrap 强制不换行
+```
 
-### 表格
+## table
+```
 cellpadding="0" cellspacing="0" border="0"
 link visited hover active
 border-collapse:collapse;
@@ -73,31 +66,10 @@ getElementsByTagName('tr')[0].            .rows[0]
 getElementsByTagName('td')[1].innerHTML;  .cells[1]
 还有 tHead 和 tFoot
 border-spacing ?
-
-```
-border-image:
-url() a b c d/border-width 
-(repeat平铺, stretch拉伸的方式, round类似repeat); 
-(repeat stretch)结合使用
-
-@font-face
-{
-    font-family: myFirstFont;
-    src: url('singlemalta-webfont.ttf'),
-         url('singlemalta-webfont.eot'); /* IE9+ */
-}
-div{font-family:myFirstFont;}
-resize:both;
-outline:2px solid red;
-outline-offset:15px;
-column-count:3;几列
-column-gap:30px;间距
-column-rule:3px outset #ff0000;竖分割线
 ```
 
-border-
-div编辑器
-contenteditable=true
+## data
+```
 data:,<文本数据>
 data:text/plain,<文本数据>
 data:text/html,<HTML代码>
@@ -110,15 +82,19 @@ data:image/gif;base64,base64编码的gif图片数据
 data:image/png;base64,base64编码的png图片数据
 data:image/jpeg;base64,base64编码的jpeg图片数据
 data:image/x-icon;base64,base64编码的icon图片数据
+```
 
-### box-sizing
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    -o-box-sizing: border-box;
-    -ms-box-sizing: border-box;
-     border和padding则是被包含在宽高之内的
+## box-sizing
+```css
+-moz-box-sizing: border-box;
+-webkit-box-sizing: border-box;
+-o-box-sizing: border-box;
+-ms-box-sizing: border-box;
+ border和padding则是被包含在宽高之内的
+```
 
-### link 
+## link 
+```
 media="screen and(min-width:660px) and(max-width:900px)"
 media="all and(orientation:portrait)" #竖
 media="all and(orientation:landscape)" #横
@@ -127,8 +103,10 @@ media="only screen and (max-width:480px),only screen and(max-width:480px)"
 @media screen and (max-device-width:488px){}
 @media not screen and (max-device-width:480px) 
 @media only screen and (max-device-width:480px) 
+```
 
-实例：
+## 实例
+```
 textarea::-moz-placeholder{ // 默认
       color: red;
       opacity: 1;
@@ -136,7 +114,6 @@ textarea::-moz-placeholder{ // 默认
 textarea:focus::-moz-placeholder{ // 焦点事件
       color: blue;
 }
-calc()
 .simpleBlock {
     width: calc(100% - 100px);
     background: #000;
@@ -147,9 +124,10 @@ calc()
     padding: 5px calc(3% - 2px);
     margin-left: calc(10% + 10px);
 }
+```
 
-### example
-
+## example
+```
 移动
 div{
      width:100px;
@@ -572,6 +550,8 @@ div{
 原点渐变
 .ez-lamp.on{opacity : 1;background : -webkit-radial-gradient(30% 30%,white 5%,red 95%);}
 
+右键选不中
+<div class="test" onselectstart="return false;" unselectable="on">选择我试试，你会发现怎么也选择不到我，哈哈哈哈</div>
 
 灰色img
 img.desaturate {//
@@ -581,9 +561,19 @@ img.desaturate {//
     -ms-filter: grayscale(100%);
     -o-filter: grayscale(100%);
 }
+```
 
 LESS
 darken(#26b095,10%);
 
-右键选不中
-<div class="test" onselectstart="return false;" unselectable="on">选择我试试，你会发现怎么也选择不到我，哈哈哈哈</div>
+## demo
+```
+5环相连
+http://www.cnblogs.com/lianjun/archive/2011/03/11/1981606.html
+```
+
+参考:
+http://isux.tencent.com/css3/?animation-fill-mode
+http://www.17sucai.com/boards/73928.html
+http://www.cnblogs.com/chocking/p/4672191.html
+

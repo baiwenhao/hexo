@@ -351,19 +351,19 @@
         //      Helps create the table of contents list by appending nested list items
         _nestElements: function(self, index) {
 
-            var arr, item, hashValue;
+            var arr, item, hashValue
 
             arr = $.grep(this.items, function (item) {
 
-                return item === self.text();
+                return item === self.text()
 
-            });
+            })
 
             // If there is already a duplicate TOC item
             if(arr.length) {
 
                 // Adds the current TOC item text and index (for slight randomization) to the internal array
-                this.items.push(self.text() + index);
+                this.items.push(self.text() + index)
 
             }
 
@@ -371,11 +371,11 @@
             else {
 
                 // Adds the current TOC item text to the internal array
-                this.items.push(self.text());
+                this.items.push(self.text())
 
             }
 
-            hashValue = this._generateHashValue(arr, self, index);
+            hashValue = this._generateHashValue(arr, self, index)
 
             // Appends a list item HTML element to the last unordered list HTML element found within the HTML element calling the plugin
             item = $("<li/>", {
@@ -417,27 +417,27 @@
             if (hashGeneratorOption === "pretty") {
 
                 // prettify the text
-                hashValue = self.text().toLowerCase().replace(/\s/g, "-");
+                hashValue = self.text().toLowerCase().replace(/\s/g, "-")
 
                 // fix double hyphens
                 while (hashValue.indexOf("--") > -1) {
-                    hashValue = hashValue.replace(/--/g, "-");
+                    hashValue = hashValue.replace(/--/g, "-")
                 }
 
                 // fix colon-space instances
                 while (hashValue.indexOf(":-") > -1) {
-                    hashValue = hashValue.replace(/:-/g, "-");
+                    hashValue = hashValue.replace(/:-/g, "-")
                 }
 
             } else if (typeof hashGeneratorOption === "function") {
 
                 // call the function
-                hashValue = hashGeneratorOption(self.text(), self);
+                hashValue = hashGeneratorOption(self.text(), self)
 
             } else {
 
                 // compact - the default
-                hashValue = self.text().replace(/\s/g, "");
+                hashValue = self.text().replace(/\s/g, "")
 
             }
 
@@ -445,7 +445,7 @@
             if (arr.length) { hashValue += ""+index; }
 
             // return the value
-            return hashValue;
+            return hashValue
 
         },
 
@@ -497,7 +497,7 @@
                 })).next(subheaderClass).
 
                 // Appends a list item HTML element to the last unordered list HTML element found within the HTML element calling the plugin
-                append(self._nestElements($(this), index));
+                append(self._nestElements($(this), index))
             }
 
         },
@@ -952,29 +952,31 @@
             var self = this,
                 duration = self.options.smoothScroll || 0,
                 scrollTo = self.options.scrollTo,
-                currentDiv = $('div[data-unique="' + elem.attr("data-unique") + '"]');
+                currentDiv = $('div[data-unique="' + elem.attr("data-unique") + '"]')
 
             if(!currentDiv.length) {
 
-                return self;
+                return self
 
             }
 
             // Once all animations on the page are complete, this callback function will be called
             $("html, body").promise().done(function() {
 
+                var t = $.isFunction(scrollTo) ? scrollTo.call() : scrollTo
+
                 // Animates the html and body element scrolltops
                 $("html, body").animate({
 
                     // Sets the jQuery `scrollTop` to the top offset of the HTML div tag that matches the current list item's `data-unique` tag
-                    "scrollTop": currentDiv.offset().top - ($.isFunction(scrollTo) ? scrollTo.call() : scrollTo) + "px"
+                    "scrollTop": currentDiv.offset().top - 56 + "px" // 减去上顶部上边距
 
                 }, {
 
                     // Sets the smoothScroll animation time duration to the smoothScrollSpeed option
                     "duration": duration
 
-                });
+                })
 
             });
 

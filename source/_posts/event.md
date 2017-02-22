@@ -202,4 +202,15 @@ addEventListener('load', function(){ 
   orientationChange()
   window.onorientationchange = orientationChange
 })
+
+/*删除节点触发事件*/
+DOMNodeRemoved
+DOMNodeRemovedFromDocument
+DOMSubtreeModified
+
+/*插入节点触发事件*/
+DOMSubtreeModified
+DOMNodeInserted
+DOMNodeInsertedIntoDocument
+
 ```
