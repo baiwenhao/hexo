@@ -11,6 +11,7 @@ $(function() {
         setupRipple()
         slidingBorder()
         toc()
+        goTop()
 
         $('.post-content img').on('click',function(){
             window.open($(this).attr('src'))
@@ -123,7 +124,12 @@ $(function() {
 
     function goTop() {
         var b = document.createElement('div')
-        b.style.cssText = 'position: fixed;right: 10%;bottom: 10%;width: 20px;height: 20px;backgr'
+        b.style.cssText = 'border-radius: 4px;position: fixed;font-size: 12px;cursor: pointer;right: 5%;bottom: 5%;width: 30px;height: 30px;line-height: 30px;text-align:center;background: #ccc;'
+        b.innerHTML = 'top'
+        b.onclick = function () {
+            window.scrollTo(0, 0)
+        }
+        document.body.appendChild(b)
     }
 
 })

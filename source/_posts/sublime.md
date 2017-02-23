@@ -1,11 +1,12 @@
 ---
-title: IDE
-abbrlink: c71cffe1
-date: 2017-02-07 11:43:58
+title: sublime
+toc: true
+abbrlink: 238c95be
+date: 2017-02-17 17:21:56
+tags:
 ---
 
-## Sublime
-##### 快捷键
+## 快捷键
 <pre>
 control＋tab 切换标签
 cmd + 数字 标签切换
@@ -23,7 +24,7 @@ control + r 函数跳转
 control + option + F 格式化js  ( alignment)
 </pre>
 
-##### 编译nodejs
+## 编译nodejs
 <pre>
 自定制的文件保存在Preferences/Browse Packages/User
 新建build system ...
@@ -34,7 +35,7 @@ control + option + F 格式化js  ( alignment)
 }
 </pre>
 
-##### cmd + B = 编译es6
+## cmd + B = 编译es6
 <pre>
 npm install -g babel 全局安装babel
 Tools > Build System > new build system... 添加新的build
@@ -56,7 +57,7 @@ Tools > Build System > new build system... 添加新的build
 }
 </pre>
 
-##### 配置文件
+## 配置文件
 <pre>
 {
   "folder_exclude_patterns": [ // 搜索排除, 在项目中也看不见
@@ -97,7 +98,7 @@ Tools > Build System > new build system... 添加新的build
 }
 </pre>
 
-##### 插件
+## 插件
 <pre>
 SyncedSideBar 支持当前文件在左侧面板中定位
 autofilename 标签匹配提示路径
@@ -129,62 +130,3 @@ sideBarEnhancements 增强右键菜单 
   ]
 }
 </pre>
-
-
-## VScode
-##### 命令行启动
-<pre>
-command + shift + p 键入 shell command
-</pre>
-
-##### 快捷键
-<pre>
-Ctrl+Shift+N 打开一个新窗口
-Ctrl+Shift+W 关闭窗口
-</pre>
-
-##### 光标
-<pre>
-选中当前行 Ctrl+i
-删除光标右侧的所有字 Ctrl+Delete
-同时选中所有匹配的 Ctrl+Shift+L
-回退上一个光标操作 Ctrl+U
-</pre>
-
-##### 显示
-<pre>
-command + b 侧边栏显/隐
-侧边栏显/隐：Ctrl+B
-侧边栏4大功能显示：
-Show Explorer Ctrl+Shift+E
-Show Search Ctrl+Shift+F
-Show Git Ctrl+Shift+G
-Show Debug Ctrl+Shift+D
-Show Output Ctrl+Shift+U
-预览markdown Ctrl+Shift+V
-</pre>
-
-##### 查找
-<pre>
-查找 Ctrl+F
-查找替换 Ctrl+H
-整个文件夹中查找 Ctrl+Shift+F
-</pre>
-
-##### 插件
-<pre>
-vscode-icon 图标
-Path Intellisense csshtml路径
-Npm Intellisense require路径
-</pre>
-
-##### 调试node
-<pre>
-继续 / 暂停 F5
-跳过 F10
-进入 F11
-退出 Shift+F11
-重新开始 unassigned
-停止调试 Shift+F5
-</pre>
-
