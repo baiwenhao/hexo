@@ -56,10 +56,42 @@ tags:
 </body>
 </html>
 ```
+
 ###### result.aspx页面生成代码
+```
+flightHandler({
+  "code": "CA1998",
+  "price": 1780,
+  "tickets": 5
+})
+```
 
+## jQuery实现JSNOP
+```
+jQuery(document).ready(function(){
+  $.ajax({
+     type: "get",
+     async: false,
+     url: "http://flightQuery.com/jsonp/flightResult.aspx?code=CA1998",
+     dataType: "jsonp",
+     // 传递给请求处理程序或页面的，用以获得jsonp回调函数名的参数名(一般默认为:callback)
+     jsonp: "callback",
+     //自定义的jsonp回调函数名称,默认为jQuery自动生成的随机函数名，也可以写"?",jQuery会自动为你处理数据
+     jsonpCallback:"flightHandler",
+     success: function(json) { // 帮你生成回调函数并把数据取出来供success属性方法来调用
+       alert('您查询到航班信息: 票价:' + json.price + ' 元，余票:' + json.tickets + '张')
+     },
+     error: function() {
+       alert('fail')
+     }
+   })
+})
+```
 
+#### 总结
+* ajax和jsonp本质是不同的,ajax是通过 XmlHttpRequest 获取非本页内容，而jsonp是动态添加 script 标签来调用服务器提供的js脚本
 
+* 所以说，其实ajax与jsonp的区别不在于是否跨域，ajax通过服务端代理一样可以实现跨域，jsonp本身也不排斥同域的数据的获取。
 
-
+* jsonp是一种方式或者说非强制性协议，如同ajax一样，它也不一定非要用json格式来传递数据，如果你愿意，字符串都行，只不过这样不利于用jsonp提供公开服务。
 

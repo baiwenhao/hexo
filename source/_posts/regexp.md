@@ -89,6 +89,11 @@ log( a.match(b) );
 'a'.charCodeAt(0)返回Unicode编码  | String.fromCharCode(a)
 String.fromCharCode(104,101,108,108,111);hello
 "hello".charCodeAt(0);104
+
+数字转字符
+1..toString()
+1 .toSting()
+(1).toString()
 ```
 
 ## 实例
