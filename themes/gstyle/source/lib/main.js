@@ -13,8 +13,8 @@ $(function() {
     Waves.attach('.wave');
     Waves.init();
 
-    // sliding border 
-    // https://www.google.com/chromebook/ 
+    // sliding border
+    // https://www.google.com/chromebook/
     // https://www.google.com/chromebook/static/js/main.min.js
     var $activeState = $('.nav-indicator', 'nav'),
         $navParent = $('.menu-wrapper', 'nav'),
@@ -92,5 +92,10 @@ $(function() {
             }, 100);
         }
     }
+
+    $(window).load(function(){
+        $('pre').addClass('prettyprint linenums').attr('style', 'overflow:auto;');
+         prettyPrint();
+    })
 
 })

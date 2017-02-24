@@ -124,12 +124,22 @@ $(function() {
 
     function goTop() {
         var b = document.createElement('div')
-        b.style.cssText = 'border-radius: 4px;position: fixed;font-size: 12px;cursor: pointer;right: 5%;bottom: 5%;width: 30px;height: 30px;line-height: 30px;text-align:center;background: #ccc;'
+        b.style.cssText = 'border-radius: 4px;position: fixed;font-size: 12px;cursor: pointer;right: 5%;bottom: 5%;width: 30px;height: 30px;line-height: 30px;text-align:center;color: #fff;background: #ccc;'
         b.innerHTML = 'top'
         b.onclick = function () {
             window.scrollTo(0, 0)
         }
         document.body.appendChild(b)
+        function scrollBtn() {
+            var t = window.pageYOffset
+            if (t > 360) {
+                b.style.display = 'block'
+            } else {
+                b.style.display = 'none'
+            }
+        }
+        scrollBtn()
+        window.addEventListener('scroll', scrollBtn)
     }
 
 })
