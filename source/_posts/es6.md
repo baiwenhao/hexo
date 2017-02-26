@@ -24,6 +24,6 @@ const arg = function(...args) {}
 
 // arguments and NodeList 转 Array
 [...document.querySelectorAll('div')]
-
+[].slice.call(list)
 ```
 
