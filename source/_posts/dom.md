@@ -135,7 +135,8 @@ el.cloneNode(false); false只复制一个空对象,true复制所有子元素内�
 el.parentNode(); el的父节点
 el.childNodes[0]; el的第一个子元素可能是空白节点
 el.children[0]; 一定是元素节点
-el.nextsibling
+el.nextsibling 下一个节点可能是#text 对象
+el.nextElementSibling 一定是节点对象
 el.previousSibling()
 el.appendChild(元素)
 el.insertBefore(元素, 位置)
