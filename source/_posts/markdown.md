@@ -23,6 +23,14 @@ hexo new page "about"
 > ## This is an H2 in a blockquote
 </pre>
 
+## 分割线
+<pre>
+* * *
+***
+*****
+- - -
+---------------------------------------
+</pre>
 
 ## 表格
 <pre>
@@ -99,5 +107,3 @@ Markdown中的转义字符为\，转义的有：
 \! 感叹号
 ```
 
-参考：
-http://wowubuntu.com/markdown/basic.html
