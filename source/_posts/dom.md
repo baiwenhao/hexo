@@ -126,8 +126,8 @@ el.currentStyle.width // IE特有获取样式方法
 
 ## 操作
 ```js
-el.firstChild
-el.firstElement
+el.firstChild // 容易找到文本节点 #text
+el.firstElement // 一定是div节点
 el.lastChild
 el.lastElementChild
 el.removeChild(子节点)

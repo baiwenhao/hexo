@@ -5,7 +5,7 @@ abbrlink: f8e09374
 date: 2017-02-07 15:06:10
 ---
 
-## vue1
+## vue
 ````
 events: {targetParentEvent() {}}
 this.$dispatch('targetParentEvent', params)

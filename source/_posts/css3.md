@@ -1,10 +1,11 @@
 ---
 title: css3
+toc: true
 abbrlink: 4590b5e5
 date: 2017-02-16 14:07:51
 ---
 
-##### background
+## background
 ```
 // 背景色设置
 bg:-webkit-gradient(linear, 0 0, 0 100%, from(#fff), to(#ccc));上下
@@ -46,7 +47,7 @@ bounding-box;重新考虑区域之间的间隔
 each-box;对每一个独立的标签区域进行背景的重新划分
 ```
 
-##### transfrom
+## transfrom
 ```
 角度   rotateX( -5deg )
 倾斜   skew( 20deg,20deg )
@@ -82,7 +83,7 @@ preserve-3d 不保留
 el.style.transformStyle = flat
 ```
 
-##### transition
+## transition
 ```
 属性
 过渡性质    transition-property：height;
@@ -121,7 +122,7 @@ webkitAnimationEnd事件只在元素向右移动,然后向左返回之后触发�
 http://www.ruanyifeng.com/blog/2014/02/css_transition_and_animation.html
 ```
 
-##### animate
+## animate
 ```
 属性
 animation-name: rainbow;
@@ -181,7 +182,7 @@ h1 {
 @keyframes blink-caret { 50% { border-color: transparent; } }
 ```
 
-##### 选择器
+## selector
 ```
 属性选择器
 a[href^="http://“]
