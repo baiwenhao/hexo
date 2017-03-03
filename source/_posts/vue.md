@@ -5,6 +5,8 @@ abbrlink: f8e09374
 date: 2017-02-07 15:06:10
 ---
 
+https://github.com/lzxb/vue2-demo/blob/master/docs/2.md
+
 ## vue
 ````
 events: {targetParentEvent() {}}
@@ -108,6 +110,8 @@ iphone6plus 字符串是.的时候不吃行高,要加vertical-align: top
 给window绑定匿名函数时在单页引用下,会绑定多次
 
 当一个值被记录的时候要考虑他的进场 改变 出场 状态
+
+即使带宽zaikuai,所有的loading 都添加一点延迟
 
 // 数组
 初始化一个data对象位，当数据返回null或者string,在组件内部循环data数组就会报错，webview报错就会推出

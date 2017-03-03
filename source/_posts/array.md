@@ -5,7 +5,7 @@ abbrlink: 60cdc1b3
 date: 2017-02-07 15:17:54
 ---
 
-## 基础方法
+## base
 >// 栈方法
 push 向数组末尾添加一个或多个元素,返回数组length
 pop 删除数组最后一个元素
@@ -18,7 +18,7 @@ sort 排序
 
 >// 操作方法
 concat 合并数组
-slice 指定的位置开始删除指定的数组项，并且将删除的数组项构建成一个新数组
+slice 指定的位置开始删除指定的数组项，并且将删除的数组项构建成一个新数组 起始值1
 splice 对一个数组做删除、插入和替换，从1开始计算，返回数组对象
 
 >// 位置方法
@@ -28,7 +28,6 @@ lastIndexOf 从后向前查找元素在数组中位置
 >// 迭代方法
 forEach
 let b = a.filter((v) => v > 10) filter返回大于10的新数组
-let b = A.map((v) => v + 1) map 返回新的对象,A不变
 A.every((v) => v > 10) 全部数字大于10,返回true,有一个不满足就返回false
 A.some((v) => v > 10) 有一个数字大于10就返回true
 
@@ -135,6 +134,39 @@ Array.prototype.reduce = function(callback, initialValue) {
 Array.prototype.reduceRight = function(callback, initialValue) {
 
 }
+```
+
+
+
+## map
+```js
+let b = A.map((v) => v + 1) map 返回新的对象,A不变
+```
+
+```js
+var ary = Array(3);
+ary[0]=2
+ary.map(function(elem) { return '1'; });
+```
+
+
+
+## 相关属性
+```js
+// hasOwnProperty
+// 被非法占用
+var foo = {
+    hasOwnProperty: function() {
+        return false;
+    },
+    bar: 'Here be dragons'
+}
+foo.hasOwnProperty('bar') // 总是返回 false
+// 使用其它对象的 hasOwnProperty，并将其上下文设置为foo
+({}).hasOwnProperty.call(foo, 'bar') // true
+
+
+
 ```
 
 

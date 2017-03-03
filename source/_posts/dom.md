@@ -227,6 +227,7 @@ window.addEventListener("message", receiveMessage, false);
 
 ## 打印
 ```
+console.assert(!true, 'This is not true') 错误答应
 console.profile('神机妙算')
 console.profileEnd('神机妙算')
 console.time()

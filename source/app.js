@@ -1,28 +1,9 @@
-var addTwoNumbers = function(l1, l2) {
-  var add = 0, ans, head
-  while(l1 || l2) {
-    var a = l1 ? l1.val : 0
-      , b = l2 ? l2.val : 0
-    var sum = a + b + add
-    add = ~~(sum / 10)
-    var node = new ListNode(sum % 10)
-    if (!ans)
-      ans = head = node
-    else {
-      head.next = node
-      head = node
-    }
-    if (l1)
-      l1 = l1.next
-    if (l2)
-      l2 = l2.next
-  }
-  if (add) {
-    var node = new ListNode(add)
-    head.next = node
-    head = node
-  }
-  return ans
+function sidEffecting(ary) {
+  ary[0] = ary[2];
 }
-
-addTwoNumbers(125, 785)
+function bar(a,b,c) {
+  c = 10
+  sidEffecting(arguments);
+  return a + b + c;
+}
+console.log(bar(1, 1, 1))
