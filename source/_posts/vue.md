@@ -6,7 +6,8 @@ date: 2017-02-07 15:06:10
 ---
 
 https://github.com/lzxb/vue2-demo/blob/master/docs/2.md
-
+//  未完待续
+https://vuefe.cn/v2/guide/forms.html#在组件中使用-v-model
 ## vue
 ````
 events: {targetParentEvent() {}}
@@ -34,8 +35,26 @@ this.$router.go({name:'', query:{}})
 this.$route.query.name
 ```
 
+
+
+
 ## vue2
 ```js
+
+// 模板 表达式
+<span v-once>发生变动list不会发生变化: {{ list }}</span>
+{{ ok ? 'YES' : 'NO' }}
+<div v-if="type === 'A'">A</div>
+<div v-else-if="type === 'B'">B</div>
+<div v-else-if="type === 'C'">C</div>
+
+// 修饰符
+<!-- 在 "change" 而不是 "input" 事件中更新 -->
+<input v-model.lazy="msg" >
+<input v-model.trim="msg">
+<input v-model.number="age" type="number">
+
+// 样式
 :style="{'width': w}"
 
 // 父类调用子类方法
@@ -44,11 +63,12 @@ this.$refs.child.reset()
 
 // 子类调用父类方法
 this.$parent.$emit('reset')
-// 或者父类在子组件上注册事件,子类可以在内部调用
-this.$emit('load')
-<child-component @load='reset'></child-component>
 
-// 过滤器
+// 或者父类在子组件上注册事件,子类可以在内部调用
+<child-component @load='reset'></child-component>
+this.$emit('load')
+
+// 过滤关键字 存储的时候记得存原始对象
 Vue.filter('hightKey', function(key, word) {
   const r = eval("/" + word + "/gi")
   key.replace(r, function(code) {
@@ -56,9 +76,12 @@ Vue.filter('hightKey', function(key, word) {
   })
   return key
 })
-<span>{{item.name | hightKey(searchname)}}</span>
+<span>{{item.name | hightKey(searchname)}}</span> // 多个过滤器将从左到右依次执行
+<!-- <span v-html="item.names"></span> -->
 
-
+// 关于路由
+this.$route.params
+this.$route.query
 ```
 
 ## 踩坑记录

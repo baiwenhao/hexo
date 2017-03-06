@@ -28,7 +28,6 @@ xhr.abort()
 要注意的是，在ajax请求未响应之前可以用xhr.abort()取消，
 但如果请求已经到达了服务器端，这样做的结果仅仅是让浏览器不再监听这个请求的响应，
 但服务器端仍然会进行处理。
-
 ```
 
 ## 字符转换
@@ -40,34 +39,37 @@ var iNum=parseInt("ff",16);//255
 console.log("\n".charCodeAt(0));//10
 console.log(String.fromCharCode(65));//A
 
+
+
+
 ## 克隆对象
 ```js
 function clone(obj) {
-    // Handle the 3 simple types, and null or undefined
-    if (null == obj || "object" != typeof obj) return obj;
-    // Handle Date
-    if (obj instanceof Date) {
-        var copy = new Date();
-        copy.setTime(obj.getTime());
-        return copy;
+  // Handle the 3 simple types, and null or undefined
+  if (null == obj || "object" != typeof obj) return obj
+  // Handle Date
+  if (obj instanceof Date) {
+    var copy = new Date();
+    copy.setTime(obj.getTime());
+    return copy;
+  }
+  // Handle Array
+  if (obj instanceof Array) {
+      var copy = []
+      for (var i = 0, var len = obj.length; i < len; ++i) {
+        copy[i] = clone(obj[i])
+      }
+      return copy
+  }
+  // Handle Object
+  if (obj instanceof Object) {
+    var copy = {}
+    for (var attr in obj) {
+      if (obj.hasOwnProperty(attr)) copy[attr] = clone(obj[attr])
     }
-    // Handle Array
-    if (obj instanceof Array) {
-        var copy = [];
-        for (var i = 0, var len = obj.length; i < len; ++i) {
-            copy[i] = clone(obj[i]);
-        }
-        return copy;
-    }
-    // Handle Object
-    if (obj instanceof Object) {
-        var copy = {};
-        for (var attr in obj) {
-            if (obj.hasOwnProperty(attr)) copy[attr] = clone(obj[attr]);
-        }
-        return copy;
-    }
-    throw new Error("Unable to copy obj! Its type isn't supported.");
+    return copy
+  }
+  throw new Error("Unable to copy obj! Its type isn't supported.")
 }
 ```
 
@@ -93,8 +95,10 @@ function clone(obj) {
 favicon.ico 默认请求ico
 response.setHeader(‘Cache-Control’, ‘public, max-age=3600’); //缓存一小时
 
-## 闭包
 
+
+
+## 闭包
 ###### 闭包域内声明的方法外部无法直接访问，但它可以访问外部的变量或方法，每声明一个函数,就产生一个域(函数栈)，每个域内部有个function scope内默认有个Global全局引用
 ###### 当一个函数包含另一个函数，子函数生命周期依附于父函数，子函数的function scope会产生一个closure对象属性，它包含子域对父域的所有引用，只要子函数存活其父函数就依旧存活，如果父函数存活期间对私有变量做了改变，那引用的子函数function scope的closure对象属性的内容也会发生变化,因为他们只是引用关系
 ```js
@@ -185,6 +189,8 @@ for(var i = 0;i<arr.length;i++){
 ```
 
 
+
+
 ## typeof
 通常同来检测一个对象是否已经定义或者是否已经赋值
 ```js
@@ -225,6 +231,7 @@ Object.prototype.toString.call(2)    // "[object Number]"
 
 
 
+
 ## instanceof
 ##### 比较自定义的对象时才有意义，如果用来比较内置类型，将会和 typeof 操作符 一样用处不大。
 比较自定义对象
@@ -249,6 +256,7 @@ new String('foo') instanceof Object; // true
 'foo' instanceof Object; // false
 ```
 instanceof 操作符应该仅仅用来比较来自同一个 JavaScript 上下文的自定义对象
+
 
 
 
@@ -378,6 +386,7 @@ function foo(){
 }
 foo()
 ```
+
 
 
 

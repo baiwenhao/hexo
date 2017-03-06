@@ -84,8 +84,9 @@ figure.highlight .code {
   color: #666;
 }
 figure.highlight .line {
-  color: #333;
+  color: #555;
   height: 20px;
+  font-size: 12px;
 }
 pre .comment,
 pre .template_comment,
@@ -94,7 +95,7 @@ pre .doctype,
 pre .pi,
 pre .lisp .string,
 pre .javadoc {
-  color: #555;
+  color: #666;
 }
 pre .keyword,
 pre .winutils,
