@@ -27,3 +27,4 @@ const arg = function(...args) {}
 [].slice.call(list)
 ```
 
+// https://github.com/creeperyang/blog/issues/21
