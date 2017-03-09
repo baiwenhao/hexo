@@ -1,10 +1,18 @@
 ---
-title: javascript-interview
+title: fe-interview
 toc: true
 abbrlink: 8b672d54
 date: 2017-02-16 18:36:16
 tags:
 ---
+
+## seo
+1.合理的title,description,keywords
+2.语义化html标签,符合w3c规范
+3.重要内容放前面，非重要的内容用js输出
+4.搜索引擎不抓iframe内容
+5.非装饰性图片加alt
+6.提高网站加载速度
 
 ## jquery
 ```js
@@ -389,6 +397,27 @@ foo()
 
 
 
+## locaion
+
+
+
+## Date
+```js
+// 输出星期几？
+var key = ['日', '一', '二', '三', '四', '五', '六']
+var date = new Date()
+console.log('今天是星期' + key[date.getDay()])
+
+
+```
+
+
+
+## url
+
+
+
+
 
 ## Math
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/pow
@@ -398,7 +427,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 
 面试题
 ##### http://javascript-puzzlers.herokuapp.com/
-
+##### https://github.com/qiu-deqing/FE-interview#%E7%BC%96%E5%86%99javascript%E6%B7%B1%E5%BA%A6%E5%85%8B%E9%9A%86%E5%87%BD%E6%95%B0deepclone
 
 
 
