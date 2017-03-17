@@ -354,7 +354,7 @@ figure.highlight .gutter{
     color: #2581F2;
 }
 .post-abstract{
-    padding: 10px 0;
+    padding: 4px 0 0 0;
 }
 .post-info{
     /*display: flex;*/
@@ -362,7 +362,7 @@ figure.highlight .gutter{
     align-items: center;
 }
 .post-date{
-    color: rgba(0,0,0,0.54);
+    color: #999;
 }
 .read-more{
     float: right;

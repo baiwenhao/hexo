@@ -1,5 +1,5 @@
 ---
-title: css2
+title: css
 toc: true
 abbrlink: '32978573'
 date: 2017-02-16 18:21:13
@@ -554,7 +554,7 @@ div{
 <div class="test" onselectstart="return false;" unselectable="on">选择我试试，你会发现怎么也选择不到我，哈哈哈哈</div>
 
 灰色img
-img.desaturate {//
+img.desaturate {
     filter: grayscale(100%);
     -webkit-filter: grayscale(100%);
     -moz-filter: grayscale(100%);
@@ -564,13 +564,19 @@ img.desaturate {//
 ```
 
 LESS
-darken(#26b095,10%);
+darken(#26b095,10%)
 
 ## demo
 ```
 5环相连
 http://www.cnblogs.com/lianjun/archive/2011/03/11/1981606.html
 ```
+
+## 规范
+https://github.com/ecomfe/spec
+http://taobaofed.org/blog/2017/02/16/a-guide-to-api-design/
+https://github.com/aralejs/aralejs.github.io/wiki
+https://github.com/airbnb/javascript
 
 参考:
 http://isux.tencent.com/css3/?animation-fill-mode

@@ -61,6 +61,7 @@ Tools > Build System > new build system... 添加新的build
 <pre>
 {
   "folder_exclude_patterns": [ // 搜索排除, 在项目中也看不见
+    ".git",
     "node_modules"
   ],
   "always_show_minimap_viewport": true, // 小地图加背景

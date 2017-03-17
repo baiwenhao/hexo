@@ -413,6 +413,11 @@ console.log('今天是星期' + key[date.getDay()])
 
 
 
+
+## fastClick
+http://www.cnblogs.com/vajoy/p/5522114.html
+
+
 ## url
 
 
