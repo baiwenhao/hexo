@@ -6,7 +6,14 @@ date: 2017-02-07 15:01:31
 ---
 
 ## fs
-基本用法
+fs.readdirSync(path) 返回同步读取目录下内容
+fs.statSync(dir) 返回文本信息 (是否目录.isDirectory())
+fs.existsSync(path) 检测文件路径是否存在
+
+
+
+## path
+path.join(__dirname, file) 拼路径
 
 ## process
 ```
