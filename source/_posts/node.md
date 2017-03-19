@@ -6,7 +6,7 @@ date: 2017-02-07 15:01:31
 ---
 
 ## fs
-fs.readdirSync(path) 返回同步读取目录下内容
+fs.readdirSync(path) 同步读取目录下所有文件返回数组
 fs.statSync(dir) 返回文本信息 (是否目录.isDirectory())
 fs.existsSync(path) 检测文件路径是否存在
 

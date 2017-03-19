@@ -31,14 +31,25 @@ let b = a.filter((v) => v > 10) filter返回大于10的新数组
 A.every((v) => v > 10) 全部数字大于10,返回true,有一个不满足就返回false
 A.some((v) => v > 10) 有一个数字大于10就返回true
 
->// 缩小方法
-reduce
-reduceRight
-var flattened = [[0, 1], [2, 3], [4, 5]].reduce(function(a, b) {
-  return a.concat(b)
-})
-flattened is [0, 1, 2, 3, 4, 5]
-Right[ 4, 5, 2, 3, 0, 1 ]
+## reduce
+```js
+// callback函数接受4个参: 之前值、当前值、索引值以及数组本身
+var sum = [1, 2, 3, 4].reduce((previous, current, index, array) => {
+  return previous + current
+}, 1)
+
+// 初始设置
+previous = initialValue = 1, current = 2
+
+// 第一次迭代
+previous = (1 + 2) =  3, current = 3
+
+// 第二次迭代
+previous = (3 + 3) =  6, current = 4
+
+// 第三次迭代
+previous = (6 + 4) =  10, current = undefined (退出)
+```
 
 ## 判断数组
 >Array.isArray()
