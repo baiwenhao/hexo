@@ -572,12 +572,6 @@ darken(#26b095,10%)
 http://www.cnblogs.com/lianjun/archive/2011/03/11/1981606.html
 ```
 
-## 规范
-https://github.com/ecomfe/spec
-http://taobaofed.org/blog/2017/02/16/a-guide-to-api-design/
-https://github.com/aralejs/aralejs.github.io/wiki
-https://github.com/airbnb/javascript
-
 参考:
 http://isux.tencent.com/css3/?animation-fill-mode
 http://www.17sucai.com/boards/73928.html
