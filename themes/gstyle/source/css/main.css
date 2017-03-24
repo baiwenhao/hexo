@@ -268,7 +268,7 @@ article iframe{
 article img{
     max-width: 100%;
     display: block;
-    margin: 10px auto;
+    // margin: 10px auto;
     color: #999;
     cursor: pointer;
 }

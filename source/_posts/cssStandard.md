@@ -1,6 +1,5 @@
 ---
 title: css规范
-toc: true
 abbrlink: 62e58aca
 date: 2017-03-23 11:07:19
 tags:
@@ -16,7 +15,6 @@ tags:
 ![logo](cssStandard/2.png)
 
 less和sass也可遵循此规范;
-
 
 ## 缩进
 ![logo](cssStandard/3.png)
