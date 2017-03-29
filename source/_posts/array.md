@@ -1,5 +1,5 @@
 ---
-title: Array
+title: array
 toc: true
 abbrlink: 60cdc1b3
 date: 2017-02-07 15:17:54

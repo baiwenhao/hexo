@@ -125,7 +125,8 @@ git stash clear 清空git栈
 ```
 
 ## 本地仓库关联远程仓库
-    git remote add origin git@github.com:baiwenhao/baiwenhao.github.com.git
+git remote add origin git@github.com:baiwenhao/baiwenhao.github.com.git
+git remote set-url origin git@github.com:ppreyer/first_app.git
 
 ## 这是全局忽略设置
 ```

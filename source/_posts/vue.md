@@ -142,6 +142,9 @@ iphone6plus 字符串是.的时候不吃行高,要加vertical-align: top
 
 ```
 
+参考
+https://github.com/lzxb/vue2-demo 登录注册
+
 
 
 
