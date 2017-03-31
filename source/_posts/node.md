@@ -32,6 +32,13 @@ process.cwd() 路径
 
 ```
 
+## module exports and exports
+1) module.exports 初始值为一个空对象 {}
+2) exports 是指向的 module.exports 的引用
+3) require() 返回的是 module.exports 而不是 exports
+
+![logo](node/1.png)
+
 ## package
 ```
 nodejs中的jQuery
