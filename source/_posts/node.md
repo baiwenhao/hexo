@@ -16,8 +16,7 @@ path.join('/foo', 'bar', 'baz/asdf', 'quux', '..')
 path.normalize('/foo/bar//baz/asdf/quux/..')
 '/foo/bar/baz/asdf'
 
-提供上述 path 的方法，不过总是以 posix 兼容的方式交互
-path.posix()
+path.resolve(__dirname, '../../')
 
 参考: http://wiki.jikexueyuan.com/project/nodejs/path.html
 
@@ -25,9 +24,8 @@ path.posix()
 ```
 PORT=8888 node app.js // 当前生效
 export PORT=8888 // 永久生效
-process.env.PORT 获取node进程携带的变量
+process.env.PORT // 获取node进程携带的变量
 process.stdout.write('打印')
-
 process.cwd() 路径
 
 ```

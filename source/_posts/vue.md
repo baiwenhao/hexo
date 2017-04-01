@@ -35,12 +35,11 @@ this.$router.go({name:'', query:{}})
 this.$route.query.name
 ```
 
-
-
-
 ## vue2
-```js
+生命周期
+created
 
+```js
 // 模板 表达式
 <span v-once>发生变动list不会发生变化: {{ list }}</span>
 {{ ok ? 'YES' : 'NO' }}
