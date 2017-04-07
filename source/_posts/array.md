@@ -35,8 +35,9 @@ A.some((v) => v > 10) 有一个数字大于10就返回true
 ```js
 // callback函数接受4个参: 之前值、当前值、索引值以及数组本身
 var sum = [1, 2, 3, 4].reduce((previous, current, index, array) => {
-  return previous + current
-}, 1)
+  return previous + current // return 返回的值被previous 接收
+}, 10)
+// 当设置初始值时,previous=10，current=1 否则 previous=1，current=2
 
 // 初始设置
 previous = initialValue = 1, current = 2

@@ -440,7 +440,7 @@ var = insertSort function (arr) {
 ```
 
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/pow
-
+https://gist.github.com/allenm/5e22379cb8055f4402bcd417f682ae8f //dingding
 
 
 
