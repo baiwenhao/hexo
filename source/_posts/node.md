@@ -67,6 +67,9 @@ https://www.npmjs.com/package/project-core
 验证码
 https://www.npmjs.com/package/captcha.js
 
+// to do
+http://ourjs.com/detail/56162a63e3312b046d27f53e
+
 webpack 
 http://crossingmay.com/2016/05/28/webpackshim/
 ```

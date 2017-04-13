@@ -1,10 +1,11 @@
 ---
 title: vscode
-toc: true
 abbrlink: 849a3ae4
 date: 2017-02-17 17:22:10
 tags:
 ---
+
+#### 最爱的编辑器没有之一
 
 ## 命令行启动
 <pre>
@@ -38,12 +39,14 @@ Show Output Ctrl+Shift+U
 预览markdown Ctrl+Shift+V
 </pre>
 
+
 ## 查找
 <pre>
 查找 Ctrl+F
 查找替换 Ctrl+H
 整个文件夹中查找 Ctrl+Shift+F
 </pre>
+
 
 ## 插件
 <pre>
@@ -54,6 +57,7 @@ guides 垂直闭合线
 indenticator 高亮当前编辑行
 </pre>
 
+
 ## 调试node
 <pre>
 继续 / 暂停 F5
@@ -61,5 +65,12 @@ indenticator 高亮当前编辑行
 进入 F11
 退出 Shift+F11
 重新开始 unassigned
-停止调试 Shift+F5
+停止调试 Shift + F5
+显隐终端 ctrl + `
 </pre>
+
+参考：
+https://code.visualstudio.com/shortcuts/keyboard-shortcuts-windows.pdf
+https://zhuanlan.zhihu.com/p/22880087
+
+
