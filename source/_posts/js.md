@@ -1,0 +1,141 @@
+---
+title: js
+abbrlink: aaa991c7
+date: 2017-04-11 21:22:05
+tags:
+---
+
+## LSH RHS
+赋值操作的目标是谁LHS
+谁是赋值操作的源头RHS
+
+```js
+// 对a的引用是RHS引用,这里并没有对a赋值,而是查找取得a的值传递给log
+console.log(a)
+
+// 对a是LHS引用,实际并不关心当前值是什么,只是想要为=2这个赋值操作找个目标
+a=2
+```
+查找变量的目的是对变量赋值,那么就会使用LSH查询;
+如果目的是获取变量的值,就会使用RHS查询;
+
+
+## 作用域嵌套
+根据名称超找变量的规则，当一个作用域嵌套在另一个作用域中，就发生了作用域的嵌套，在当前作用域无法找到某个变量，引擎就会在外层作用域继续查找，直到找到该变量或抵达全局作用域为止
+块 = {}
+
+## IIFE
+```js
+(function IIFE(global) {
+  ...
+})(window)
+
+(function () {...}())
+
+var a = 2
+(function IIFE(def) {
+  def(window)
+})(function (global) {
+  var a = 1
+  console.log(a)
+  console.log(global.a)
+})
+```
+
+## 闭包
+当函数而已记住并访问所在作用域,函数在当前作用域外执行,就产生了闭包
+try{throw 2;}catch(err){console.log(2)}
+
+## 属性描述符
+```js
+var obj = { a: 2 }
+var conf = Object.getOwnPropertyDescriptor( obj, 'a' ) // 获取
+{
+  value: 2,
+  writable: true,
+  enumerable: true,
+  configurable: true
+}
+
+var o = {};
+Object.defineProperty(o, 'age', { // 设置
+  value: 24,
+  writable: false, // 是否可写
+  enumerable: false, // 是否可枚举 (可以出现在对象属性的遍历中)
+  configurable: false // 是否可配置
+})
+```
+
+## 禁止扩展
+```js
+var myObj = { a: 2 }
+Object.preventExtensions(myObj)
+```
+
+密封 and 冻结
+
+## Getter 和 Setter
+访问描述符和数据描述符，对于描述符来说，js会忽略他们的value和writable特性
+取而代之的是set和get，还有configurable和enumerable
+
+
+## 枚举
+```js
+var obj = {}
+Object.defineProperty(obj, 'b', {
+  value: 5,
+  enumerable: false
+})
+console.log(('b' in obj)) // true (in回去查找原型)
+console.log(Object.keys(obj)) // [](返回可枚举属性)
+console.log(Object.propertyIsEnumerable('b')) // false (返回所有属性)
+console.log(Object.getOwnPropertyNames(obj)) // ['b'](返回所有属性)
+```
+
+
+## 寄生继承
+```js
+function Vehicle () {
+  this.engines = 'wenhao'
+}
+Vehicle.prototype.ignition = function () {
+  console.log('my engine')
+}
+Vehicle.prototype.drive = function () {
+  this.ignition()
+  console.log('setting')
+}
+
+function Car () {
+  var car = new Vehicle()
+  car.wheels = 4
+  var vehDrive = car.drive
+  car.drive = function () {
+    vehDrive.call(this)
+    console.log('rolling')
+  }
+  return car
+}
+```
+
+## 原型对象
+对象中的一个内部链接引用另一个对象
+```js
+// 检索现有对象的原型对象
+Object.getPrototypeOf(p) === app.prototype;
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -142,8 +142,6 @@ Array.prototype.reduce = function(callback, initialValue) {}
 Array.prototype.reduceRight = function(callback, initialValue) {}
 ```
 
-
-
 ## map
 ```js
 let b = A.map((v) => v + 1) map 返回新的对象,A不变
@@ -154,8 +152,6 @@ var ary = Array(3);
 ary[0]=2
 ary.map(function(elem) { return '1'; });
 ```
-
-
 
 ## 相关属性
 ```js

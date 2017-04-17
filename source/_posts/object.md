@@ -33,9 +33,6 @@ Object.getOwnPropertyNames(o);
 has.call(obj, key)
 ```
 
-## Object.getPrototypeOf(obj)
-检索现有对象的原型对象 Object.getPrototypeOf(p) === app.prototype;
-
 ## Object.getOwnPropertyNames()
 取对象的key返回数组,类似Object.keys()
 

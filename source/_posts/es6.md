@@ -28,3 +28,52 @@ const arg = function(...args) {}
 ```
 
 // https://github.com/creeperyang/blog/issues/21
+
+
+## for of
+遍历数据结构（数组，对象）中的值，for...of会寻找内置或自定义@@iterator对象并调用它的next()方法来遍历数据值
+```js
+var a = [1,2] // 数组有内置的 @@iterator
+var it = a[Symbol.iterator]()
+log(it.next()) // { value: 1, done: false }
+log(it.next()) // { value: 2, done: false }
+log(it.next()) // { value: undefined, done: true }
+```
+
+自定义内置对象
+```js
+var obj = {
+  a: 1,
+  b: 2
+}
+
+Object.defineProperty(obj, Symbol.iterator, {
+  enumerable: false,
+  writable: false,
+  configurable: true,
+  value: function () {
+    var o = this
+    var idx = 0
+    var ks = Object.keys(o)
+    return {
+      next: function () {
+        return {
+          value: o[ks[idx++]],
+          done: (idx > ks.length)
+        }
+      }
+    }
+  }
+})
+
+var it = obj[Symbol.iterator]()
+console.log(it.next()) // { value: 1, done: false }
+console.log(it.next()) // { value: 2, done: false }
+console.log(it.next()) // { value: undefined, done: true }
+
+for (v of obj) {
+  console.log(v)
+}
+```
+
+
