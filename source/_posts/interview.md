@@ -266,8 +266,6 @@ new String('foo') instanceof Object; // true
 instanceof 操作符应该仅仅用来比较来自同一个 JavaScript 上下文的自定义对象
 
 
-
-
 ## 类型转换
 javascript是弱类型语言，所以会在可能的情况下应用强制类型转换
 ```js

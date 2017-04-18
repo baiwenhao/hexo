@@ -20,9 +20,10 @@ a=2
 如果目的是获取变量的值,就会使用RHS查询;
 
 
-## 作用域嵌套
-根据名称超找变量的规则，当一个作用域嵌套在另一个作用域中，就发生了作用域的嵌套，在当前作用域无法找到某个变量，引擎就会在外层作用域继续查找，直到找到该变量或抵达全局作用域为止
+## 作用域
+嵌套:根据名称超找变量的规则，当一个作用域嵌套在另一个作用域中，就发生了作用域的嵌套，在当前作用域无法找到某个变量，引擎就会在外层作用域继续查找，直到找到该变量或抵达全局作用域为止
 块 = {}
+函数作用域：属于这个函数的全部变量都可以在整个函数的范围内使用及复用
 
 ## IIFE
 ```js
@@ -77,7 +78,17 @@ Object.preventExtensions(myObj)
 ## Getter 和 Setter
 访问描述符和数据描述符，对于描述符来说，js会忽略他们的value和writable特性
 取而代之的是set和get，还有configurable和enumerable
-
+```js
+var obj = {
+  get a () {
+    return this._a
+  },
+  set a (v) {
+    this._a = v * 2
+  }
+}
+obj.a = 2 // 4
+```
 
 ## 枚举
 ```js
@@ -120,11 +131,17 @@ function Car () {
 
 ## 原型对象
 对象中的一个内部链接引用另一个对象
+
+## Object 对象
+
 ```js
 // 检索现有对象的原型对象
-Object.getPrototypeOf(p) === app.prototype;
-```
+Object.getPrototypeOf(目标对象的原型对象) === app.prototype;
+原型.isPrototypeOf(实例)
 
+// 把E委托到D
+Object.setPrototypeOf(E, D) // 返回E对象 E的proto指向D
+```
 
 
 
