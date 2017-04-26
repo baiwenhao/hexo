@@ -257,6 +257,13 @@ div > * :not(:first-child) {
 }
 ```
 
+
+## object-fit
+```css
+
+```
+
+
 ##### 去掉点击元素产生背景或者边框
 ```
 // ios用户点击一个链接，会出现一个半透明灰色遮罩, 如果想要禁用，可设置-webkit-tap-highlight-color的alpha值为0去除灰色半透明遮罩；
@@ -351,5 +358,6 @@ function yaoAfter(){
     //do something
 }
 ```
+
 
 
