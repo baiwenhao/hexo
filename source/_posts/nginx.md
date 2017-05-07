@@ -40,6 +40,13 @@ server {
     alias /Users/baiwenhao/work/static/$2/dist/$4;
   }
 }
+
+5. 本地代理
+设置host
+127.0.0.1        resource.iwjw.com
+127.0.0.1        house-test-water.oss.aliyuncs.com
+配置nginx 代理到本地静态路径
+启动nginx
 ```
 
 ```
