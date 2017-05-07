@@ -29,8 +29,11 @@ Command+Option+P+R键
 killall Finder
 
 ##### 显示隐藏文件
-defaults write com.apple.finder AppleShowAllFiles Yes && killall Finder 
+defaults write com.apple.finder AppleShowAllFiles -boolean true ; killall Finder
 
 ##### 不显示隐藏文件
-defaults write com.apple.finder AppleShowAllFiles No && killall Finder 
-.DS_Store
+defaults write com.apple.finder AppleShowAllFiles -boolean false ; killall Finder
+
+
+
+
