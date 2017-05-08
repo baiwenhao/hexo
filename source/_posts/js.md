@@ -22,8 +22,8 @@ a=2
 ## 作用域
 作用域是根据名称超找变量的规则
 嵌套作用域：当一个作用域嵌套在另一个作用域中，就发生了作用域的嵌套，在当前作用域无法找到某个变量，引擎就会在外层作用域继续查找，直到找到该变量或抵达全局作用域为止
-块 = {}
 函数作用域：属于这个函数的全部变量都可以在整个函数的范围内使用及复用
+词法作用域：书写阶段或者定义时确定的,而动态作用域实在运行时确定的
 
 ## IIFE
 ```js
@@ -47,6 +47,7 @@ var a = 2
 当函数而已记住并访问所在作用域,函数在当前作用域外执行,就产生了闭包
 try{throw 2;}catch(err){console.log(2)}
 
+
 ## 属性描述符
 ```js
 var obj = { a: 2 }
@@ -61,11 +62,12 @@ var conf = Object.getOwnPropertyDescriptor( obj, 'a' ) // 获取
 var o = {};
 Object.defineProperty(o, 'age', { // 设置
   value: 24,
-  writable: false, // 是否可写
+  writable: false, // 是否可修改
   enumerable: false, // 是否可枚举 (可以出现在对象属性的遍历中)
-  configurable: false // 是否可配置
+  configurable: false // 是否可配置,false是单向操作无法撤销
 })
 ```
+
 
 ## 禁止扩展
 ```js
@@ -73,7 +75,10 @@ var myObj = { a: 2 }
 Object.preventExtensions(myObj)
 ```
 
-密封 and 冻结
+## 密封 and 冻结
+Object.seal() // 会创建一个密封对象,在现有对象上调用 Object.preventExtensions()把现有属性标记为configurable: false
+不能添加,删除可以修改
+冻结是调用Object.freeze()，是在现有对象上调用Object.seal()
 
 ## Getter 和 Setter
 访问描述符和数据描述符，对于描述符来说，js会忽略他们的value和writable特性
@@ -89,6 +94,7 @@ var obj = {
 }
 obj.a = 2 // 4
 ```
+
 
 ## 枚举
 ```js
@@ -129,11 +135,12 @@ function Car () {
 }
 ```
 
+
 ## 原型对象
 对象中的一个内部链接引用另一个对象
 
-## Object 对象
 
+## Object 对象
 ```js
 // 检索现有对象的原型对象
 Object.getPrototypeOf(目标对象的原型对象) === app.prototype;
@@ -142,9 +149,6 @@ Object.getPrototypeOf(目标对象的原型对象) === app.prototype;
 // 把E委托到D
 Object.setPrototypeOf(E, D) // 返回E对象 E的proto指向D
 ```
-
-
-
 
 
 
