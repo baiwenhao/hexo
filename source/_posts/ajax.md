@@ -14,15 +14,6 @@ function handlerResponse(response){
 onreadystatechange事件
 readyState值每变化一次都会触发onreadystate change
 
-### readyState请求状态
-0 未初始化
-1 启动 open准备就绪
-2 发送 send数据
-3 接收 部分数据
-4 完成 接收全部数据
--status属性 ：请求结果 200代表成功
--responseText属性 ：服务器返回的信息
-
 ### get请求
 encodeURI, encodeURIComponent编码
 decodeURI, decodeURIComponent解码
@@ -95,36 +86,68 @@ http://www.tuicool.com/articles/v2YBFrF
 http://www.tuicool.com/articles/n26F3yb
 http://www.oschina.net/code/snippet_1475115_51503
 
-```
-//创建一个XMLHttpRequest对象
-var xhr = new XMLHttpRequest();
+## ajax主要分为四部分
+1.创建ajx对象
+2.连接服务器
+3.发送请求
+4.接收返回数据
 
-//监听statechange事件
-xhr.onreadystatechange = function() {
-  /**
-   * XMLHttpRequest的readystate有五个状态
-   * 0 还没有调用open方法
-   * 1 已调用open方法，尚未调用send方法
-   * 2 已调用send，但尚未接收到响应
-   * 3 已接收到部分响应数据
-   * 4 已经接收到到全部数据，而且可以在客户端使用
-   */
-  if (xhr.readystate == 4) {
-    //状态码在200 到 300表示请求成功，状态码304表示资源没有被修改，可以直接使用缓存中的版本
-    if ((xhr.status >=200 && xhr.status < 300) || xhr.status == 304)) {
-      alert(xhr.responseText);
+```js
+function Ajax(type, url, data, success, failed) {
+    // 创建ajax对象
+    var xhr = null
+    if(window.XMLHttpRequest){
+        xhr = new XMLHttpRequest()
     } else {
-      //发生错误打印状态码，
-      alert("Request was unsuccessful: " + xhr.status);
+        xhr = new ActiveXObject('Microsoft.XMLHTTP')
     }
-  }
+
+    var type = type.toUpperCase()
+    // 用于清除缓存
+    var random = Math.random()
+
+    if(typeof data == 'object'){
+        var str = ''
+        for(var key in data){
+            str += key+'='+data[key]+'&'
+        }
+        data = str.replace(/&$/, '')
+    }
+
+    if(type == 'GET'){
+        if(data){
+            xhr.open('GET', url + '?' + data, true)
+        } else {
+            xhr.open('GET', url + '?t=' + random, true)
+        }
+        xhr.send()
+
+    } else if(type == 'POST'){
+        xhr.open('POST', url, true)
+        // 如果需要像 html 表单那样 POST 数据，请使用 setRequestHeader() 来添加 http 头。
+        xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded")
+        xhr.send(data)
+    }
+
+    // 处理返回数据
+    xhr.onreadystatechange = function(){
+        if(xhr.readyState == 4){
+            if(xhr.status == 200){
+                success(xhr.responseText)
+            } else {
+                if(failed){
+                    failed(xhr.status)
+                }
+            }
+        }
+    }
 }
-//打开请求以备发送
-xhr.open('post', 'http://example.com', false);
-//设置请求头
-xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-//序列化表单
-var form = document.getElementById('test-form');
-//发送请求
-xhr.send(serialize(form));
+
+// 测试调用
+var sendData = {name:'asher',sex:'male'}
+Ajax('get', 'data/data.html', sendData, (data) => {
+    console.log(data)
+}, (error) => {
+    console.log(error)
+})
 ```
