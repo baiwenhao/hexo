@@ -4,6 +4,7 @@ abbrlink: d73c0d37
 date: 2017-02-13 09:54:09
 ---
 
+
 ## 扩展运算符
 ```js
 // 解构赋值
@@ -26,8 +27,9 @@ const arg = function(...args) {}
 [...document.querySelectorAll('div')]
 [].slice.call(list)
 ```
-
 // https://github.com/creeperyang/blog/issues/21
+
+
 
 
 ## for of
@@ -75,5 +77,28 @@ for (v of obj) {
   console.log(v)
 }
 ```
+
+
+
+
+## collections
+var arr = Array.from( arguments ) // 转数组
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
