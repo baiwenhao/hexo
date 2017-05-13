@@ -140,6 +140,8 @@ function Car () {
 对象中的一个内部链接引用另一个对象
 
 
+
+
 ## Object 对象
 ```js
 // 检索现有对象的原型对象
@@ -149,6 +151,7 @@ Object.getPrototypeOf(目标对象的原型对象) === app.prototype;
 // 把E委托到D
 Object.setPrototypeOf(E, D) // 返回E对象 E的proto指向D
 ```
+
 
 
 
