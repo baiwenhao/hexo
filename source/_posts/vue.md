@@ -139,6 +139,9 @@ iphone6plus 字符串是.的时候不吃行高,要加vertical-align: top
 初始化一个data对象位，当数据返回null或者string,在组件内部循环data数组就会报错，webview报错就会推出
 因此即使status给的是0,也要加上res.data.length >= 1 的判断
 
+actions 触发的动作事件，不建议放到对应组件内部触发，如果组件多个地方用到，有些页面不需要初始化设置高亮 或者 默认高亮的 逻辑 就不好写了
+
+
 ```
 
 参考
