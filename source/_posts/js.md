@@ -43,9 +43,14 @@ var a = 2
 })
 ```
 
+
+
+
 ## 闭包
 当函数而已记住并访问所在作用域,函数在当前作用域外执行,就产生了闭包
 try{throw 2;}catch(err){console.log(2)}
+
+
 
 
 ## 属性描述符
@@ -75,10 +80,16 @@ var myObj = { a: 2 }
 Object.preventExtensions(myObj)
 ```
 
+
+
+
 ## 密封 and 冻结
 Object.seal() // 会创建一个密封对象,在现有对象上调用 Object.preventExtensions()把现有属性标记为configurable: false
 不能添加,删除可以修改
 冻结是调用Object.freeze()，是在现有对象上调用Object.seal()
+
+
+
 
 ## Getter 和 Setter
 访问描述符和数据描述符，对于描述符来说，js会忽略他们的value和writable特性
@@ -96,6 +107,8 @@ obj.a = 2 // 4
 ```
 
 
+
+
 ## 枚举
 ```js
 var obj = {}
@@ -110,8 +123,11 @@ console.log(Object.getOwnPropertyNames(obj)) // ['b'](返回所有属性)
 ```
 
 
-## 寄生继承
+
+
+## Object 对象
 ```js
+// 寄生继承
 function Vehicle () {
   this.engines = 'wenhao'
 }
@@ -135,14 +151,6 @@ function Car () {
 }
 ```
 
-
-## 原型对象
-对象中的一个内部链接引用另一个对象
-
-
-
-
-## Object 对象
 ```js
 // 检索现有对象的原型对象
 Object.getPrototypeOf(目标对象的原型对象) === app.prototype;
@@ -154,6 +162,40 @@ Object.setPrototypeOf(E, D) // 返回E对象 E的proto指向D
 
 
 
+
+## Number
+```js
+// 截取长度
+10..toFixed(2)
+10 .toFixed(2)
+10..toPrecision(2)
+
+// 浮点数比大小 polyfill
+if (!Number.EPSILON) {
+  Number.EPSILON = Math.pow(2, -52)
+}
+function num (n1, n2) {
+  return Math.abs(n1, n2) < Number.EPSILON
+}
+
+// 最大整数
+Number.MAX_SAFE_INTEGER
+
+// 最小整数
+Number.MIN_SAFE_INTEGER
+
+// 整数判断
+Number.isInteger(42.000) // true
+n % 1 === 1
+
+// 判断两个值是否绝对相等 (特殊的相对比较)
+Object.is(0, -0)
+
+```
+
+
+## ...
+Date.now() === (new Date()).getTime()
 
 
 

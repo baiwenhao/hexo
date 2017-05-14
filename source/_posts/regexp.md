@@ -86,6 +86,7 @@ log( a.match(b) );
 .replace()
 .toUpperCase() 小写
 .toLowerCase() 大写
+.trim()
 'a'.charCodeAt(0)返回Unicode编码  | String.fromCharCode(a)
 String.fromCharCode(104,101,108,108,111);hello
 "hello".charCodeAt(0);104

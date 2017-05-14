@@ -577,3 +577,157 @@ http://isux.tencent.com/css3/?animation-fill-mode
 http://www.17sucai.com/boards/73928.html
 http://www.cnblogs.com/chocking/p/4672191.html
 
+
+## css书写顺序
+```css
+el {
+  display: ;
+  visibility: ;
+  float: ;
+  clear: ;
+
+  position: ;
+  top: ;
+  right: ;
+  bottom: ;
+  left: ;
+  z-index: ;
+
+  width: ;
+  min-width: ;
+  max-width: ;
+  height: ;
+  min-height: ;
+  max-height: ;
+  overflow: ;
+
+  margin: ;
+  margin-top: ;
+  margin-right: ;
+  margin-bottom: ;
+  margin-left: ;
+
+  padding: ;
+  padding-top: ;
+  padding-right: ;
+  padding-bottom: ;
+  padding-left: ;
+
+  border: ;
+  border-top: ;
+  border-right: ;
+  border-bottom: ;
+  border-left: ;
+
+  border-width: ;
+  border-top-width: ;
+  border-right-width: ;
+  border-bottom-width: ;
+  border-left-width: ;
+
+  border-style: ;
+  border-top-style: ;
+  border-right-style: ;
+  border-bottom-style: ;
+  border-left-style: ;
+
+  border-color: ;
+  border-top-color: ;
+  border-right-color: ;
+  border-bottom-color: ;
+  border-left-color: ;
+
+  outline: ;
+  list-style: ;
+
+  table-layout: ;
+  caption-side: ;
+  border-collapse: ;
+  border-spacing: ;
+  empty-cells: ;
+
+  font: ;
+  font-family: ;
+  font-size: ;
+  line-height: ;
+  font-weight: ;
+  text-align: ;
+  text-indent: ;
+  text-transform: ;
+  text-decoration: ;
+  letter-spacing: ;
+  word-spacing: ;
+  white-space: ;
+  vertical-align: ;
+  color: ;
+
+  background: ;
+  background-color: ;
+  background-image: ;
+  background-repeat: ;
+  background-position: ;
+
+  opacity: ;
+  cursor: ;
+  content: ;
+  quotes: ;
+}
+
+```
+
+模块前缀
+* 弹出 pop
+* 公共 global,gb
+* 标题 title,tit
+* 提示 hint
+* 菜单 menu
+* 信息 info
+* 预览 pvw
+* Tips tips
+* 导航 nav
+
+类型
+* 按钮 bt
+* 文本 tx
+* 段落 p
+* 图标 icon
+* input input
+* 颜色 color,c
+* 背景 bg
+* 边框 bor
+
+作用
+* 设置 set
+* 添加 add
+* 删除 del
+* 操作 op
+* 密码 pw
+* 导入 inc
+
+状态
+* 成功 suc
+* 失败 lost
+* 透明 tran
+
+位置
+* 公共 gb
+* 边框 bor
+* 段落 p
+* 弹出 pop
+* 标题 title,tit
+* 菜单 menu
+* 内容 cont
+* 导航 nav
+
+权重对比
+1）标签：权值为0,0,0,1
+2）类：权值为0,0,1,0
+3）属性选择：权值为0,0,1,1
+4）ID：权值为0,1,0,0
+5）important的权值为最高1,0,0,0
+
+
+
+
+
+

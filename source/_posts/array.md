@@ -70,7 +70,7 @@ Object.prototype.toString.call(obj) === '[object Array]'
 
 
 ## 转换方法
->.toString
+[1,2,3].toString()
 .valueOf
 .toLocaleString
 .join
@@ -115,4 +115,13 @@ var foo = {
 foo.hasOwnProperty('bar') // 总是返回 false
 // 使用其它对象的 hasOwnProperty，并将其上下文设置为foo
 ({}).hasOwnProperty.call(foo, 'bar') // true
+
+// 数组方法挂到字符串
+Array.prototype.join.call('foo', '-')
+Array.prototype.map.call('foo', (v) => { return v.toUpperCase() + '.' }).join('')
+
+// reverse 无法用call挂到字符串对象上执行
+a.split('').reverse().join('')
+
+
 ```
