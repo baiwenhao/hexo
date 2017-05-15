@@ -69,6 +69,18 @@ indenticator 高亮当前编辑行
 显隐终端 ctrl + `
 </pre>
 
+
+## 配置
+```js
+// vue文件支持tab补全
+"emmet.syntaxProfiles": {
+  "vue-html": "html",
+  "vue": "html"
+},
+// 保存时删除末尾空格
+"files.trimTrailingWhitespace": true,
+```
+
 参考：
 https://code.visualstudio.com/shortcuts/keyboard-shortcuts-windows.pdf
 https://zhuanlan.zhihu.com/p/22880087
