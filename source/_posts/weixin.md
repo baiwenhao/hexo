@@ -29,3 +29,5 @@ body { -webkit-text-size-adjust:100%!important; }
 
 //最好的解决方案：最好使用rem或百分比布局
 ```
+
+WeixinJSBridge.call('closeWindow') // 关闭窗口

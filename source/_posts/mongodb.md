@@ -68,6 +68,10 @@ https://www.globo.tech/learning-center/?s=mongodb
 wget http://fastdl.mongodb.org/linux/mongodb-linux-x86_64-2.6.4.tgz
 tar -zxvf mongodb-linux-x86_64-2.6.4.tgz -C /usr/src
 
+## sql语句
+```
+```
+
 centos
 https://www.globo.tech/learning-center/install-nodejs-run-node-applications-centos-7/
 http://stackoverflow.com/questions/23615377/monk-vs-mongoose-for-mongodb
