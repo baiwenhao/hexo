@@ -19,6 +19,7 @@ cmd ＋ 回车 开辟新行
 cmd ＋ shift ＋ 回车 开辟上一行
 cmd ＋ shift ＋↕️↔️ 选中代码
 cmd + p 搜索文件
+cmd + shift + t 恢复刚才关闭的窗口
 control + g 行跳转
 control + r 函数跳转
 control + option + F 格式化js  ( alignment)
@@ -131,3 +132,5 @@ sideBarEnhancements 增强右键菜单 
   ]
 }
 </pre>
+
+参考: https://www.kancloud.cn/digest/sublime-text-complete-guide/61433

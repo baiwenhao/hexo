@@ -53,20 +53,6 @@ created
 <input v-model.trim="msg">
 <input v-model.number="age" type="number">
 
-// 样式
-:style="{'width': w}"
-
-// 父类调用子类方法
-this.$refs.child.reset()
-<child-component ref="child"></child-component>
-
-// 子类调用父类方法
-this.$parent.$emit('reset')
-
-// 或者父类在子组件上注册事件,子类可以在内部调用
-<child-component @load='reset'></child-component>
-this.$emit('load')
-
 // 过滤关键字 存储的时候记得存原始对象
 Vue.filter('hightKey', function(key, word) {
   const r = eval("/" + word + "/gi")
@@ -77,10 +63,6 @@ Vue.filter('hightKey', function(key, word) {
 })
 <span>{{item.name | hightKey(searchname)}}</span> // 多个过滤器将从左到右依次执行
 <!-- <span v-html="item.names"></span> -->
-
-// 关于路由
-this.$route.params
-this.$route.query
 ```
 
 ## 踩坑记录

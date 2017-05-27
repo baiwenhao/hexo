@@ -17,3 +17,5 @@ window.addEventListener('popstate', function(e) {
   }
 }, false)
 ```
+
+http://www.jianshu.com/p/9ced734f75e8
