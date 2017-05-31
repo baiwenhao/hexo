@@ -4,6 +4,10 @@ abbrlink: 254d477b
 date: 2017-02-07 15:01:31
 ---
 
+## io
+1. 斐波那契数列
+
+
 ## fs
 fs.readdirSync(path) 同步读取目录下所有文件返回数组
 fs.statSync(dir) 返回文本信息 (是否目录.isDirectory()) (文件是否存在.isFile())
