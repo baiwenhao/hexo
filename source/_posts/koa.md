@@ -10,6 +10,7 @@ tags:
 
 ## app.js
 
+var cors = require('koa-cors'); // 跨域
 
 ##### 参考资料
 https://github.com/guo-yu/koa-guide
