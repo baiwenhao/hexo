@@ -362,5 +362,10 @@ function yaoAfter(){
 }
 ```
 
+滚动条
+&::-webkit-scrollbar {
+   width: 0;
+}
+
 
 参考：https://www.w3schools.com/cssref/css3_pr_filter.asp
