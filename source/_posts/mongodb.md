@@ -13,6 +13,7 @@ maxConns = 100   #最大连接数
 logappend = true   #写日志方式默认追加
 fork = true   #后台启动
 auth = false   #是否启动验证 window 下无效
+/usr/local/Cellar #brew 安装的目录
 
 ## start
 sudo mongod --config mongodb.conf
