@@ -194,14 +194,6 @@ Object.is(0, -0)
 ```
 
 
-## new Date
-Date.now() === (new Date()).getTime()
-
-var now = new Date()
-now.strftime('%Y-%m-%d') // 当前日期
-
-
-
 
 
 

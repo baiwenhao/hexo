@@ -52,16 +52,16 @@ open .
 
 ### 终端打开IDE
 .zshrc 添加
-alias .sub='/Applications/SublimeText.app/Contents/SharedSupport/bin/subl'
-alias .code='/Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin/code'
+alias subl='/Applications/SublimeText.app/Contents/SharedSupport/bin/subl'
+alias code='/Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin/code'
 source .zshrc
-
-如果路径出现,执行以下代码看结果正常否
-ln -s /Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl /usr/local/bin/sublime
 
 是否设置
 ls -l /usr/local/bin/sublime
 rm /usr/local/bin/sublime
+
+如果路径出现问题,执行以下代码看结果正常否
+ln -s /Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl /usr/local/bin/sublime
 
 
 
