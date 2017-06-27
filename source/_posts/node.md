@@ -24,6 +24,9 @@ path.resolve(__dirname, '../../')
 
 参考: http://wiki.jikexueyuan.com/project/nodejs/path.html
 
+## url
+url.parse()
+
 ## process
 ```
 PORT=8888 node app.js // 当前生效

@@ -21,9 +21,9 @@ myDate.toLocaleDateString()     //获取当前日期
 var mytime=myDate.toLocaleTimeString()     //获取当前时间
 myDate.toLocaleString()        //获取日期与时间
 
-
+## 日期对比
 Date.now() === (new Date()).getTime()
-
+new Date().toISOString().substr(0, 10) < '2017-06-27'
 
 参考：
 http://www.cnblogs.com/carekee/articles/1678041.html
