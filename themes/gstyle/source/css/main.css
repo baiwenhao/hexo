@@ -260,6 +260,7 @@ article{
     background: #fff;
     /*box-shadow: 0 2px 5px 0 rgba(0,0,0,0.26);*/
     padding: 15px;
+    font-size: 18px;
     /*margin: 25px 0;*/
 }
 article iframe{
@@ -386,7 +387,9 @@ ul.post-tag-list li.post-tag-list-item a::before{
 }
 
 .post-content,.post-abstract{
+    color: #333;
     word-break: break-word;
+    line-height: 30px;
 }
 .post-content h1,.post-content h2,.post-content h3,.post-content h4,.post-content h5{
     color: #666;
@@ -395,7 +398,6 @@ ul.post-tag-list li.post-tag-list-item a::before{
     width: 100%;
     border-collapse: collapse;
     border-spacing: 0;
-    font-size: 14px;
     color: #666;
 }
 .post-content td, .post-content th{

@@ -36,8 +36,8 @@ this.$route.query.name
 ```
 
 ## vue2
-生命周期
-created
+vuex.esm.js?edaa:336 [vuex] unknown action type: searchItem
+说明你的 actions 没有 searchItem 方法
 
 ```js
 // 模板 表达式

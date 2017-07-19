@@ -48,11 +48,6 @@ tags:
 |[腾讯css3动画制作工具](http://isux.tencent.com/css3/tools.html)|[animate.css](http://daneden.github.io/animate.css)|
 |[Animated Books with CSS 3D Transforms](http://tympanus.net/Development/AnimatedBooks/)|[Browserhacks](http://browserhacks.com/)|
 
-## HTML
-| Article | Article |
-| ------------- |:-------------:| :-------------:| :-------------:| -----:|
-[HTML5有哪些让你惊艳的demo](http://www.zhihu.com/question/24398907)|[Wallpaperbetter](http://www.wallpaperbetter.com/)|
-
 ## React
 | React | Reference |
 | ------------- |:-------------:| :-------------:| :-------------:| -----:|
@@ -67,8 +62,6 @@ tags:
 |[React.js material UI](http://material-ui.com/#)|[React.js TouchstoneJS UI](http://touchstonejs.io)|
 |[React.js amazeui UI](http://amazeui.org/react)|[React 入门实例教程 - 阮一峰](http://www.ruanyifeng.com/blog/2015/03/react.html)|
 |[React Native 中文版](http://wiki.jikexueyuan.com/project/react-native)|[Webpack 和 React 小书 - gitbook](https://fakefish.github.io/react-webpack-cookbook)|
-
-30-days-of-react-native
 
 ## Vue
 | Vue |AppDemo|Demo|

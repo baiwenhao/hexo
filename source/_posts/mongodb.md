@@ -34,7 +34,7 @@ use admin
 db.shutdownServer()
 db.shutdownServer({force : true})
 
-## shell命令
+## 命令
 use wenhao 创建库wenhao
 db.user  数据集合
 db.user.find() 查询全部数据，参数{age:32查询结果
@@ -46,6 +46,7 @@ db.user.save({name:'baiwenhao','age':32})  保存数据
 db.user.save({_id:ObjectId("56ff85bff6927e15cd2c4f7f"),name:"haoke","age":40}) 更新一条数据
 db.user.update({_id:ObjectId("56ff85bff6927e15cd2c4f7f")},{age:200}) 更新一个属性,此条数据其他属性也没了
 db.user.update({_id:ObjectId("56ff85bff6927e15cd2c4f7f")},{$set:{name:'haoke'}})
+db.user.find({ $or: [{id: '1'}] }).toArray()
 db.nav.find().count() 查看多少条数据
 db.user.remove({name:"boss”}) 删除一条数据
 db.user.drop() 清除一个表
