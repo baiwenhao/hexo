@@ -5,55 +5,20 @@ abbrlink: f8e09374
 date: 2017-02-07 15:06:10
 ---
 
-https://github.com/lzxb/vue2-demo/blob/master/docs/2.md
-//  未完待续
-https://vuefe.cn/v2/guide/forms.html#在组件中使用-v-model
-## vue
-````
-events: {targetParentEvent() {}}
-this.$dispatch('targetParentEvent', params)
+vue已更新到2.4.1，于是乎从新撸一遍新文档
 
-:value.sync="status" :disabled="disabled"
+1 异步更新队列
+Vue 在内部尝试对异步队列使用原生的 Promise.then 和 MutationObserver
 
-不加跨域xhr会发起options请求
-Vue.http.options.headers={
-  'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
-}
-
-post的时候会把JSON对象转成formdata
-Vue.http.options.emulateJSON = true
-
-// vue-resource
-['finally'](function() {
-  self.loading = false;
-})
-complete失败成功都会调用
-finally 最后
-
-// vue-router
-this.$router.go({name:'', query:{}})
-this.$route.query.name
-```
-
-## vue2
-vuex.esm.js?edaa:336 [vuex] unknown action type: searchItem
-说明你的 actions 没有 searchItem 方法
+## error
 
 ```js
-// 模板 表达式
-<span v-once>发生变动list不会发生变化: {{ list }}</span>
-{{ ok ? 'YES' : 'NO' }}
-<div v-if="type === 'A'">A</div>
-<div v-else-if="type === 'B'">B</div>
-<div v-else-if="type === 'C'">C</div>
+vuex.esm.js?edaa:336 [vuex] unknown action type: searchItem
+// 说明你的 actions层 没有 searchItem 方法
+```
 
-// 修饰符
-<!-- 在 "change" 而不是 "input" 事件中更新 -->
-<input v-model.lazy="msg" >
-<input v-model.trim="msg">
-<input v-model.number="age" type="number">
-
-// 过滤关键字 存储的时候记得存原始对象
+## filter
+```js
 Vue.filter('hightKey', function(key, word) {
   const r = eval("/" + word + "/gi")
   key.replace(r, function(code) {
@@ -128,11 +93,17 @@ actions 触发的动作事件，不建议放到对应组件内部触发，如果
 
 参考
 https://github.com/lzxb/vue2-demo 登录注册
+https://github.com/lzxb/vue2-demo/blob/master/docs/2.md
+//  未完待续
+https://vuefe.cn/v2/guide/forms.html#在组件中使用-v-model
 
 
 
-
-
+// 修饰符
+<!-- 在 "change" 而不是 "input" 事件中更新 -->
+<input v-model.lazy="msg" >
+<input v-model.trim="msg">
+<input v-model.number="age" type="number">
 
 
 
