@@ -66,8 +66,9 @@ const hotMiddleware = webpackHotMiddleware(compiler, {
 app.use(hotMiddleware)
 ```
 
-## proxy
+## proxy ？
 const httpProxyMiddleware = require('http-proxy-middleware')
 
+##
 
 https://github.com/eyasliu/blog/issues/8

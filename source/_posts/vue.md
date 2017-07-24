@@ -128,7 +128,7 @@ actions 触发的动作事件，不建议放到对应组件内部触发，如果
 
 参考
 https://github.com/lzxb/vue2-demo 登录注册
-
+https://github.com/opendigg/awesome-github-vue/blob/master/README.md // resource
 
 
 

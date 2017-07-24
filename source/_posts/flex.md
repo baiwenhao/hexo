@@ -6,19 +6,24 @@ date: 2017-02-16 18:07:13
 ---
 
 ## 容器属性
-### flex-direction
-```
-row | row-reverse | column | column-reverse 主轴的方向
+
+flex-direction 决定主轴的方向
+```js
+row | row-reverse | column | column-reverse
 ```
 
-### flex-wrap
+flex-wrap 轴线
 ```
-nowrap | wrap | wrap-reverse 轴线
+nowrap | wrap | wrap-reverse 不换行，第一行在上，第一行在下
 ```
 
-### justify-content
+flex-flow 是 flex-direction 和 flex-wrap 的简写形式
 ```
-主轴对齐方式
+flex-flow: <flex-direction> || <flex-wrap>;
+```
+
+justify-content 主轴对齐方式
+```
 flex-start 偏左 默认
 flex-end 偏右
 center 居中
@@ -26,7 +31,7 @@ space-between 左右对齐 item居中
 space-around 每个item两端间隔相等
 ```
 
-### align-items
+align-items
 ```
 交叉轴(垂直)上如何对齐
 flex-start：交叉轴的起点对齐。
