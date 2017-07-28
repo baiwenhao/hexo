@@ -31,9 +31,8 @@ space-between 左右对齐 item居中
 space-around 每个item两端间隔相等
 ```
 
-align-items
+align-items交叉轴(垂直)上如何对齐
 ```
-交叉轴(垂直)上如何对齐
 flex-start：交叉轴的起点对齐。
 flex-end：交叉轴的终点对齐。
 center：交叉轴的中点对齐。
@@ -42,7 +41,7 @@ stretch（默认值）：如果项目未设置高度或设为auto，将占满整
 表示item在cross axis上的对齐方式,基于cross axis的顶部｜基于cross axis的底部｜基于cross axis的中部｜布满整个
 ```
 
-### align-content
+align-content
 ```
 多根轴线的对齐方式
 flex-start：与交叉轴的起点对齐。
