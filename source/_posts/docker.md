@@ -11,3 +11,6 @@ docker info
 docker images
 docker ps
 docker version
+
+## 安装mongodb
+docker search mongo
