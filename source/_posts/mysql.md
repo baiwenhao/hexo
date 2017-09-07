@@ -155,7 +155,53 @@ end()方法提供一个回调方法，以便在所有连接关闭时进行一些
 关闭连接池前所有队列中的查询任然会执行完成，所以每次关闭的时间都不一样。
 一旦end()方法被调用了，getConnection和其他一些获取连接池中连接的方法不会再被执行
 
+## 模糊查询
+SELECT * FROM iw_static_project WHERE name LIKE "%app%"
 
+## 获取时间加日期
+select now()
+select current_timestamp()
+select localtime()
+select localtimestamp()
+
+// now() 在执行开始时值就得到了， sysdate() 在函数执行时动态得到值
+select sysdate()
+
+// 获取日期
+select curdate()
+
+// 获得当前时间
+select curtime()
+
+// 因为我国位于东八时区，所以本地时间 = UTC 时间 + 8 小时。UTC 时间在业务涉及多个国家和地区的时候，非常有用。
+utc_date(), utc_time(), utc_timestamp()
+
+// 时间戳 Timestamp 函数
+current_timestamp, current_timestamp()
+
+// Unix 转换函数
+unix_timestamp() // 将具体时间来转换成timestamp
+unix_timestamp(1218290027)
+from_unixtime('2008-08-08 12:30:00') // 将timestamp来转换成具体时间
+from_unixtime(1218169800, '%Y %D %M %h:%i:%s %x')
+
+// 时间戳（timestamp）转换、增、减函数
+timestamp(date)                                     -- date to timestamp
+timestamp(dt,time)                                  -- dt + time
+timestampadd(unit,interval,datetime_expr)           --
+timestampdiff(unit,datetime_expr1,datetime_expr2)   --
+请看示例部分：
+select timestamp('2008-08-08');                         -- 2008-08-08 00:00:00
+select timestamp('2008-08-08 08:00:00', '01:01:01');    -- 2008-08-08 09:01:01
+select timestamp('2008-08-08 08:00:00', '10 01:01:01'); -- 2008-08-18 09:01:01
+select timestampadd(day, 1, '2008-08-08 08:00:00');     -- 2008-08-09 08:00:00
+select date_add('2008-08-08 08:00:00', interval 1 day); -- 2008-08-09 08:00:00
+MySQL timestampadd() 函数类似于 date_add()。
+select timestampdiff(year,'2002-05-01','2001-01-01');                    -- -1
+select timestampdiff(day ,'2002-05-01','2001-01-01');                    -- -485
+select timestampdiff(hour,'2008-08-08 12:00:00','2008-08-08 00:00:00'); -- -12
+select datediff('2008-08-08 12:00:00', '2008-08-01 00:00:00');           -- 7
+MySQL timestampdiff() 函数就比 datediff() 功能强多了，datediff() 只能计算两个日期（date）之间相差的天数。
 
 
 

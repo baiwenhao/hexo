@@ -74,6 +74,9 @@ tar -zxvf mongodb-linux-x86_64-2.6.4.tgz -C /usr/src
 ```
 ```
 
+查询多个id
+const items = await ctx.mongo.db(conf.mongodb.db).collection(item).find({ $or: [{id: 1}] }).toArray()
+
 centos
 https://www.globo.tech/learning-center/install-nodejs-run-node-applications-centos-7/
 http://stackoverflow.com/questions/23615377/monk-vs-mongoose-for-mongodb

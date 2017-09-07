@@ -5,8 +5,6 @@ abbrlink: f8e09374
 date: 2017-02-07 15:06:10
 ---
 
-vue已更新到2.4.1，于是乎从新撸一遍新文档
-
 1 异步更新队列
 Vue 在内部尝试对异步队列使用原生的 Promise.then 和 MutationObserver
 
@@ -91,6 +89,53 @@ actions 触发的动作事件，不建议放到对应组件内部触发，如果
 
 ```
 
+## 条件渲染
+```js
+<div v-if="type === 'A'">
+  A
+</div>
+<div v-else-if="type === 'B'">
+  B
+</div>
+<div v-else-if="type === 'C'">
+  C
+</div>
+<div v-else>
+  Not A/B/C
+</div>
+
+// v-if 有更高的切换开销，而 v-show 有更高的初始渲染开销。因此，如果需要非常频繁地切换，则使用 v-show 较好；如果在运行时条件不太可能改变，则使用 v-if 较好
+
+v-for="(value, key, index) in object"
+v-for="item of items"
+
+v-bind:key="item.id" // 组件内部key是必须的
+```
+
+## 修饰符
+```js
+<form v-on:submit.prevent="onSubmit"></form> // 会在 submit 调用 event.preventDefault()
+v-on:keyup.enter
+```
+
+## 计算setter
+```js
+computed: {
+  fullName: {
+    // getter
+    get: function () {
+      return this.firstName + ' ' + this.lastName
+    },
+    // setter
+    set: function (newValue) {
+      var names = newValue.split(' ')
+      this.firstName = names[0]
+      this.lastName = names[names.length - 1]
+    }
+  }
+}
+```
+
 参考
 https://github.com/lzxb/vue2-demo 登录注册
 https://github.com/opendigg/awesome-github-vue/blob/master/README.md // resource
@@ -98,7 +143,7 @@ https://github.com/lzxb/vue2-demo/blob/master/docs/2.md
 //  未完待续
 https://vuefe.cn/v2/guide/forms.html#在组件中使用-v-model
 
-// 修饰符
+
 <!-- 在 "change" 而不是 "input" 事件中更新 -->
 <input v-model.lazy="msg" >
 <input v-model.trim="msg">

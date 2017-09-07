@@ -33,7 +33,7 @@ let b = a.filter((v) => v > 10) filter返回大于10的新数组
 A.every((v) => v > 10) 全部数字大于10,返回true,有一个不满足就返回false
 A.some((v) => v > 10) 有一个数字大于10就返回true
 A.map(function(elem) { return '1' })
-
+A.filter
 
 
 
@@ -123,5 +123,16 @@ Array.prototype.map.call('foo', (v) => { return v.toUpperCase() + '.' }).join(''
 // reverse 无法用call挂到字符串对象上执行
 a.split('').reverse().join('')
 
+// 数组去重
+Array.prototype.unique = function(){
+  this.sort()
+  var re=[this[0]]
+  for(var i = 1; i < this.length; i++){
+    if( this[i] !== re[re.length-1]){
+      re.push(this[i])
+    }
+  }
+  return re
+}
 
 ```

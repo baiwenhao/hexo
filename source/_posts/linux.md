@@ -151,3 +151,15 @@ Port YOUR_PORT
 安装nvm 后激活  . ~/.nvm/nvm.sh
 
 </pre>
+
+## yarn
+
+yran add 添加模块
+yarn bin
+yarn ls
+yarn remove
+
+命令
+https://yarnpkg.com/en/docs/cli/add
+安装
+https://github.com/yarnpkg/yarn/issues/1139

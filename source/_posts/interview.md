@@ -414,32 +414,10 @@ console.log('今天是星期' + key[date.getDay()])
 
 ## fastClick
 http://www.cnblogs.com/vajoy/p/5522114.html
-
-
-## url
-
-
-
-
-
-## Math
-```js
-var = insertSort function (arr) {
-  for (var i = 1; i < arr.length; i++) {
-    const tmp = parseInt(arr[i].type);
-    const obj = arr[i];
-    for (var j = i; j > 0 && parseInt(arr[j - 1].type) > tmp; j--) {
-      arr[j] = arr[j - 1];
-    }
-    arr[j] = obj;
-  }
-  return arr;
-}
-```
-
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/pow
 https://gist.github.com/allenm/5e22379cb8055f4402bcd417f682ae8f //dingding
 
+## xss 攻击
 
 
 面试题
