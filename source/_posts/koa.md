@@ -10,7 +10,12 @@ tags:
 
 ## app.js
 
-var cors = require('koa-cors'); // 跨域
+const cors = require('koa-cors'); // 跨域
+const mount = require('koa-mount')
+const serve = require('koa-static')
+
+app.use(mount('/assets', serve(path.join(__dirname, '../assets'))))
+app.use(mount('/dist', serve(path.join(__dirname, '../dist'))))
 
 ##### 参考资料
 https://github.com/guo-yu/koa-guide

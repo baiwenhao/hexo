@@ -69,6 +69,8 @@ app.use(hotMiddleware)
 ## proxy ？
 const httpProxyMiddleware = require('http-proxy-middleware')
 
+
+https://github.com/Klathmon/imagemin-webpack-plugin // 压缩图片
 ##
 
 https://github.com/eyasliu/blog/issues/8

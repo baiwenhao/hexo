@@ -30,7 +30,9 @@ path.normalize('/foo/bar//baz/asdf/quux/..')
 
 path.resolve(__dirname, '../../')
 
-参考: http://wiki.jikexueyuan.com/project/nodejs/path.html
+参考:
+http://wiki.jikexueyuan.com/project/nodejs/path.html
+http://www.jianshu.com/p/d2c96d295d48
 
 ## url
 url.parse()

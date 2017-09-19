@@ -15,6 +15,7 @@ brew cleanup 清理
 brew info nginx 依赖
 
 2. 目录
+ubuntu /ets/nginx/
 /usr/local/etc/nginx/nginx.conf
 /usr/local/Cellar/nginx/1.8.0/html
 

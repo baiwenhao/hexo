@@ -22,27 +22,33 @@ flex-flow 是 flex-direction 和 flex-wrap 的简写形式
 flex-flow: <flex-direction> || <flex-wrap>;
 ```
 
-justify-content 主轴对齐方式
-```
-flex-start 偏左 默认
-flex-end 偏右
-center 居中
-space-between 左右对齐 item居中
-space-around 每个item两端间隔相等
-```
-
-align-items交叉轴(垂直)上如何对齐
-```
-flex-start：交叉轴的起点对齐。
-flex-end：交叉轴的终点对齐。
-center：交叉轴的中点对齐。
-baseline: 项目的第一行文字的基线对齐。
-stretch（默认值）：如果项目未设置高度或设为auto，将占满整个容器的高度。
-表示item在cross axis上的对齐方式,基于cross axis的顶部｜基于cross axis的底部｜基于cross axis的中部｜布满整个
+```css
+/*  水平方向 */
+justify-content : flex-start 偏左 默认
+justify-content : flex-end 偏右
+justify-content : center 居中
+justify-content : space-between 左右对齐 item居中
+justify-content : space-around 每个item两端间隔相等
 ```
 
-align-content
+```css
+/* 垂直方向 */
+align-items : flex-start; /* 交叉轴的起点对齐 */
+align-items : flex-end; /* 交叉轴的终点对齐 */
+align-items : center; /* 交叉轴的中点对齐 */
+align-items : baseline; /* 项目的第一行文字的基线对齐 */
+align-items : stretch（默认值）/* 如果项目未设置高度或设为auto，将占满整个容器的高度 */
+/*
+  表示item在cross axis上的对齐方式,基于cross axis的顶部
+  ｜基于cross axis的底部
+  ｜基于cross axis的中部
+  ｜布满整个
+*/
 ```
+
+
+```
+to do
 多根轴线的对齐方式
 flex-start：与交叉轴的起点对齐。
 flex-end：与交叉轴的终点对齐。
@@ -52,46 +58,34 @@ space-around：每根轴线两侧的间隔都相等。所以，轴线之间的�
 stretch（默认值）：轴线占满整个交叉轴。
 ```
 
-### flex-flow
+flex-flow
 ```
 属性是flex-direction属性和flex-wrap属性的简写形式，默认值为row nowrap
 ```
 
-## 项目属性
+## 子容器属性
 
-### order
-```
-1111
-```
-
-### flex-grow
-```
-1111
+```css
+flex-grow  : 0; /* 索取剩余空间 */
+flex-shrink: 1; /* 压缩比例 */
+flex-basis : 0; /*  替代width */
+flex: 0 1 0;
 ```
 
-### flex-shrink
-```
-2222
-```
+1、剩余空间＝父容器空间－子容器1.flex-basis/width - 子容器2.flex-basis/width
+2、超出父容器，就走压缩 flex-shrink，否则走flex-grow
+3、容器在任何时候都不被压缩f lex-shrink: 0
+4、子容器flex-basis 为 0, 那么计算剩余空间的时候将不会为子容器预留空间
+5、子容器flex-basis 为 auto, 那么计算剩余空间的时候将会根据子容器内容的多少来预留空间
 
-### flex-basis
-```
-222
-```
-
-### flex
-```
-222
-```
-
-### align-self
+ align-self
 ```
 flex-start | flex-end | center | stretch
 它允许项目中当个item和其他itemsyou不一样的对齐方式，会覆盖alignitems的属性
 ```
 
-#### 参考地址 https://css-tricks.com/snippets/css/a-guide-to-flexbox/
-### https://github.com/baiwenhao/flex.git
+参考地址 https://css-tricks.com/snippets/css/a-guide-to-flexbox/
+https://github.com/baiwenhao/flex.git
 
 
 http://zh.learnlayout.com/flexbox.html

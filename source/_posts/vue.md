@@ -150,4 +150,29 @@ https://vuefe.cn/v2/guide/forms.html#在组件中使用-v-model
 <input v-model.number="age" type="number">
 
 
+## Transition Classes
 
+```js
+v-enter 插入元素之前添加,插入完成之后移除
+v-enter-active 插入元素之前添加,动画结束之后移除
+v-enter-to 插入元素之后添加,(移除v-enter),动画结束之后移除
+
+v-leave 触发离开式过渡时添加,一帧之后移除
+v-leave-active 触发离开式过渡时添加,动画完成之后移除
+v-leave-to 离开式过渡的结束状态,在触发离开式过渡之后一帧添加,同时,移除 v-leave,在过渡/动画完成之后移除
+
+v-enter-active 和 v-leave-active 可以指定不同的进入/离开过渡 easing 曲线
+
+/* 进入和离开动画可以分别 */
+/* 设置不同的持续时间(duration)和动画函数(timing function) */
+.slide-fade-enter-active {
+  transition: all .3s ease;
+}
+.slide-fade-leave-active {
+  transition: all .8s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+}
+.slide-fade-enter, .slide-fade-leave-to {
+  transform: translateX(10px);
+  opacity: 0;
+}
+```
