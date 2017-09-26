@@ -176,3 +176,19 @@ v-enter-active 和 v-leave-active 可以指定不同的进入/离开过渡 easin
   opacity: 0;
 }
 ```
+
+## 生命周期
+beforeCreate 初始化前
+created 初始化后
+
+beforeMount 挂载前
+mounted 挂载后
+
+beforeUpdate 数据更新前
+updated 数据更新后
+
+activated keep-alive 组件激活时调用
+deactivated keep-alive 组件停用时调用
+
+beforeDestroy 实例销毁前
+destroyed 实例销毁后

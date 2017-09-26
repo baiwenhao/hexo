@@ -5,7 +5,7 @@ date: 2017-02-06 18:32:09
 ---
 
 ##### window
-```
+```js
 body滚动事件: scroll
 打开页面时：只执行onload
 关闭页面时：先onbeforeunload,后onunload
@@ -31,7 +31,7 @@ oninput onpropertychange监听输入框实时变化
 ```
 
 ## 事件源
-```
+```js
 e.stopImmediatePropagation()  阻止当前节点和后续节点事件监听
 e.stopPropagation()  阻止冒泡FF，阻止后续节点事件监听
 e.cancelBubble = true 阻止冒泡IE
@@ -57,7 +57,7 @@ el.addEventListener('click', fn, true)
 ```
 
 ## 滑轮事件
-```
+```js
 mouosewheel 绑定事件后event对象就有e.wheelDelta值,上滚正数下滚负数
 DOMMouseScroll 同上FF
 
@@ -66,7 +66,7 @@ window.print() | mail:bwh2009@qq.com
 ```
 
 ## 鼠标事件
-`````
+```js
 mouseover
 mousemove-设置preventDefault会阻止滚动
 mousedown
@@ -93,6 +93,7 @@ e.button 鼠标左中右012
 document.oncontextmenu = block // 右键菜单事件
 input.on (input propertychange) // FF IE 值发生变化出发
 ```
+
 
 ## 事件绑定
 ```
@@ -125,10 +126,12 @@ window.onmousewheel=document.onmousewheel=scrollFunc;//IE/Opera/Chrome/Safari
 ```
 
 ## 获取各种属性
+```js
 el.getBoundingClientRect()
+```
 
 ## 移动端事件
-```
+```js
 touchstart——触屏时候发生
 touchmove——滑动时连续触发,event的preventDefault()阻止默认情况的发生：阻止页面滚动
 touchend——手指离开屏幕时触发
@@ -150,7 +153,7 @@ MSPointerUp——当手指离开屏幕时触发
 ```
 
 ##### 移动端click事件产生200s-300s延迟响应
-```
+```js
 说明：移动设备上的web网页是有300ms延迟的，玩玩会造成按钮点击延迟甚至是点击失效。
 2007年苹果发布首款iphone上IOS系统搭载的safari为了将适用于PC端上大屏幕的网页能展示在手机上，使用了双击缩放的方案，
 比如你在手机上打开PC网页，页面可以撑满整个屏幕，但是字体、图片都很小看不清，此时可以快速双击屏幕上的某一部分，你就能看清该部分放大后的内容，再次双击后能回到原始状态。
@@ -163,7 +166,7 @@ zepto的touch模块，tap事件也是为了解决在click的延迟问题
 ```
 
 ## 屏幕旋转事件
-```
+```js
 //JS处理
 function orientInit(){
     var orientChk = document.documentElement.clientWidth > document.documentElement.clientHeight?'landscape':'portrait';
@@ -218,5 +221,43 @@ DOMSubtreeModified
 DOMSubtreeModified
 DOMNodeInserted
 DOMNodeInsertedIntoDocument
-
 ```
+
+## 文件API
+用于将文件读入内存，并读取文件中的数据
+
+```js
+const reader = new FileReader() // 该接口总共有四个方法和六个事件：
+readAsBinaryString(file) // 读取文件为二进制
+readAsDataURL(file) // 读取文件DataURL
+readAsText(file,[encoding]) // 读取文件为文本
+about(none) // 中断文件读取
+
+onabort // 读取文件中断时触发
+onerror // 读取文件出错时触发
+onloadstart // 读取文件开始时触发
+onprogress // 读取文件中时一直触发
+onload // 读取文件成功时触发
+onloadend // 读取文件结束时触发（成功和失败都会触发）
+
+以上事件参数e有e.target.result或this.result指向读取的结果
+```
+
+## 拖拽事件
+拖放属性：将需要拖放的元素的dragable属性设置为true（dragable=”true”）!img元素和a元素默认可以拖放
+但是！需要注意的是：在目标元素中dragover和drop事件中要阻止默认行为（拒绝被拖放），否则拖放不能被实现！
+```js
+// 拖放元素事件
+dragstart // 拖拽前触发
+drag // 拖拽前、拖拽结束之间，连续触发
+dragend // 拖拽结束触发
+
+// 目标元素事件
+dragenter // 当拖拽元素进入放置区域时由放置元素触发的事件
+dragover // 当拖拽元素进入放置区域时由放置元素频繁触发的事件(每隔几百毫秒就会触发一次)
+dragleave // 当拖拽元素离开放置区域时由放置元素触发的事件
+drop // 当拖拽元素在放置区域放置时由放置元素触发的事件
+```
+DataTransfer对象：专门用于存放拖放时要携带的数据，可以被设置为拖放事件的dataTransfer属性
+
+https://www.teakki.com/p/590be42c52005baa30324b0c
