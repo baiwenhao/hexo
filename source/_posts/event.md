@@ -257,7 +257,9 @@ dragenter // 当拖拽元素进入放置区域时由放置元素触发的事件
 dragover // 当拖拽元素进入放置区域时由放置元素频繁触发的事件(每隔几百毫秒就会触发一次)
 dragleave // 当拖拽元素离开放置区域时由放置元素触发的事件
 drop // 当拖拽元素在放置区域放置时由放置元素触发的事件
+
+// DataTransfer对象：专门用于存放拖放时要携带的数据，可以被设置为拖放事件的dataTransfer属性
 ```
-DataTransfer对象：专门用于存放拖放时要携带的数据，可以被设置为拖放事件的dataTransfer属性
+
 
 https://www.teakki.com/p/590be42c52005baa30324b0c
