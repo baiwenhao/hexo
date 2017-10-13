@@ -192,3 +192,26 @@ deactivated keep-alive 组件停用时调用
 
 beforeDestroy 实例销毁前
 destroyed 实例销毁后
+
+## vue-router
+最新版本 <a target="_blank" href="https://unpkg.com/vue-router/dist/vue-router.js">vue-router</a>
+匹配引擎 <a target="_blank" href="https://github.com/pillarjs/path-to-regexp">path-to-regexp </a>
+
+```js
+const userId = 123
+router.push({ name: 'user', params: { userId }}) // -> /user/123
+router.push({ path: `/user/${userId}` }) // -> /user/123
+// This will NOT work
+router.push({ path: '/user', params: { userId }}) // -> /user
+// 提供了path,params会被忽略
+
+// 命名路由
+<router-link :to="{ name: 'user', params: { userId: 123 }}">User</router-link>
+
+
+```
+
+## 匹配
+| Article | Article |
+|:-------------:|:-------------:| :-------------:| :-------------:| -----:|
+|[CSS 语法参考](http://tympanus.net/codrops/css_reference)|[CSS3动画手册](http://isux.tencent.com/css3/index.html)|
