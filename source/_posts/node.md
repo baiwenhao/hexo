@@ -19,9 +19,10 @@ date: 2017-02-07 15:01:31
 .createReadStream(zip) 读取文件
 .unlink('bb.txt', callback) 删除文件,必须判断存在existsSync
 .rename(old, new, callback) 移动并修改名字
-<!-- .createWriteStream(fileName) -->
+.createWriteStream(fileName) // ?
 
 ## path
+```js
 path.join('/foo', 'bar', 'baz/asdf', 'quux', '..')
 '/foo/bar/baz/asdf'
 
@@ -29,6 +30,7 @@ path.normalize('/foo/bar//baz/asdf/quux/..')
 '/foo/bar/baz/asdf'
 
 path.resolve(__dirname, '../../')
+```
 
 参考:
 http://wiki.jikexueyuan.com/project/nodejs/path.html
@@ -131,5 +133,77 @@ console.log("文件的MD5是：%s", md5)
 ```
 
 Hash类除可以计算文件MD5值外，还可用于计算文件的'sha1'、'sha256'、'sha512'等值，使用时修改crypto.createHash('md5')方法的传入参数即可
-
 // https://itbilu.com/nodejs/npm/Nk-6MeQ9.html
+
+## pm2
+http://pm2.keymetrics.io/
+启动参数
+--watch 监听变化自动重启
+-i --instances 启动多少个实例，用于负载均衡
+-n --name 应用名称
+-o --output <path> 标准输出日志文件的路径。
+-e --error <path> 错误输出日志文件的路径
+
+重启
+pm2 restart appjs
+
+停止
+pm2 stop app_name | app_id
+
+查看进程配置信息
+pm2 describe 0
+
+配置信息
+{
+  "name"        : "fis-receiver",  // 应用名称
+  "script"      : "./bin/www",  // 实际启动脚本
+  "cwd"         : "./",  // 当前工作路径
+  "watch": [  // 监控变化的目录，一旦变化，自动重启
+    "bin",
+    "routers"
+  ],
+  "ignore_watch" : [  // 从监控目录中排除
+    "node_modules",
+    "logs",
+    "public"
+  ],
+  "watch_options": {
+    "followSymlinks": false
+  },
+  "error_file" : "./logs/app-err.log",  // 错误日志路径
+  "out_file"   : "./logs/app-out.log",  // 普通日志路径
+  "env": {
+      "NODE_ENV": "production"  // 环境参数，当前指定为生产环境
+  }
+}
+
+环境配置
+"env": {
+  "NODE_ENV": "production",
+  "REMOTE_ADDR": "http://www.example.com/"
+},
+"env_dev": {
+  "NODE_ENV": "development",
+  "REMOTE_ADDR": "http://wdev.example.com/"
+},
+"env_test": {
+  "NODE_ENV": "test",
+  "REMOTE_ADDR": "http://wtest.example.com/"
+}
+
+启动指明环境
+pm2 start app.js --env dev
+
+监控
+pm2 monit
+
+内存使用超过上限自动重启
+pm2 start app.js --max-memory-restart 20M
+
+pm2编程接口
+http://pm2.keymetrics.io/docs/usage/pm2-api/
+
+参考
+http://www.cnblogs.com/chyingp/p/pm2-documentation.html
+
+

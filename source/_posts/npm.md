@@ -4,16 +4,6 @@ abbrlink: 99791dcb
 date: 2017-02-07 11:19:11
 ---
 
-sudo npm cache clean -f清除缓存
-npm list #列出已安装模块
-npm install -g gulp安装
-npm install --save-dev gulp下载插件
-npm uninstall gulp #卸载指定模块
-npm update #升级当前目录下所有模块
-npm update gulp #更新gulp模块
-npm update -g express #升级全局安装的express模块 
-npm i -S antd 升级
-
 全局包的安装目录
 /usr/local/lib/node_modules   不在此目录
 
@@ -69,26 +59,19 @@ npm config set registry http://registry.npm.taobao.org/
 npm config set proxy http://proxy.com:8081/
 
 发布包
+```
 站在使用者的角度，掌握上述章节的内容已经足够了，但当我们开发出好玩的项目而且又想和大家分享时，那么下面的内容就不得不了解了！
-1. 注册一个registry帐号， npm adduser ，然后根据引导输入帐号、密码和邮箱地址。
-2. 登录registry帐号， npm login ，登录信息会保存在客户端。
-3. 发布项目， npm publish 。（建议发布版本从1.0.0开始）
+  1. 注册一个registry帐号， npm adduser ，然后根据引导输入帐号、密码和邮箱地址。
+  2. 登录registry帐号， npm login ，登录信息会保存在客户端。
+  3. 发布项目， npm publish 。（建议发布版本从1.0.0开始）
 
 经过上述步骤我们就可发布模块了。但这个时候你也许会考虑到项目中部分目录和文件不应该被发布出去，应该有一个像.gitignore的文件来配置这些排除项。看来你猜对了，那就是.npmignore文件，不过npm做得更灵活一些！
   
-1. 默认不带.npmignore文件，若项目中带.gitignore则使用.gitignore文件内容的配置项
-2. 若带.npmignore文件则不使用.gitignore文件中的配置项
-3. 即使配置.npmignore文件，也无法排除package.json和README.*文件
-
-切换npm源
-临时使用
-  npm --registry https://registry.npm.taobao.org install express
-  npm —registry https://registry.npmjs.org/ install ndoe-sass
-永久使用
-  npm config set registry https://registry.npm.taobao.org
-  npm config get registry// 验证
-  npm config delete registry 删除淘宝源 
+  1. 默认不带.npmignore文件，若项目中带.gitignore则使用.gitignore文件内容的配置项
+  2. 若带.npmignore文件则不使用.gitignore文件中的配置项
+  3. 即使配置.npmignore文件，也无法排除package.json和README.*文件
+```
 
 路径
   /usr/local/n/versions/node/5.5.0
-  nrm 切换npm的源
+
