@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "hexo": {
-    "version": "3.2.2"
+    "version": "3.4.1"
   },
   "scripts": {
     "gstyle": "cd themes && git clone https://github.com/baiwenhao/gstyle.git",
@@ -11,7 +11,7 @@
     "upload": "hexo clean && hexo deploy"
   },
   "dependencies": {
-    "hexo": "^3.2.0",
+    "hexo": "^3.4.1",
     "hexo-abbrlink": "^2.0.4",
     "hexo-asset-image": "git+https://github.com/CodeFalling/hexo-asset-image.git",
     "hexo-deployer-git": "^0.2.0",
