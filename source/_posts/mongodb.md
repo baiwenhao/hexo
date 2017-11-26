@@ -35,6 +35,7 @@ db.shutdownServer()
 db.shutdownServer({force : true})
 
 ## 命令
+
 use wenhao 创建库wenhao
 db.user  数据集合
 db.user.find() 查询全部数据，参数{age:32查询结果
@@ -53,7 +54,10 @@ db.user.drop() 清除一个表
 db.dropDatabase() 清除一个库
 db.shutdownServer() 关闭数据库
 
+
+
 ## 索引
+
 数据量很大时，查询使用索引可大幅度提高效率
 1.db.imooc_collection.getIndexes() #查看集合的索引情况，初始情况下有_id一个索引
 2.db.imooc_collection.ensureIndex({x:1}) #创建x字段索引，+1为升序，-1为降序，这里的1不再代表值
@@ -70,10 +74,10 @@ https://www.globo.tech/learning-center/?s=mongodb
 wget http://fastdl.mongodb.org/linux/mongodb-linux-x86_64-2.6.4.tgz
 tar -zxvf mongodb-linux-x86_64-2.6.4.tgz -C /usr/src
 
-## sql语句
-```
-```
+## 客户端
+https://robomongo.org/download
 
+## sql
 查询多个id
 const items = await ctx.mongo.db(conf.mongodb.db).collection(item).find({ $or: [{id: 1}] }).toArray()
 
