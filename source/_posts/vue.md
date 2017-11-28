@@ -215,3 +215,116 @@ router.push({ path: '/user', params: { userId }}) // -> /user
 | Article | Article |
 |:-------------:|:-------------:| :-------------:| :-------------:| -----:|
 |[CSS 语法参考](http://tympanus.net/codrops/css_reference)|[CSS3动画手册](http://isux.tencent.com/css3/index.html)|
+
+
+## vuex
+store容器，保存着程序中大部分的状态，组件从store中读取state，如果state在store中发生变化，相应的组件也会得到更新
+
+```js
+const store = new vuex.Store({
+  state: {
+    count: 0
+  },
+  getters：{
+    evenOrOdd: state => state.count % 2 === 0 ? 'even' : 'odd'
+  },
+  actions: {
+    incrementAsync ({ commit, state }) {
+      return new Promise((resolve, reject) => {
+        setTimeout(() => {
+          commit('increment')
+          resolve()
+        }, 1000)
+      })
+    }
+  },
+  mutations: {
+    increment (state) {
+      state.count += 1
+    }
+  }
+})
+
+store.commit('increment', { amount: 10 })
+store.commit({ type: 'increment', amount: 10 }) // handler 函数仍然保持不变
+store.dispatch('incrementAsync', { amount: 10 })
+store.dispatch({ type: 'incrementAsync', amount: 10 })
+
+```
+
+### mapState
+辅助函数帮助我们生成计算属性
+```
+// 
+computed: mapState({
+  // 箭头函数可使代码更简练
+  count: state => state.count,
+
+  // 传字符串参数 'count' 等同于 `state => state.count`
+  countAlias: 'count',
+
+  // 为了能够使用 `this` 获取局部状态，必须使用常规函数
+  countPlusLocalState (state) {
+    return state.count + this.localCount
+  }
+})
+
+```
+
+### mapGetters
+从 store 中的 state 中派生出一些状态, 如对列表进行过滤并计数
+```js
+getters: {
+  doneTodos: (state, getter) => {
+    return state.todos.filter(todo => todo.done)
+  }
+}
+
+store.getters.doneTodos
+
+computed: {
+// 使用对象展开运算符将 getter 混入 computed 对象中
+  ...mapGetters([
+    'doneTodosCount',
+    'anotherGetter',
+    // ...
+  ])
+}
+
+```
+
+### mapMutations 
+辅助函数将组件中的 methods 映射为 store.commit
+```js
+methods: {
+  ...mapMutations([
+    'increment', // 将 `this.increment()` 映射为 `this.$store.commit('increment')`
+
+    // `mapMutations` 也支持载荷：
+    'incrementBy' // 将 `this.incrementBy(amount)` 映射为 `this.$store.commit('incrementBy', amount)`
+  ]),
+  ...mapMutations({
+    add: 'increment' // 将 `this.add()` 映射为 `this.$store.commit('increment')`
+  })
+}
+```
+
+### mapActions 
+```js
+methods: {
+  ...mapActions([
+    'increment', // 将 `this.increment()` 映射为 `this.$store.dispatch('increment')`
+
+    // `mapActions` 也支持载荷：
+    'incrementBy' // 将 `this.incrementBy(amount)` 映射为 `this.$store.dispatch('incrementBy', amount)`
+  ]),
+  ...mapActions({
+    add: 'increment' // 将 `this.add()` 映射为 `this.$store.dispatch('increment')`
+  })
+}
+```
+
+
+### module
+
+
