@@ -1,9 +1,10 @@
 ---
-title: npm
+title: npm and yarn
 abbrlink: 99791dcb
 date: 2017-02-07 11:19:11
 ---
 
+## npm
 全局包的安装目录
 /usr/local/lib/node_modules   不在此目录
 
@@ -74,4 +75,26 @@ npm config set proxy http://proxy.com:8081/
 
 路径
   /usr/local/n/versions/node/5.5.0
+
+## ubuntu
+```
+修改/etc/ssh/sshd_config，在Port 22下添加你的端口
+Port 22
+Port YOUR_PORT
+
+修改/etc/ssh/ssh_config，在Host *下添加你的端口
+Host *
+Port 22
+Port YOUR_PORT
+安装nvm 后激活  // . ~/.nvm/nvm.sh
+```
+
+## yarn
+yran add -D
+yran add -S
+yarn bin
+yarn ls
+yarn remove
+
+
 

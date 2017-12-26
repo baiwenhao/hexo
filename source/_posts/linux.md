@@ -136,28 +136,9 @@ kcptun-darwin-amd64-20170117.tar.gz
 ./client_darwin_amd64 -r "104.224.160.141:17899" -l ":8388" -mode fast2 -crypt none
 飞机设置
 127.0.0.1:8388
+
 ```
 
-## ubuntu
-修改/etc/ssh/sshd_config，在Port 22下添加你的端口
-Port 22
-Port YOUR_PORT
-
-修改/etc/ssh/ssh_config，在Host *下添加你的端口
-Host *
-Port 22
-Port YOUR_PORT
-
-安装nvm 后激活  . ~/.nvm/nvm.sh
-
-</pre>
-
-## yarn
-
-yran add 添加模块
-yarn bin
-yarn ls
-yarn remove
 
 命令
 https://yarnpkg.com/en/docs/cli/add
