@@ -251,6 +251,91 @@ window.onload = (function () {
   d.height =  d.contentWindow.document.documentElement.scrollHeight;
 })
 
+## input
+1、type属性
+  type属性用于指定表单控件的种类。input元素根据type属性值，可以是一行文本文件输入框、可以是选择框、可以单选框。
+  【type属性的可选值：】
+  type="hidden"
+  画面上不显示被隐藏的数据。
+  type="text"
+  一行文本文件输入领域，文本文件输入控件。
+  type="search"【新类型】
+  一行输入字符领域，对象是检索内容。
+  type="tel"【新类型】
+  表示一行文本文件领域，对象是电话号码。
+  type="url"【新类型】
+  一行文本文件领域，对象是网址。
+  type="email"【新类型】
+  一行文本文件领域，对象是邮箱地址。
+  type="password"
+  一行文本文件输入领域，对象是保密信息。
+  type="datetime"【新类型】
+  日期和时间输入领域。
+  type="date"【新类型】
+  日期输入领域。
+  type="month"【新类型】
+  年月输入领域。
+  type="week"【新类型】
+  周输入领域。
+  type="time"【新类型】
+  时间输入领域。
+  type="datetime-local"【新类型】
+  与世界标准时间UTC无关的日期时间的输入领域。
+  type="number"【新类型】
+  数字输入领域。
+  type="range"【新类型】
+  设定了数字可选范围的数字输入控制领域。
+  type="color"【新类型】
+  颜色输入控制领域。
+  type="checkbox"
+  选择框控制领域。
+  type="radio"
+  单选按钮控制领域。
+  type="file"
+  显示可选择文件列表。
+  type="submit"
+  表单的提交按钮。
+  type="image"
+  使用图像表示提交表格的提交按钮。
+  type="reset"
+  清空按钮。
+  type="button"
+  一般按钮标志。
+2、autocomplete属性【新属性】
+  autocomplete内容属性用于定义是否自动完成文字输入，即自动完成功能的有效化或无效化。
+3、list属性【新属性】
+  在文字输入时，使用list 内容属性指定推荐选项集合体的id值，从而建立推荐选项列表。通常与datalist元素配合使用。
+4、readonly内容属性
+  readonly内容属性用于内容只读，属于逻辑属性。input元素中使用了该属性后，用户只能阅读，不能编辑该当内容。
+5、size内容属性
+  使用size内容属性指定该当控件的尺寸，即能够容纳的文字数。
+6、required内容属性【新属性】
+  使用required内容属性控制控件的值是否是必须的，属于逻辑属性。
+7、multiple内容属性
+  multiple内容属性用于定义该当控件内能够指定2个以上的复合值，属于逻辑属性。
+8、maxlength内容属性
+  使用maxlength内容属性可以指定控件内能够输入的最大文字数。
+9、pattern内容属性【新属性】
+  pattern内容属性表示控件的输入值的正规表现。通过使用正规表现，可以详细限制输入值得具体形式。
+10、min内容属性与max内容属性
+  min内容属性与max内容属性分别代表输入值的最小值和最大值。min内容属性与max内容属性能够指定的值因type内容属性的值不同而不同。
+11、step内容属性【新属性】
+  step内容属性用于指定控件的值的精度。
+12、placeholder内容属性【新属性】
+  placeholder内容属性用于表示向用户做出的提示文字。
+13、autofocus内容属性【新属性】
+  autofocus内容属性用于当网页下载完成时，光标落在设有该属性的控件上。属于逻辑属性。
+14、disabled内容属性
+  disabled内容属性用于使该当控制领域无效。
+15、form内容属性【新属性】
+  form内容属性用于使input表示的控制领域与指定的form元素建立链接。
+16、name内容属性
+  name内容属性用于表示控件的名称。
+17、value内容属性
+  valus内容属性表示该当input元素的值。如果指定了该内容属性，其值会作为默认值在页面上显示。
+## 参考
+http://webkkl.com/html5/head.php
+
 ## 参考
 http://jsfiddle.net/n6DAu/1/
 http://codepen.io/shawkdsn/pen/grcwJ

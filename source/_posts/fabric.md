@@ -7,9 +7,7 @@ tags:
 
 ### Introduction
 允许您 canvas 使用JavaScript 轻松创建诸如矩形，圆形，三角形等多边形或由多条路径组成的更复杂形状的简单形状到网页的HTML 元素上。
-
 Fabric.js将允许您用鼠标操作这些对象的大小，位置和旋转。还可以更改这些对象的某些属性，例如网页的颜色，透明度，深度位置或使用Fabric.js库选择这些对象的组。
-
 Fabric.js也将允许你将一个SVG图像转换成JavaScript数据，用于将其放到 canvas 元素上
 
 ### FileReader
@@ -123,9 +121,36 @@ fabric.Image.fromURL('2.jpg', function (img) {
   })
 })
 
+// 设置选中项
+canvas.setActiveObject(canvasimg)
+
+// 设置可见
+ line2.set({ visible: true })
+
+// 设置图层
+FlowChar.sendToBack = () => {
+  var activeObject = this.canvas.getActiveObject();
+  if (activeObject) {
+    canvas.sendToBack(activeObject);
+  }
+}
+```
+
+```js
+// this.canvas.setActiveObject(text)
+// text.selectAll()
+// text.enterEditing()
+// text.hiddenTextarea.focus() // 无法失去焦点
 ```
 
 ### Reference address
 <a href="http://fabricjs.com/" target="_blank">demo</a>
 <a href="http://fabricjs.com/benchmarks/" target="_blank">benchmarks</a>
 <a href="https://github.com/kangax/fabric.js" target="_blank">github</a>
+
+
+参考：
+http://blog.csdn.net/dananhai381/article/details/14169665
+https://www.npmjs.com/package/font-carrier
+http://blog.csdn.net/u014032819/article/details/77864682
+http://blog.csdn.net/yanzisu_congcong/article/details/77840526

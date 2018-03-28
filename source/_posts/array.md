@@ -136,3 +136,7 @@ Array.prototype.unique = function(){
 }
 
 ```
+
+
+参考：
+http://blog.csdn.net/u014032819/article/details/78002036

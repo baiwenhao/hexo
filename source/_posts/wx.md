@@ -31,3 +31,23 @@ body { -webkit-text-size-adjust:100%!important; }
 ```
 
 WeixinJSBridge.call('closeWindow') // 关闭窗口
+
+## 小程序
+app.json
+
+```js
+"tabBar": {
+    "position": "top",
+    "selectedColor": "green",
+    "color": "#333333",
+    "list": [{
+        "pagePath": "pages/index/index",
+        "text": "首页"
+    },
+    {
+        "pagePath": "pages/logs/logs",
+        "text": "日志"
+    }]
+}
+```
+

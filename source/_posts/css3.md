@@ -362,10 +362,12 @@ function yaoAfter(){
 }
 ```
 
-滚动条
+## 隐藏滚动条
 &::-webkit-scrollbar {
    width: 0;
 }
 
+## 字体变清晰，变细用CSS怎么做？
+-webkit-font-smoothing: antialiased;
 
 参考：https://www.w3schools.com/cssref/css3_pr_filter.asp

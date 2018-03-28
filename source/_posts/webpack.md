@@ -5,9 +5,6 @@ date: 2017-04-06 14:57:30
 tags:
 ---
 
-## 3.0
-...
-
 ## hot module replacement
 主要是依赖两个中间件
 ```js
@@ -71,6 +68,24 @@ const httpProxyMiddleware = require('http-proxy-middleware')
 
 
 https://github.com/Klathmon/imagemin-webpack-plugin // 压缩图片
-##
-
 https://github.com/eyasliu/blog/issues/8
+
+笔记
+http://www.css88.com/doc/webpack/concepts/entry-points/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

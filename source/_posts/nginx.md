@@ -50,7 +50,7 @@ server {
 启动nginx
 ```
 
-```
+```js
 server {
   listen 8088;
   server_name localhost *.iwjw.com;
@@ -82,65 +82,27 @@ server {
 }
 ```
 
-## cnetOs安装nginx
-```
-第一步，在/etc/yum.repos.d/目录下创建一个源配置文件nginx.repo：
-cd /etc/yum.repos.d/
-vim nginx.repo
-
-填写如下内容：
-[nginx]
-name=nginx repo
-baseurl=http://nginx.org/packages/centos/$releasever/$basearch/
-gpgcheck=0
-enabled=1
-
-保存，则会产生一个/etc/yum.repos.d/nginx.repo文件
-
-下面直接执行如下指令即可自动安装好Nginx：
-
-yum install nginx -y
-安装完成，下面直接就可以启动Nginx了：
-
-/etc/init.d/nginx start
-
-现在Nginx已经启动了，直接访问服务器就能看到Nginx欢迎页面了的。
-
-如果还无法访问，则需配置一下Linux防火墙。
-iptables -I INPUT 5 -i eth0 -p tcp --dport 80 -m state --state NEW,ESTABLISHED -j ACCEPT
-service iptables save
-service iptables restart
-
-Nginx的命令以及配置文件位置
-/etc/init.d/nginx start # 启动Nginx服务
-/etc/init.d/nginx stop # 停止Nginx服务
-/etc/nginx/nginx.conf # Nginx配置文件位置
-chkconfig nginx on #设为开机启动
-
-至此，Nginx已经全部配置安装完成。
-一台主机上适应多个服务器：
-在你的nginx通过代理的方式转发请求：配置如下
-vi /etc/nginx/nginx.conf
-在http加入下面的内容，参考：http://wiki.nginx.org/FullExample
-server {
-  listen 80;
-  server_name www.a.com;
-  charset utf-8;
-  access_log /home/a.com.access.log main;
-  location / {
-    proxy_pass http://127.0.0.1:80
-  }
-}
-
-server {
-  listen 80;
-  server_name www.b.com;
-  charset utf-8;
-  access_log /home/b.com.access.log main;
-  location / {
-    proxy_pass http://127.0.0.1:81
-  }
-}
+## Gzip 压缩
+```js
+gzip on;
+gzip_min_length 1k;
+gzip_buffers 4 16k;
+#gzip_http_version 1.0;
+gzip_comp_level 2;
+gzip_types text/plain application/x-javascript text/css application/xml text/javascript application/x-httpd-php image/jpeg image/gif image/png;
+gzip_vary off;
+gzip_disable "MSIE [1-6]\.";
 ```
 
+第1行：开启Gzip
+第2行：不压缩临界值，大于1K的才压缩，一般不用改
+第3行：buffer，就是，嗯，算了不解释了，不用改
+第4行：用了反向代理的话，末端通信是HTTP/1.0，有需求的应该也不用看我这科普文了；有这句的话注释了就行了，默认是HTTP/1.1
+第5行：压缩级别，1-10，数字越大压缩的越好，时间也越长，看心情随便改吧
+第6行：进行压缩的文件类型，缺啥补啥就行了，JavaScript有两种写法，最好都写上吧，总有人抱怨js文件没有压缩，其实多写一种格式就行了
+第7行：跟Squid等缓存服务有关，on的话会在Header里增加"Vary: Accept-Encoding"，我不需要这玩意，自己对照情况看着办吧
+第8行：IE6对Gzip不怎么友好，不给它Gzip了
+
+测试
+curl -I -H "Accept-Encoding: gzip, deflate" "http://www.slyar.com/blog/"
 

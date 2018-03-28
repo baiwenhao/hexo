@@ -133,4 +133,6 @@ sideBarEnhancements 增强右键菜单 
 }
 </pre>
 
-参考: https://www.kancloud.cn/digest/sublime-text-complete-guide/61433
+参考:
+https://www.kancloud.cn/digest/sublime-text-complete-guide/61433
+https://www.bbsmax.com/A/6pdDZrkJw3/
