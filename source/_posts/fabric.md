@@ -148,6 +148,23 @@ FlowChar.sendToBack = () => {
 <a href="http://fabricjs.com/benchmarks/" target="_blank">benchmarks</a>
 <a href="https://github.com/kangax/fabric.js" target="_blank">github</a>
 
+### cdn
+https://cdnjs.com/libraries/fabric.js/2.0.1
+
+### 双击事件
+https://stackoverflow.com/questions/23418055/fabricjs-double-click-on-objects
+
+### 自动换行
+http://jsfiddle.net/maxenko/nyw5myq5/4/
+
+canvas教程
+https://mobiforge.com/design-development/html5-mobile-web-canvas
+
+感谢这个问题
+https://stackoverflow.com/questions/47010467/fit-the-background-image-to-canvas-size-with-fabric-js
+
+活动区域动画不错
+https://www.zazzle.com/coach_gifts_basketball_your_colors_8_text_boxes-256691781630798133
 
 参考：
 http://blog.csdn.net/dananhai381/article/details/14169665
