@@ -106,3 +106,5 @@ gzip_disable "MSIE [1-6]\.";
 测试
 curl -I -H "Accept-Encoding: gzip, deflate" "http://www.slyar.com/blog/"
 
+## 参考
+https://www.digitalocean.com/community/tutorials/understanding-nginx-server-and-location-block-selection-algorithms

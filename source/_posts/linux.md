@@ -127,6 +127,13 @@ chmod +x ./kcptun.sh
 # QQ交流群: 43391448, 68133628
 ```
 
+## 上传代码
+wf-53
+sudo su -
+rz -y | rz -be
+unzip a.zip
+mv dist/* ROOT
+
 ## 客户端安装
 ```
 下载地址
@@ -139,6 +146,16 @@ kcptun-darwin-amd64-20170117.tar.gz
 
 ```
 
+## tomcat
+```
+/usr/local/tomcat/bin
+./shutdown.sh
+./startup.sh
+/usr/local/tomcat/logs 日志目录
+tail -f catalina.out 查看日志
+ps -ef|grep tomcat 查看服务是否启动
+kill -9 15559 关闭端口
+```
 
 命令
 https://yarnpkg.com/en/docs/cli/add
