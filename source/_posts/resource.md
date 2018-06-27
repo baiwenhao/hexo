@@ -13,9 +13,11 @@ tags:
 ## img
 | <a href="https://jnordberg.github.io/gif.js/">gifjs</a> |  <a href="https://github.com/geelen/x-gif">x-gif</a>  |  <a href="https://www.npmjs.com/package/gifsee">gifsee</a>  |
 | :------- | :-------- | :--- |
-| <a href="http://fabricjs.com/">fabricjs</a><a href="http://www.tattoofontmaker.com/tattoo-builder/">（demo）</a> | &nbsp; | &nbsp; |
+| <a href="http://fabricjs.com/">fabricjs</a><a href="http://www.tattoofontmaker.com/tattoo-builder/">（demo）</a> | <a href="http://events.jackpu.com/core-video-to-gif/">core-video-to-gif</a> | &nbsp; |
 | 参考 <a href="https://giphy.com/create/gifmaker">gifmaker</a> | <a href="https://www.canva.com/">canva</a> | <a href="https://www.fotor.com.cn">Fotor</a> |
 | <a href="http://www.soogif.com/editor">sogif</a> |  <a href="http://www.51gif.com/gif/makeJ?mode=gif">51gif</a> | <a href="https://giphy.com/create/gifmaker">GIFHY</a> |
+
+https://www.cnblogs.com/xxx91hx/p/5192760.html
 
 ## font
 | <a href="https://github.com/bramstein/fontfaceobserver">fontfaceobserver</a> | <a href="https://github.com/purplebamboo/font-carrier">font-carrier</a> | &nbsp; |

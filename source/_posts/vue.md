@@ -255,7 +255,7 @@ store.dispatch({ type: 'incrementAsync', amount: 10 })
 ### mapState
 辅助函数帮助我们生成计算属性
 ```
-// 
+//
 computed: mapState({
   // 箭头函数可使代码更简练
   count: state => state.count,
@@ -293,7 +293,7 @@ computed: {
 
 ```
 
-### mapMutations 
+### mapMutations
 辅助函数将组件中的 methods 映射为 store.commit
 ```js
 methods: {
@@ -309,7 +309,7 @@ methods: {
 }
 ```
 
-### mapActions 
+### mapActions
 ```js
 methods: {
   ...mapActions([
@@ -326,5 +326,9 @@ methods: {
 
 
 ### module
+vivoX7 5.1.1
+缺少 Object.assign
+li 标签默认有上边距 设置display flex
+唤起输入框 input可能被挡住，兼容性写法 document.body || document.documentElement
 
 

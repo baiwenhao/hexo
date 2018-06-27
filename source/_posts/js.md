@@ -193,9 +193,11 @@ Object.is(0, -0)
 
 ```
 
+### Function and Object
+http://www.cnblogs.com/shuiyi/p/5343399.html
 
-
-
+### 编码 解码
+http://www.cnblogs.com/shuiyi/p/5277233.html#3979662
 
 
 

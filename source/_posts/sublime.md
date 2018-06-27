@@ -7,7 +7,7 @@ tags:
 ---
 
 ## 快捷键
-<pre>
+```js
 control＋tab 切换标签
 cmd + 数字 标签切换
 cmd + option + 2 双屏
@@ -23,10 +23,10 @@ cmd + shift + t 恢复刚才关闭的窗口
 control + g 行跳转
 control + r 函数跳转
 control + option + F 格式化js  ( alignment)
-</pre>
+```
 
 ## 编译nodejs
-<pre>
+```js
 自定制的文件保存在Preferences/Browse Packages/User
 新建build system ...
 {
@@ -34,10 +34,10 @@ control + option + F 格式化js  ( alignment)
   "file_regex": "^[ ]*File \"(...*?)\", line ([0-9]*)",
   "selector": "source.javascript"
 }
-</pre>
+```
 
 ## cmd + B = 编译es6
-<pre>
+```js
 npm install -g babel 全局安装babel
 Tools > Build System > new build system... 添加新的build
 {
@@ -56,10 +56,10 @@ Tools > Build System > new build system... 添加新的build
       "cmd": ["killall node >/dev/null 2>&1; babel-node $file"]
   }
 }
-</pre>
+```
 
 ## 配置文件
-<pre>
+```js
 {
   "folder_exclude_patterns": [ // 搜索排除, 在项目中也看不见
     ".git",
@@ -98,10 +98,11 @@ Tools > Build System > new build system... 添加新的build
   "auto_match_enabled": false, // 关闭括号自动补全
   "scroll_past_end": true // 要不要滚过头
 }
-</pre>
+```
+
 
 ## 插件
-<pre>
+```js
 SyncedSideBar 支持当前文件在左侧面板中定位
 autofilename 标签匹配提示路径
 DocBlockr 代码注释 
@@ -131,8 +132,9 @@ sideBarEnhancements 增强右键菜单 
     "Vue Syntax Highlight"
   ]
 }
-</pre>
+```
 
 参考:
+https://segmentfault.com/a/1190000004025334
 https://www.kancloud.cn/digest/sublime-text-complete-guide/61433
 https://www.bbsmax.com/A/6pdDZrkJw3/
