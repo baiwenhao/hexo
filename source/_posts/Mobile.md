@@ -8,6 +8,21 @@ tags:
 ## terminal
 https://github.com/madrobby/zepto/blob/master/src/detect.js#files
 
+## wx
+```js
+const isWeixin = () => {
+  return /micromessenger/.test(navigator.userAgent.toLowerCase())
+}
+```
+
+微信页面 引入jsdk 可以直接调用
+```js
+wx.previewImage({
+  current: e.target.src,
+  urls: this.list
+})
+```
+
 ## android
 解决输入框获取焦点后，软键盘挡住input的问题，最近总是碰到这个问题，今天彻底解决下,
 js 是没办法直接获取软键盘的高度，我这里暂时写成百分比，除非 android 通过参数告知前端
@@ -63,3 +78,26 @@ if (android) {
   }
 }
 ```
+
+## clip
+目前都是内侧版本，有时图片和文字会丢失，记得保存的时候输入框失去焦点，图片编译成base64，就没问题了
+https://github.com/eKoopmans/html2canvas/tree/develop/dist
+```js
+html2canvas($(".box"), {
+  allowTaint: true,
+  taintTest: false,
+  width: w,
+  height: h,
+  // window.devicePixelRatio是设备像素比
+  dpi: window.devicePixelRatio,
+  onrendered: function(canvas) {
+      const dataUrl = canvas.toDataURL("image/png", 1.0),
+            newImg = document.createElement("img");
+      newImg.src = dataUrl;
+      $('.box').empty().append(newImg);
+      newImg.style.width = '100%';
+  }
+})
+```
+
+
