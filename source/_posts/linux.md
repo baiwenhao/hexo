@@ -22,16 +22,46 @@ kill -9 26019 //杀端口
 
 ## 搬瓦工
 ```
-ssh root@104.224.160.141 -p 27850 连接linux主机
-yum install git
-curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.32.1/install.sh | bash
-然后source .bashrc 在用nvm install node
+ssh root@45.78.53.253 -p 28254
 
-wget https://services.gradle.org/distributions/gradle-2.4-all.zip
 本地拷贝远程文件,本地拷远程顺序颠倒一下
-scp -P 27850 root@104.224.160.141:/root/gradle-2.4-all.zip ./
-scp -P 27850 ./vuejs_note.zip root@104.224.160.141:/root/
+scp -P 28254 root@45.78.53.253:/root/gradle-2.4-all.zip ./
+scp -P 28254 ./vuejs_note.zip root@45.78.53.253:/root/
+
+ubuntu 安装 apt-get install git
 ```
+
+## shadowsocks go
+查看状态
+```js
+
+```
+
+可以设置多端口
+```js
+{
+    "server":"0.0.0.0",
+    "server_port":"10586",
+    "local_port":1080,
+    "password":"teddysun.com",
+    "method":"aes-256-cfb",
+    "timeout":300
+}
+vi /etc/shadowsocks/config.json
+/etc/init.d/shadowsocks restart
+```
+
+卸载
+```js
+./shadowsocks-go.sh uninstall
+启动：/etc/init.d/shadowsocks start
+停止：/etc/init.d/shadowsocks stop
+重启：/etc/init.d/shadowsocks restart
+状态：/etc/init.d/shadowsocks status
+```
+
+https://teddysun.com/392.html
+https://www.jianshu.com/p/1128ddc5a90f
 
 ## zip压缩解压
 ```
@@ -40,6 +70,9 @@ unzip new.zip 解压
 unzip -v new.zip 查看
 unzip -t new.zip 完整
 ```
+
+## nvm
+https://github.com/creationix/nvm
 
 ## 移动文件
 ```
@@ -64,90 +97,17 @@ mv dir1 dir2
 如果目录dir2不存在，将目录dir1改名为dir2；否则，将dir1移动到dir2中
 ```
 
-## kuoruan配置
-```
-服务器IP:  104.224.160.141
-端口:  17899
-加速地址: 127.0.0.1:443
-crypt:  none
-mode:  fast2
-当前安装的 Kcptun 版本为: 20170117
-请前往 https://github.com/xtaci/kcptun/releases/tag/v20170117 手动下载客户端文件
-可使用的客户端配置文件为:
-{
-    "localaddr": ":443",
-    "remoteaddr": "104.224.160.141:17899",
-    "key": "it's a secrect",
-    "crypt": "none",
-    "mode": "fast2",
-    "conn": 1,
-    "autoexpire": 60,
-    "mtu": 1350,
-    "sndwnd": 1024,
-    "rcvwnd": 1024,
-    "datashard": 10,
-    "parityshard": 3,
-    "dscp": 0,
-    "nocomp": false,
-    "acknodelay": false,
-    "nodelay": 0,
-    "interval": 20,
-    "resend": 2,
-    "nc": 1,
-    "sockbuf": 4194304,
-    "keepalive": 10
-}
-
-手机端参数可以使用:
--autoexpire 60 -crypt "none" -mode "fast2"
-
-各参数详细说明可以查看: https://github.com/xtaci/kcptun
-Kcptun 安装目录: /usr/share/kcptun
-Kcptun 日志目录: /var/log/kcptun
-已将 Supervisor 加入开机自启, Kcptun 服务端会随 Supervisor 的启动而启动
-
-更多使用说明: ./kcptun.sh help
-./kcptun.sh reconfig
-./kcptun.sh uninstall
-./kcptun.sh update
-http://www.jianshu.com/p/172c38ba6cee
-欢迎访问扩软博客: https://blog.kuoruan.com/
-```
-
-## 加速服务端配置
-```
-wget https://raw.githubusercontent.com/kuoruan/kcptun_installer/master/kcptun.sh
-chmod +x ./kcptun.sh
-./kcptun.sh
- Kcptun 服务端一键安装脚本                             #
-# 该脚本支持 Kcptun 服务端的安装、更新、卸载及配置      #
-# 脚本作者: Index <kuoruan@gmail.com>                   #
-# 作者博客: https://blog.kuoruan.com/                   #
-# Github: https://github.com/kuoruan/kcptun_installer   #
-# QQ交流群: 43391448, 68133628
-```
-
 ## 上传代码
+```js
 wf-53
 sudo su -
 rz -y | rz -be
 unzip a.zip
 mv dist/* ROOT
-
-## 客户端安装
-```
-下载地址
-https://github.com/xtaci/kcptun/releases/
-kcptun-darwin-amd64-20170117.tar.gz
-建立目录kcptun 进入
-./client_darwin_amd64 -r "104.224.160.141:17899" -l ":8388" -mode fast2 -crypt none
-飞机设置
-127.0.0.1:8388
-
 ```
 
 ## tomcat
-```
+```js
 /usr/local/tomcat/bin
 ./shutdown.sh
 ./startup.sh

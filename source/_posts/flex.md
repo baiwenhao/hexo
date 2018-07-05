@@ -86,7 +86,7 @@ flex-start | flex-end | center | stretch
 
 参考地址 https://css-tricks.com/snippets/css/a-guide-to-flexbox/
 https://github.com/baiwenhao/flex.git
-
+https://www.w3cplus.com/css3/flexbox-layout-and-calculation.html
 
 http://zh.learnlayout.com/flexbox.html
 

@@ -35,7 +35,7 @@ db.shutdownServer()
 db.shutdownServer({force : true})
 
 ## 命令
-
+```js
 use wenhao 创建库wenhao
 db.user  数据集合
 db.user.find() 查询全部数据，参数{age:32查询结果
@@ -53,8 +53,25 @@ db.user.remove({name:"boss”}) 删除一条数据
 db.user.drop() 清除一个表
 db.dropDatabase() 清除一个库
 db.shutdownServer() 关闭数据库
+```
+
+## ubuntu
+```js
+// 添加mongodb签名到APT
+sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv EA312927
+
+// 创建/etc/apt/sources.list.d/mongodb-org-3.2.list文件并写入命令
+echo "deb http://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/3.2 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.2.list
+
+// 更新软件源列表
+sudo apt-get update
+
+// 安装mongodb（默认是安装稳定版
+sudo apt-get install -y mongodb-org
+sudo apt-get install -y mongodb-org=3.2.9 mongodb-org-server=3.2.9 mongodb-org-shell=3.2.9 mongodb-org-mongos=3.2.9 mongodb-org-tools=3.2.9
 
 
+```
 
 ## 索引
 

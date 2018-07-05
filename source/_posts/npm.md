@@ -76,18 +76,7 @@ npm config set proxy http://proxy.com:8081/
 路径
   /usr/local/n/versions/node/5.5.0
 
-## ubuntu
-```
-修改/etc/ssh/sshd_config，在Port 22下添加你的端口
-Port 22
-Port YOUR_PORT
 
-修改/etc/ssh/ssh_config，在Host *下添加你的端口
-Host *
-Port 22
-Port YOUR_PORT
-安装nvm 后激活  // . ~/.nvm/nvm.sh
-```
 
 ## yarn
 yran add -D
