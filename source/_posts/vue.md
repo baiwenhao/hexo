@@ -80,6 +80,8 @@ iphone6plus 字符串是.的时候不吃行高,要加vertical-align: top
 
 即使带宽zaikuai,所有的loading 都添加一点延迟
 
+写了 if 就要写 else，对象匹配一个值，就要考虑到匹配不到的情况，存储在本地的数据都是字符串，不会是number,相加的时候要注意，匹配一个静态数据匹配不到导致页面没加载
+
 // 数组
 初始化一个data对象位，当数据返回null或者string,在组件内部循环data数组就会报错，webview报错就会推出
 因此即使status给的是0,也要加上res.data.length >= 1 的判断

@@ -17,6 +17,7 @@ canplaythrough
 import '../common/video/style.css'
 const vjs = require('../common/video/index.js')
 ```
+
 播放按钮默认在左上角，添加类 vjs-big-play-centered 可让按钮垂直居中显示，也可以覆盖样式 video-js .vjs-big-play-button {}
 
 ```js
@@ -41,7 +42,7 @@ const vjs = require('../common/video/index.js')
 ```
 
 不支持 h5 的播放器使用 flash 播放
-```
+```js
 videojs.options.flash.swf = "video-js.swf"
 ```
 
@@ -73,5 +74,32 @@ reset() 重载视屏
 src() 更换视频源
 ```
 
+参考
+https://blog.csdn.net/u014739462/article/details/70849195
+
+## ios
+搞了一下午，下班前终于找到办法了
+在iOS 10 beta
+```js
+<video src="file.mp4" webkit-playsinline="true" playsinline="true">
+```
+正确代码是  webkit-playsinline适用于iOS 10-，playinline适用于iOS 10+。
+
+参考
+https://webkit.org/blog/6784/new-video-policies-for-ios/
+
+## 宽高自适应
+添加类 vjs-fluid
+
+## android
+层级默认是最高的,只要添加
+```js
+x5-video-player-type='h5'
+```
+
+## 禁止全屏
+webkit-playsinline="true" playsinline="true"
+
+http://taobaofed.org/blog/2016/05/23/video-player/
 <a href="https://github.com/Avolons/videojs-tutorial-CN">中文教程地址</a>
 <a href="https://developer.mozilla.org/zh-CN/docs/Web/Guide/Events/Media_events">MDN</a>

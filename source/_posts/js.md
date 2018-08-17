@@ -190,7 +190,6 @@ n % 1 === 1
 
 // 判断两个值是否绝对相等 (特殊的相对比较)
 Object.is(0, -0)
-
 ```
 
 ### Function and Object

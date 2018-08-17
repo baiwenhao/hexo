@@ -82,6 +82,7 @@ if (android) {
 ## clip
 目前都是内侧版本，有时图片和文字会丢失，记得保存的时候输入框失去焦点，图片编译成base64，就没问题了
 https://github.com/eKoopmans/html2canvas/tree/develop/dist
+http://html2canvas.hertzen.com/configuration/
 ```js
 html2canvas($(".box"), {
   allowTaint: true,

@@ -5,12 +5,14 @@ abbrlink: 69c3279c
 date: 2017-02-07 11:18:58
 ---
 
+
 ## 秘钥
 ```
 ls ~/.ssh  两个文件id_rsa和id_rsa.pub
 cat ~/.ssh/id_rea.pub 查看秘钥
 ssh-keygen 生成秘钥
 ```
+
 
 ## 基本命令
 ```
@@ -23,6 +25,7 @@ git config --list --global 列出所有的name
 git config --list --global --unset user.name 删除
 git config --global alias.st status 设置快捷键st
 ```
+
 
 ## 暂存区
 ```
@@ -43,6 +46,7 @@ git mv a c 把a重名名为c
 **/res 所有目录下面的res都匹配到
 ```
 
+
 ## 分支
 ```
 git branch test 创建一个分支
@@ -53,6 +57,7 @@ git merge test 合并分支
 git merge --abort 放弃合并
 git branch -d name 删除本地分支
 ```
+
 
 ## 查看对比历史记录
 ```
@@ -70,6 +75,7 @@ git diff --color-words 差异的单词
 git diff --word-diff
 ```
 
+
 ## 撤销修改
 ```
 git reset --hard HEAD 撤销全部
@@ -84,6 +90,7 @@ git revert HEAD撤销最近一次提交
 git revert HEAD^撤销上上次提交
 ```
 
+
 ## 重写历史记录
 ```
 git commit --amend
@@ -91,6 +98,7 @@ git rebase 
 git reset
 git reflog
 ```
+
 
 ## 远程操作
 ```
@@ -102,6 +110,7 @@ git push origin dev
 git pull origin dev
 ```
 
+
 ## 钥匙
 ```
 ls ~/.ssh 查看秘钥 id_rsa id_rsa.put
@@ -109,12 +118,14 @@ ssh-keygen 生成秘钥
 cat ~/.ssh/id_rsa.pub
 ```
 
+
 ## 拉取子模块一直要输入密码
 ```
 进入工程里git submodule init 查看子模块，进SourceTree右键点击子模块，
 更改源URL,加上自己的用户名 baiwnehao.sh@，然后 键入git submodule update
 .gitmodules不要提交就可以
 ```
+
 
 ## 恢复备份数据
 ```
@@ -124,15 +135,20 @@ git stash pop 读取最近保存的内容
 git stash clear 清空git栈
 ```
 
+
 ## 本地仓库关联远程仓库
+```js
 git remote add origin git@github.com:baiwenhao/baiwenhao.github.com.git
 git remote set-url origin git@github.com:ppreyer/first_app.git
+```
+
 
 ## 这是全局忽略设置
 ```
 $ git check-ignore -v index.html
 /Users/baiwenhao/.gitignore_global:11:index.html  index.html
 ```
+
 
 ## 错误
 ```
@@ -141,30 +157,35 @@ nano .git/comfig  #然后添加url前面添加账户名称
 url = https://baiwenhao@github.com/baiwenhao/vue_note.git
 ```
 
+
 ## del commit
 ```js
-1.Checkout
+// Checkout
+git checkout --orphan latest_branch
 
-   git checkout --orphan latest_branch
+// Add all the files
+git add -A
 
-2. Add all the files
+// Commit the changes
+git commit -am "commit message"
 
-   git add -A
+// Delete the branch
+git branch -D master
 
-3. Commit the changes
+// Rename the current branch to master
+git branch -m master
 
-   git commit -am "commit message"
-
-4. Delete the branch
-
-   git branch -D master
-
-5.Rename the current branch to master
-
-   git branch -m master
-
-6.Finally, force update your repository
-
-   git push -f origin master
-// 变成全新的仓库
+// Finally, force update your repository
+git push -f origin master
 ```
+
+
+## 覆盖 master 分支
+```js
+git push origin develop:master -f // 强制推送,但是本地 master 还是旧的
+
+git checkout master // 切换到旧的分支
+git reset --hard develop // 将本地的旧分支 master 重置成 develop
+git push origin master --force // 再推送到远程仓库
+```
+

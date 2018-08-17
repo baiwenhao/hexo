@@ -6,37 +6,6 @@ date: 2017-02-16 18:36:16
 tags:
 ---
 
-## seo
-1.合理的title,description,keywords
-2.语义化html标签,符合w3c规范
-3.重要内容放前面，非重要的内容用js输出
-4.搜索引擎不抓iframe内容
-5.非装饰性图片加alt
-6.提高网站加载速度
-
-## jquery
-```js
-jq 中event.preventDefault() 与 return false 的区别
-jq 中return false相当于同时调用e.preventDefault 和 e.stopPropagation
-要注意的是，在原生js中，return false仅仅相当于调用了e.preventDefault
-
-jq中获取设置checkbox选中状态
-$("#checkboxID").is(":checked")
-
-// jq 1.6+
-$("#checkboxID").prop("checked", true)
-$("#checkboxID").prop("checked", false)
-
-// jq 1.5 and below
-$('#checkboxID').attr('checked','checked')
-$('#checkboxID').removeAttr('checked')
-
-// jq中终止ajax请求
-xhr.abort()
-要注意的是，在ajax请求未响应之前可以用xhr.abort()取消，
-但如果请求已经到达了服务器端，这样做的结果仅仅是让浏览器不再监听这个请求的响应，
-但服务器端仍然会进行处理。
-```
 
 ## 字符转换
 >16进制与10进制相互转换
@@ -46,8 +15,6 @@ var iNum=parseInt("ff",16);//255
 >JavaScript字符与ASCII码间的转换
 console.log("\n".charCodeAt(0));//10
 console.log(String.fromCharCode(65));//A
-
-
 
 
 ## 克隆对象
@@ -81,19 +48,6 @@ function clone(obj) {
 }
 ```
 
-## 渲染优化
-```
-1.禁止使用iframe（阻塞父文档onload事件）
-2.禁止使用gif图片实现loading效果（降低CPU消耗，提升渲染性能）
-使用CSS3代码代替JS动画；
-开启GPU加速；
-使用base64位编码图片(不小图而言，大图不建议使用)
-对于一些小图标，可以使用base64位编码，以减少网络请求。但不建议大图使用，比较耗费CPU。小图标优势在于：
-    1.减少HTTP请求；
-    2.避免文件跨域；
-    3.修改及时生效；
-```
-
 ## server状态码
 >301永久重定向
 302临时重定向
@@ -102,8 +56,6 @@ function clone(obj) {
 500服务器
 favicon.ico 默认请求ico
 response.setHeader(‘Cache-Control’, ‘public, max-age=3600’); //缓存一小时
-
-
 
 
 ## 闭包

@@ -4,6 +4,38 @@ abbrlink: 254d477b
 date: 2017-02-07 15:01:31
 ---
 
+## form-data
+```js
+// 前端发送 formData 请求
+const postData = () => {
+  const fd = new FormData()
+  fd.append('buId', '官网')
+  fd.append('occurDate', new Date().getTime())
+  const x = new XMLHttpRequest()
+  x.open('post', '/downCount')
+  x.send(fd)
+}
+
+// 服务端解析
+const multipart = require('connect-multiparty');
+const multipartMiddleware = multipart()
+app.post('/downCount', multipartMiddleware, (req, res) => {
+  res.send(req.body)
+})
+
+// 服务端发送post 解决跨域
+
+//
+// https://stackoverflow.com/questions/27190447/pass-json-to-http-post-request/27190736
+
+```
+
+// 看看
+// https://blog.csdn.net/yiyanbuhe/article/details/79105287
+
+http://yijiebuyi.com/blog/90c1381bfe0efb94cf9df932147552be.html
+
+
 ## io
 1. 斐波那契数列
 
@@ -30,9 +62,23 @@ path.normalize('/foo/bar//baz/asdf/quux/..')
 '/foo/bar/baz/asdf'
 
 path.resolve(__dirname, '../../')
+
+path.posix 返回POSIX(Mac/Linux)系统的path执行
 ```
+path.basename 获取路径的名称（最后一部分）
+path.delimiter 返回当前操作系统多个路径的分隔符
+path.dirname 获取路径的父文件夹路径
+path.extname 返回文件路径的扩展名
+path.isAbsolute 判断是否是绝对路径
+path.join 连接两个或多个路径
+path.normalize 将路径中的'.'和'..'转化成最终的路径
+path.relative 返回一个路径针对另一个路径的相对路径
+path.resolve 按照多个路径的值返回最终的路径
+path.seq 返回操作系统路径文件夹分隔符
+path.win32 返回Windows系统的path执行
 
 参考:
+http://nodejs.cn/api/path.html#path_path_posix
 http://wiki.jikexueyuan.com/project/nodejs/path.html
 http://www.jianshu.com/p/d2c96d295d48
 
@@ -48,11 +94,6 @@ process.stdout.write('打印')
 process.cwd() 路径
 
 ```
-
-## module exports and exports
-1) module.exports 初始值为一个空对象 {}
-2) exports 是指向的 module.exports 的引用
-3) require() 返回的是 module.exports 而不是 exports
 
 ![logo](node/1.png)
 
@@ -206,4 +247,19 @@ http://pm2.keymetrics.io/docs/usage/pm2-api/
 参考
 http://www.cnblogs.com/chyingp/p/pm2-documentation.html
 
+## querystring
+```js
+var info = {
+  appid: 'wx123',
+  scope: 'snsapi_base',
+  response_type: 'code'
+}
+querystring.stringify(info)
+```
+
+## momentjs
+moment().format('YYYY-MM-DD') // http://momentjs.com/docs/
+
+## gd-gif
+nodejs 生成验证码
 

@@ -11,8 +11,7 @@ const 声明的是常量，在后面的代码中不可以再次赋值
 
 var 和 let 只是定义的域不同，而 const 和 let 定义域是相同的，而const 全称是Constant 常量，如果定义的是地址，可以修改 Object 里的内容，但不可以修改指向的地址
 
-
-## 扩展运算符
+## 扩展运算符 ...
 ```js
 // 解构赋值
 const [a, ...b] = [1, 2, 3] // 1, [2, 3]
@@ -33,11 +32,12 @@ const arg = function(...args) {}
 // arguments and NodeList 转 Array
 [...document.querySelectorAll('div')]
 [].slice.call(list)
+
+// string to array
+[...'hello']
+
 ```
 // https://github.com/creeperyang/blog/issues/21
-
-
-
 
 ## for of
 遍历数据结构（数组，对象）中的值，for...of会寻找内置或自定义@@iterator对象并调用它的next()方法来遍历数据值
@@ -85,19 +85,10 @@ for (v of obj) {
 }
 ```
 
-
-
-
 ## collections
 var arr = Array.from( arguments ) // 转数组
 
-
-
-
-
-
-
-
+https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx30c35f2a8096c476&redirect_uri=http%3A%2F%2F192.168.92.248%3A5001&scope=snsapi_userinfo&state=ssaweqeqew#wechat_redirect
 
 
 

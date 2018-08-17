@@ -21,7 +21,7 @@ ctx.strokeRect(50, 50, 150, 100)
 ```
 
 ## toDataURL
-导出图片的时候经常报画布被污染，最终是用node做个中间层，保证在同一个域名，
+导出图片的时候经常报画布被污染，用node做个中间层，保证在同一个域名，
 ```js
 const request = require('request')
 const resolve = (dir) => path.join(__dirname, '..', dir)
@@ -38,7 +38,7 @@ app.get('/getFaceImg', cors(), (req, res) => {
   res.json({ url: 'dist/' + name })
 })
 
-/* --- 前端 --- */
+// 图片来自网络
 img.setAttribute('crossOrigin', 'Anonymous')
 ```
 
@@ -83,6 +83,58 @@ var renderWhiteCanvas = function (ctx) {
 }
 ```
 
+## download gif
+```js
+import download from 'downloadjs'
+
+downImg () {
+  const test = 'http://testimg.51biaoqing.com'
+  const host = 'maketest.51biaoqing.com'
+  let url = document.querySelector('#build_img').src
+  if (location.host === host) {
+    url = url.replace('http://image.51biaoqing.com', test)
+  }
+  const x = new XMLHttpRequest()
+  x.open('GET', url, true)
+  x.responseType = 'blob'
+  x.onload = (e) => {
+    download(e.target.response, (Math.random() + '').slice(2) + '.gif', 'image/gif')
+  }
+  x.send()
+}
+```
+
+## Uint8Array to base64
+```js
+const Uint8ToString = (u8a) => {
+  const CHUNK_SZ = 0x8000
+  const c = []
+  for (let i = 0; i < u8a.length; i += CHUNK_SZ) {
+    c.push(String.fromCharCode.apply(null, u8a.subarray(i, i + CHUNK_SZ)))
+  }
+  return c.join('')
+}
+
+// 赋值src时要手动添加 data:image/gif;base64,
+const base64 = btoa(Uint8ToString(data))
+
+// Uint8Array
+const u82 = new Uint8Array(atob(b64encoded).split('').map((c) => {
+  return c.charCodeAt(0)
+}))
+```
+https://stackoverflow.com/questions/12710001/how-to-convert-uint8-array-to-base64-encoded-string
+
+## blob to base64
+```js
+const fr = new FileReader()
+fr.onloadend = () => {
+  console.log(fr.result)
+  // dataUrl.split(',')[1]
+}
+fr.readAsDataURL(blob)
+```
+
 ## 阅后即焚
 source-over 默认。在目标图像上显示源图像
 source-atop 在目标图像顶部显示源图像,源图像位于目标图像之外的部分是不可见的
@@ -109,6 +161,11 @@ ctx.strokeRect(50, 100, 100, 50) // 正对 stroke 有效果
 // https://blog.csdn.net/sarkuya/article/details/49793531
 ```
 
+## 吸色
+https://stackoverflow.com/questions/48249044/how-to-get-the-buffer-data-of-my-image-in-img
+
 
 http://ju.outofmemory.cn/entry/332635
+http://www.helloblogs.cn/blogs/?p=93  jsgif
+https://www.tumblr.com/tagged/omg-gif
 

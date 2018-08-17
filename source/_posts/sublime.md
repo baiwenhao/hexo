@@ -7,6 +7,7 @@ tags:
 ---
 
 ## 快捷键
+
 ```js
 control＋tab 切换标签
 cmd + 数字 标签切换
