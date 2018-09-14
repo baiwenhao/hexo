@@ -101,4 +101,8 @@ html2canvas($(".box"), {
 })
 ```
 
+## FastClick
+https://www.cnblogs.com/vajoy/p/5522114.html
+http://www.cnblogs.com/yexiaochai/p/3442220.html
+
 

@@ -39,20 +39,6 @@ http://yijiebuyi.com/blog/90c1381bfe0efb94cf9df932147552be.html
 ## io
 1. 斐波那契数列
 
-## fs
-.statSync 读取文件信息
-.openSync 打开文件
-.readFileSync('../dist/manifest.json', 'utf8', (err, data)) 读取指定文件
-.readdirSync(path) 同步读取目录下所有文件返回数组
-.mkdir 创建文件
-.rmdir 删除文件
-.statSync(dir) 返回文本信息 (是否目录.isDirectory()) (文件是否存在.isFile())
-.existsSync(path) 检测文件路径是否存在
-.createReadStream(zip) 读取文件
-.unlink('bb.txt', callback) 删除文件,必须判断存在existsSync
-.rename(old, new, callback) 移动并修改名字
-.createWriteStream(fileName) // ?
-
 ## path
 ```js
 path.join('/foo', 'bar', 'baz/asdf', 'quux', '..')

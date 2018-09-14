@@ -103,6 +103,7 @@ el.clientWidth; 元素客户区域大小
 el.style.cssText = 'width:100px;height:200px'
 el.classList.contains()
 el.dataset.name
+el.parentNode.replaceChild(new, old) // repalce node
 ```
 
 ## 伪类

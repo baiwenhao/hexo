@@ -198,6 +198,12 @@ http://www.cnblogs.com/shuiyi/p/5343399.html
 ### 编码 解码
 http://www.cnblogs.com/shuiyi/p/5277233.html#3979662
 
+## computed
+// 这两者可以将浮点转成整型且效率方面要比同类的parseInt,Math.round 要快。在处理像素及动画位移等效果的时候会很有用
+var foo = (12.4 / 4.13) | 0;//结果为3
+var bar = ~~(12.4 / 4.13);//结果为3
+
+var a=1,b=2;a=[b,b=a][0];
 
 
 
