@@ -34,3 +34,6 @@ defaults write com.apple.finder AppleShowAllFiles -boolean true ; killall Finder
 ##### 不显示隐藏文件
 defaults write com.apple.finder AppleShowAllFiles -boolean false ; killall Finder
 
+#### skecth
+没有出现任何来源时 在终端输入
+sudo spctl --master-disable

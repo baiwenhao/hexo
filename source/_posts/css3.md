@@ -370,4 +370,8 @@ function yaoAfter(){
 ## 字体变清晰，变细用CSS怎么做？
 -webkit-font-smoothing: antialiased;
 
+## align
+align-items: center; y轴居中，等分
+align-content: center; y轴居中，无间隙，多行才有想过
+
 参考：https://www.w3schools.com/cssref/css3_pr_filter.asp
