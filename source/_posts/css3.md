@@ -11,26 +11,26 @@ https://www.w3cplus.com/css3/introduction-css-will-change-property.html
 ## background
 ```
 // 背景色设置
-bg:-webkit-gradient(linear, 0 0, 0 100%, from(#fff), to(#ccc));上下
-bg:-webkit-gradient(linear, 0 100%, 0 0, from(#fff), to(#ccc));下上
-bg:-webkit-gradient(linear, 100% 0, 0 0, from(#fff), to(#ccc));右左
-bg:-webkit-gradient(linear, 0 0, 100% 0, from(#fff), to(#ccc));左右
-
-bg:-moz-linear-gradient(top, #fff,#ccc);
-bg:-moz-linear-gradient(center bottom, #fff,#ccc);
-bg:-moz-linear-gradient(left, #fff,#ccc);
-bg:-moz-linear-gradient(right, #fff,#ccc);
-
+background-image: linear-gradient(to bottom , #7A88FF, #7AFFAF);
 bg-image:linear-gradient(90deg, #1cf7ff, #ff1c7c); /*左右*/
 bg-image:linear-gradient(top, red 0%, yellow 50%, blue 100%);/*上下*/
 bg-image:linear-gradient(top left, red 0%, yellow 50%, blue 100%);
 background-image: linear-gradient(260deg, #e9ebf8, #adaec6);
+background: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1));
+to bottom(从上边开始)
+to right(从左边开始)
+to left(从右边开始)
+to top(从下边开始)
+to top left(从右下角开始)
+to top right(从左下角开始)
+to bottom left(从右上角开始)
+to bottom right(从右下角开始)
 
 // 控制背景图片大小 10px 10px
 background-size: cover
 
 // 保持背景图片的宽高比
-background-size:contain
+background-size: contain
 
 background-origin: content-box、padding-box 或 border-box;背景图
 border;从border边框位置算起
@@ -132,7 +132,7 @@ animation-name: rainbow;
 animation-duration: 1s;
 animation-timing-function: linear;
 animation-delay: 1s;
-animation-fill-mode:forwards;
+animation-fill-mode: forwards; // backwards, both, none
 animation-direction: normal;
 animation-iteration-count: 3;
 animation: 1s 1s rainbow linear 3 forwards normal;
@@ -143,9 +143,12 @@ animation-timing-function         播放方式,默认ease   
 animation-delay                   动画何时开始,默认0
 animation-iteration-count         循环的次数n,infinite代表无限,默认1
 animation-direction               默认是normal，alternate则第偶数次向前播放，奇数次向反方向播放
-animation-play-state              是否运行或暂停,默认running
 animation-fill-mode               动画时间之外的状态
+animation-play-state              是否运行或暂停,默认running
 animation: myfirst 5s linear 2s infinite alternate;
+
+控制步数 // http://jsfiddle.net/simurai/CGmCe/light/
+animation: myfirst 3s steps(10) infinite alternate;
 
 @keyframes myfirst{
 0%   {background: red;}
@@ -198,9 +201,8 @@ input[type='text’]
 input:checked
 
 伪类选择器
-p:before{content:之前} 
-p:after{content:之后}
-p:nth-child(n){}
+p:before, p:after 
+p:nth-child(n+2):nth-child(odd):nth-child(-n+9)
 p:first-child
 p:last-child
 odd基数2n+1

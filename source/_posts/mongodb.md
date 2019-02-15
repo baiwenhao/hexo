@@ -55,24 +55,6 @@ db.dropDatabase() 清除一个库
 db.shutdownServer() 关闭数据库
 ```
 
-## ubuntu
-```js
-// 添加mongodb签名到APT
-sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv EA312927
-
-// 创建/etc/apt/sources.list.d/mongodb-org-3.2.list文件并写入命令
-echo "deb http://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/3.2 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.2.list
-
-// 更新软件源列表
-sudo apt-get update
-
-// 安装mongodb（默认是安装稳定版
-sudo apt-get install -y mongodb-org
-sudo apt-get install -y mongodb-org=3.2.9 mongodb-org-server=3.2.9 mongodb-org-shell=3.2.9 mongodb-org-mongos=3.2.9 mongodb-org-tools=3.2.9
-
-
-```
-
 ## 索引
 
 数据量很大时，查询使用索引可大幅度提高效率
@@ -102,5 +84,11 @@ centos
 https://www.globo.tech/learning-center/install-nodejs-run-node-applications-centos-7/
 http://stackoverflow.com/questions/23615377/monk-vs-mongoose-for-mongodb
 
-mongodb
-http://coolnuanfeng.github.io/mongodb
+## 创建用户
+use test // 切换数据库
+db.createUser({ user: 'root', pwd: '123', roles: [{ role: 'readWrite', db: 'text' }] }) // 创建用户，读取权限（root）
+db.auth('root', '123') // 验证用户
+db.dropUser('root') // 删除用户
+show users // 查看用户
+show databases // 查询数据库
+

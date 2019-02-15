@@ -17,7 +17,7 @@ const postData = () => {
 }
 
 // 服务端解析
-const multipart = require('connect-multiparty');
+const multipart = require('connect-multiparty')
 const multipartMiddleware = multipart()
 app.post('/downCount', multipartMiddleware, (req, res) => {
   res.send(req.body)

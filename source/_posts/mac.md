@@ -37,3 +37,8 @@ defaults write com.apple.finder AppleShowAllFiles -boolean false ; killall Finde
 #### skecth
 没有出现任何来源时 在终端输入
 sudo spctl --master-disable
+
+#### brew update
+报错 Warning: git 2.15.1_1 is already installed
+安装 xcode-select --install
+等待 brew update
