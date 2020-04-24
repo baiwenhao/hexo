@@ -56,6 +56,7 @@ install code ...
 code .
 ```
 
+## sublime
 ```
 // 快捷键
 control＋tab 切换标签
@@ -159,3 +160,24 @@ control + option + F 格式化js  ( alignment)
 参考:
 https://www.kancloud.cn/digest/sublime-text-complete-guide/61433
 https://www.bbsmax.com/A/6pdDZrkJw3/
+
+## zsh
+```
+subl ~/.zshrc
+source ~/.zshrc
+ZSH_THEME="agnoster"
+
+prompt_context() {
+  emojis=("⚡️" "🔥" "💀" "👑" "😎" "🐸" "🐵" "🦄" "🌈" "🍻" "🚀" "💡" "🎉" "🔑" "🚦" "🌙")
+  RAND_EMOJI_N=$(( $RANDOM % ${#emojis[@]} + 1))
+  prompt_segment black default "${emojis[$RAND_EMOJI_N]} "
+}
+
+prompt_dir() {
+  prompt_segment blue $CURRENT_FG '%1~'
+}
+```
+
+## 架构图软件
+Axure Graffle
+Sketch Keynote

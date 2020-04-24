@@ -159,7 +159,7 @@ url = https://baiwenhao@github.com/baiwenhao/vue_note.git
 
 
 ## del commit
-```js
+```
 // Checkout
 git checkout --orphan latest_branch
 
@@ -178,7 +178,6 @@ git branch -m master
 // Finally, force update your repository
 git push -f origin master
 ```
-
 
 ## 覆盖 master 分支
 ```js
