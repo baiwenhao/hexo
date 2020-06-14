@@ -163,7 +163,7 @@ url = https://baiwenhao@github.com/baiwenhao/vue_note.git
 
 
 ## del commit
-```js
+```
 // Checkout
 git checkout --orphan latest_branch
 
@@ -183,9 +183,12 @@ git branch -m master
 git push -f origin master
 ```
 
+<<<<<<< HEAD
 ## 统计代码量
 https://blog.csdn.net/c_zhangsir/article/details/102861983
 
+=======
+>>>>>>> c209ea7aefc390d8a72212500beb4fdac0cfee65
 ## 覆盖 master 分支
 ```js
 git push origin develop:master -f // 强制推送,但是本地 master 还是旧的

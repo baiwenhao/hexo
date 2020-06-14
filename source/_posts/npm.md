@@ -15,9 +15,6 @@ devDependencies开发环境依赖包
 查看包的package.json
 npm view ejs
 
-查看所有node包
-npm list
-
 帮助信息
 npm help
 
@@ -85,7 +82,11 @@ npm --registry https://registry.npm.taobao.org install express
 路径
   /usr/local/n/versions/node/5.5.0
 
-
+## 查看,设置源
+```
+npm config get registry
+yarn config set registry https://registry.yarnpkg.com
+```
 
 ## yarn
 yran add -D
