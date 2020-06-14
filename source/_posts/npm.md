@@ -59,6 +59,15 @@ npm config set 
 npm config set registry http://registry.npm.taobao.org/
 npm config set proxy http://proxy.com:8081/
 
+升级
+npm upgrade --global yarn
+
+查看npm源
+npm config get registry
+
+临时使用源
+npm --registry https://registry.npm.taobao.org install express
+
 发布包
 ```
 站在使用者的角度，掌握上述章节的内容已经足够了，但当我们开发出好玩的项目而且又想和大家分享时，那么下面的内容就不得不了解了！
@@ -84,6 +93,8 @@ yran add -S
 yarn bin
 yarn ls
 yarn remove
+yarn upgrade vue-template-compiler@2.6.10
+https://learnku.com/articles/15976/yarn-accelerate-and-modify-mirror-source-in-china
 
 
 

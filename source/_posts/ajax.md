@@ -9,7 +9,7 @@ http://blog.guowenfh.com/2015/12/18/Ajax-elementary-course-1/
 回调函数和数据,回调函数是当响应到来时在页面调用的函数,名字一般是在请求中指定的,数据就是传入回调函数的json数据
 http://www.baidu.com/?callback=handlerResponse
 function handlerResponse(response){
-    //response.data
+    //  response.data
 }
 onreadystatechange事件
 readyState值每变化一次都会触发onreadystate change

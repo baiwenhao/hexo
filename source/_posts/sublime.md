@@ -7,7 +7,6 @@ tags:
 ---
 
 ## 快捷键
-
 ```js
 control＋tab 切换标签
 cmd + 数字 标签切换
@@ -27,35 +26,13 @@ control + option + F 格式化js  ( alignment)
 ```
 
 ## 编译nodejs
-```js
 自定制的文件保存在Preferences/Browse Packages/User
-新建build system ...
-{
-  "cmd": ["/usr/local/bin/node", "$file"],
-  "file_regex": "^[ ]*File \"(...*?)\", line ([0-9]*)",
-  "selector": "source.javascript"
-}
-```
+Tools > Build System > new build system
+/Users/baiwenhao/Library/Application\ Support/Sublime\ Text\ 3/Packages/User/javascript.sublime-build
 
-## cmd + B = 编译es6
-```js
-npm install -g babel 全局安装babel
-Tools > Build System > new build system... 添加新的build
+```json
 {
-  "path": "/usr/local/bin",
-  "working_dir": "${project_path:${folder}}",
-  "selector": "source.js",
-  "encoding": "utf-8",
-  "shell": true,
-  "windows": {
-      "cmd": ["taskkill /f /im node.exe >nul 2>nul & babel-node $file"]
-  },
-  "osx": {
-      "cmd": ["killall node >/dev/null 2>&1; babel-node $file"]
-  },
-  "linux": {
-      "cmd": ["killall node >/dev/null 2>&1; babel-node $file"]
-  }
+  "cmd": ["node", "$file"],"selector": "source.js"
 }
 ```
 

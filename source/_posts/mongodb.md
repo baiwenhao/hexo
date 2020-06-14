@@ -13,7 +13,13 @@ maxConns = 100   #最大连接数
 logappend = true   #写日志方式默认追加
 fork = true   #后台启动
 auth = false   #是否启动验证 window 下无效
+
+## 查看端口
+ps -e | grep mongod
+
+## directory
 /usr/local/Cellar #brew 安装的目录
+ubantu /var/lib/mongodb
 
 ## start
 sudo mongod --config mongodb.conf
@@ -29,10 +35,25 @@ mongod -f mongod.conf --auth
 ## 查看进程是否运行
 ps aux|grep mongo
 
-关闭后台服务
+## 关闭后台服务
 use admin
 db.shutdownServer()
 db.shutdownServer({force : true})
+
+## 创建用户
+use test // 切换数据库
+db.createUser({user:"admin",pwd:"admin",roles: [ { role: "userAdminAnyDatabase", db: "admin" } ]})
+db.createUser({user:"wenhao",pwd:"bwh2009",roles:[ "readWrite","dbAdmin"]})
+db.createUser({ user: 'wenhao', pwd: 'bwh2009', roles: [{ role: 'readWrite', db: 'mock' }] }) // 创建用户，读取权限（root）
+db.auth('root', '123') // 验证用户
+db.dropUser('root') // 删除用户
+db.removeUser("userName") // 删除用户
+show users // 查看用户
+show databases // 查询数据库
+db.createUser({'user':'wenhao','pwd':'bwh2009','roles':[{role:'dbOwner',db:'mock'}]})
+
+## 远程链接
+mongo 134.567.345.23:27017/mock -u wenhao
 
 ## 命令
 ```js
@@ -41,6 +62,8 @@ db.user  数据集合
 db.user.find() 查询全部数据，参数{age:32查询结果
 show collections 当前表
 show dbs 查看库
+db.getName() 查看当前使用的数据库
+db.version() 版本
 db.addUser('root','root') 创建用户
 db.user.insert({x:1}) 插入一条数据
 db.user.save({name:'baiwenhao','age':32})  保存数据
@@ -49,10 +72,11 @@ db.user.update({_id:ObjectId("56ff85bff6927e15cd2c4f7f")},{age:200}) 更新一�
 db.user.update({_id:ObjectId("56ff85bff6927e15cd2c4f7f")},{$set:{name:'haoke'}})
 db.user.find({ $or: [{id: '1'}] }).toArray()
 db.nav.find().count() 查看多少条数据
-db.user.remove({name:"boss”}) 删除一条数据
+db.user.remove({ name: 'boss' }) 删除一条数据
 db.user.drop() 清除一个表
 db.dropDatabase() 清除一个库
 db.shutdownServer() 关闭数据库
+db.resetError() 清除错误记录
 ```
 
 ## 索引
@@ -68,11 +92,6 @@ mongodump -h 192.168.1.46 -d fete -o ~/fete_data_backup
 mongorestore -h localhost -d fete ~/fete_data_backup/fete
 rm -rf ~/fete_data_backup
 
-安装mongodb
-https://www.globo.tech/learning-center/?s=mongodb
-wget http://fastdl.mongodb.org/linux/mongodb-linux-x86_64-2.6.4.tgz
-tar -zxvf mongodb-linux-x86_64-2.6.4.tgz -C /usr/src
-
 ## 客户端
 https://robomongo.org/download
 
@@ -80,15 +99,8 @@ https://robomongo.org/download
 查询多个id
 const items = await ctx.mongo.db(conf.mongodb.db).collection(item).find({ $or: [{id: 1}] }).toArray()
 
-centos
-https://www.globo.tech/learning-center/install-nodejs-run-node-applications-centos-7/
-http://stackoverflow.com/questions/23615377/monk-vs-mongoose-for-mongodb
+db.createUser({user:'admin',pwd:'password',roles:[{role:'root',db:'admin'}]})
 
-## 创建用户
-use test // 切换数据库
-db.createUser({ user: 'root', pwd: '123', roles: [{ role: 'readWrite', db: 'text' }] }) // 创建用户，读取权限（root）
-db.auth('root', '123') // 验证用户
-db.dropUser('root') // 删除用户
-show users // 查看用户
-show databases // 查询数据库
 
+/root/document/mongodb/data
+/root/document/mongodb/log/mongod.log
