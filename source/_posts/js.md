@@ -200,11 +200,21 @@ http://www.cnblogs.com/shuiyi/p/5277233.html#3979662
 
 ## computed
 // 这两者可以将浮点转成整型且效率方面要比同类的parseInt,Math.round 要快。在处理像素及动画位移等效果的时候会很有用
+```js
 var foo = (12.4 / 4.13) | 0;//结果为3
-var bar = ~~(12.4 / 4.13);//结果为3
-
+var bar = ~~(12.4 / 4.13); //结果为3
 var a=1,b=2;a=[b,b=a][0];
+```
 
+javascript 变量命名类型 变量命名前缀
+array 数组  a
+boolean 布尔值 b
+float 浮点数 l
+function 函数 fn
+int 整型  i
+object 对象 o
+regular 正则  r
+string 字符串  s
 
 
 

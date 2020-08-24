@@ -5,6 +5,30 @@ abbrlink: 53d0684b
 date: 2017-02-07 11:44:11
 ---
 
+## 搬瓦工
+```
+ssh root@104.225.233.146 -p 26800
+
+本地拷贝远程文件,本地拷远程顺序颠倒一下
+scp -P 26800 root@104.225.233.208:/root/gradle-2.4-all.zip ./
+scp -P 26800 ./vuejs_note.zip root@104.225.233.208:/root/
+
+shadowsockes
+104.225.233.1469:10586
+aes-256-cfb
+
+ubuntu 安装 apt-get install git
+```
+
+卸载
+```js
+./shadowsocks-go.sh uninstall
+启动：/etc/init.d/shadowsocks start
+停止：/etc/init.d/shadowsocks stop
+重启：/etc/init.d/shadowsocks restart
+状态：/etc/init.d/shadowsocks status
+```
+
 ## telnet
 ```
 netstat -nat | grep 3306
@@ -20,50 +44,6 @@ lsof -i tcp:3888 //查看
 kill -9 26019 //杀端口
 ```
 
-## 搬瓦工
-```
-ssh root@45.78.53.253 -p 28254
-
-本地拷贝远程文件,本地拷远程顺序颠倒一下
-scp -P 28254 root@45.78.53.253:/root/gradle-2.4-all.zip ./
-scp -P 28254 ./vuejs_note.zip root@45.78.53.253:/root/
-
-ubuntu 安装 apt-get install git
-```
-
-## shadowsocks go
-查看状态
-
-```js
-
-```
-
-可以设置多端口
-```js
-{
-    "server":"0.0.0.0",
-    "server_port":"10586",
-    "local_port":1080,
-    "password":"teddysun.com",
-    "method":"aes-256-cfb",
-    "timeout":300
-}
-vi /etc/shadowsocks/config.json
-/etc/init.d/shadowsocks restart
-```
-
-卸载
-```js
-./shadowsocks-go.sh uninstall
-启动：/etc/init.d/shadowsocks start
-停止：/etc/init.d/shadowsocks stop
-重启：/etc/init.d/shadowsocks restart
-状态：/etc/init.d/shadowsocks status
-```
-
-https://teddysun.com/392.html
-https://www.jianshu.com/p/1128ddc5a90f
-
 ## zip压缩解压
 ```
 zip -r 1 2 new 压12
@@ -72,8 +52,54 @@ unzip -v new.zip 查看
 unzip -t new.zip 完整
 ```
 
-## nvm
-https://github.com/creationix/nvm
+## centOS install
+```
+yum install git
+```
+
+## 解决 nvm command not found问题
+安装地址 https://github.com/nvm-sh/nvm
+
+进入.nvm文件夹，新建.bash_profile：
+```js
+touch .bash_profile // 新建文件
+open .bash_profile // 打开文件
+```
+
+copy 一下内容
+```js
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+```
+
+属性
+```js
+source .bash_profile
+```
+
+卸载
+```js
+nvm use system
+$ npm uninstall -g a_module
+```
+
+## centOS安装yarn
+```js
+yum -y update
+touch /etc/yum.repos.d/mongodb-org.repo
+vi /etc/yum.repos.d/mongodb-org.repo
+
+[mongodb-org]
+name=MongoDB Repository
+baseurl=http://mirrors.aliyun.com/mongodb/yum/redhat/7Server/mongodb-org/3.2/x86_64/
+gpgcheck=0
+enabled=1
+
+yum install -y mongodb-org
+```
+
+## centOS安装nginx
+
 
 ## 移动文件
 ```
@@ -118,7 +144,34 @@ ps -ef|grep tomcat 查看服务是否启动
 kill -9 15559 关闭端口
 ```
 
+## centOS install mongodb
+```js
+yum -y update
+touch /etc/yum.repos.d/mongodb-org.repo
+vi /etc/yum.repos.d/mongodb-org.repo
+
+[mongodb-org]
+name=MongoDB Repository
+baseurl=http://mirrors.aliyun.com/mongodb/yum/redhat/7Server/mongodb-org/3.2/x86_64/
+gpgcheck=0
+enabled=1
+
+yum install -y mongodb-org
+```
+
+## 查看历史命令
+history |grep yarn
+
+## 开启权限打开app
+sudo spctl --master-disable
+
+## 安装shadowsocks
+https://www.4spaces.org/install-shadowsocks-on-centos-7/
+
+## 安装v2ray
+https://www.4spaces.org/build-v2ray-from-0-to-1/
+
 命令
-https://yarnpkg.com/en/docs/cli/add
+http·://yarnpkg.com/en/docs/cli/add
 安装
 https://github.com/yarnpkg/yarn/issues/1139

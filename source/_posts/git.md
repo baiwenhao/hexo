@@ -12,6 +12,10 @@ ls ~/.ssh  两个文件id_rsa和id_rsa.pub
 cat ~/.ssh/id_rea.pub 查看秘钥
 ssh-keygen 生成秘钥
 ```
+<<<<<<< HEAD
+=======
+echo "deb [ arch=amd64 ] https://repo.mongodb.org/apt/ubuntu bionic/mongodb-org/4.2 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-4.2.list
+>>>>>>> 72fb4a97f483cd64995fa71bf398b9778141c7f8
 
 ## 基本命令
 ```
@@ -31,6 +35,7 @@ git init 初始化一个目录
 git add a 添加到暂存区
 git reset HEAD a 历史记录里面已经没有a了
 git checkout a 还原一个文件
+git checkout . 删除未提交的文件
 git checkout -- fliename 恢复删除的文件
 git rm --cached a 删除暂存区里的a
 git commit -m "Initial commit" 暂存区的文件提交到历史记录
@@ -103,6 +108,9 @@ git push 上传历史记录
 git push origin dev
 git pull origin dev
 ```
+项目名变更了
+git remote rm origin
+git remote add origin
 
 
 ## 钥匙
@@ -173,6 +181,12 @@ git branch -m master
 git push -f origin master
 ```
 
+<<<<<<< HEAD
+## 统计代码量
+https://blog.csdn.net/c_zhangsir/article/details/102861983
+
+=======
+>>>>>>> c209ea7aefc390d8a72212500beb4fdac0cfee65
 ## 覆盖 master 分支
 ```js
 git push origin develop:master -f // 强制推送,但是本地 master 还是旧的

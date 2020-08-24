@@ -8,9 +8,13 @@ date: 2017-02-07 11:19:11
 sudo chown -R $USER /usr/local/Cellar/  
 
 ##### 添加全局变量
+<<<<<<< HEAD
+sudo nano ~/.bash_profile
+=======
 ```
 sudo nano ~/.bash_profile;
 ```
+>>>>>>> c209ea7aefc390d8a72212500beb4fdac0cfee65
 
 ##### chrome插件
 一键禁用所有扩展-加强版
