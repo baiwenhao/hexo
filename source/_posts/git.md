@@ -104,7 +104,7 @@ git reflog
 ## 远程操作
 ```
 git clone  复制
-git fetch origin master获取到本地
+git fetch origin master 获取到本地
 git fetch 获取远程分支到本地
 git push 上传历史记录
 git push origin dev
@@ -183,12 +183,9 @@ git branch -m master
 git push -f origin master
 ```
 
-<<<<<<< HEAD
 ## 统计代码量
 https://blog.csdn.net/c_zhangsir/article/details/102861983
 
-=======
->>>>>>> c209ea7aefc390d8a72212500beb4fdac0cfee65
 ## 覆盖 master 分支
 ```js
 git push origin develop:master -f // 强制推送,但是本地 master 还是旧的

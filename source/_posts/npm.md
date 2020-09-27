@@ -85,6 +85,7 @@ npm --registry https://registry.npm.taobao.org install express
 ## 查看,设置源
 ```
 npm config get registry
+yarn config get registry
 yarn config set registry https://registry.yarnpkg.com
 ```
 
