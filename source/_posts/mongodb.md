@@ -4,7 +4,7 @@ abbrlink: '20475214'
 date: 2017-02-07 11:19:33
 ---
 
-## config
+## config.conf
 logpath = /Users/baiwenhao/soft/log/mongod.log   #日志文件
 dbpath = /Users/baiwenhao/soft/data   #数据文件
 port = 27017   #链接端口
@@ -14,10 +14,13 @@ logappend = true   #写日志方式默认追加
 fork = true   #后台启动
 auth = false   #是否启动验证 window 下无效
 
+<<<<<<< HEAD
+=======
 ## 查看端口
 ps -e | grep mongod
 
 ## directory
+>>>>>>> 72fb4a97f483cd64995fa71bf398b9778141c7f8
 /usr/local/Cellar #brew 安装的目录
 ubantu /var/lib/mongodb
 

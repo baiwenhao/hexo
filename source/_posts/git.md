@@ -12,7 +12,10 @@ ls ~/.ssh  两个文件id_rsa和id_rsa.pub
 cat ~/.ssh/id_rea.pub 查看秘钥
 ssh-keygen 生成秘钥
 ```
+<<<<<<< HEAD
+=======
 echo "deb [ arch=amd64 ] https://repo.mongodb.org/apt/ubuntu bionic/mongodb-org/4.2 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-4.2.list
+>>>>>>> 72fb4a97f483cd64995fa71bf398b9778141c7f8
 
 ## 基本命令
 ```
@@ -25,7 +28,6 @@ git config --list --global 列出所有的name
 git config --list --global --unset user.name 删除
 git config --global alias.st status 设置快捷键st
 ```
-
 
 ## 暂存区
 ```
@@ -47,7 +49,6 @@ git mv a c 把a重名名为c
 **/res 所有目录下面的res都匹配到
 ```
 
-
 ## 分支
 ```
 git branch test 创建一个分支
@@ -58,7 +59,6 @@ git merge test 合并分支
 git merge --abort 放弃合并
 git branch -d name 删除本地分支
 ```
-
 
 ## 查看对比历史记录
 ```
@@ -91,7 +91,6 @@ git revert HEAD撤销最近一次提交
 git revert HEAD^撤销上上次提交
 ```
 
-
 ## 重写历史记录
 ```
 git commit --amend
@@ -99,7 +98,6 @@ git rebase 
 git reset
 git reflog
 ```
-
 
 ## 远程操作
 ```
@@ -195,3 +193,19 @@ git reset --hard develop // 将本地的旧分支 master 重置成 develop
 git push origin master --force // 再推送到远程仓库
 ```
 
+
+## view origin branch
+```js
+git branch -a 
+```
+
+
+## delete origin branch
+```js
+git push origin --delete [branch_name]
+```
+
+## fetch 
+```js
+git fetch --all // 拉去所有分支
+```

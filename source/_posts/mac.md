@@ -185,3 +185,19 @@ prompt_dir() {
 ## 架构图软件
 Axure Graffle
 Sketch Keynote
+
+## mongodb install
+```js
+// 下载安装
+cd /usr/local
+curl -O https://fastdl.mongodb.org/osx/mongodb-osx-ssl-x86_64-4.0.9.tgz
+tar -zxvf mongodb-osx-ssl-x86_64-4.0.9.tgz
+mv mongodb-osx-x86_64-4.0.9/ mongodb
+
+// 配置变量 
+vim ~/.bash_profile 
+export PATH=/usr/local/mongodb/bin:$PATH
+// export PATH=${PATH}:/usr/local/MongoDB/bin 
+source .bash_profile
+mongod -version
+```
