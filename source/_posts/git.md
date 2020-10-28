@@ -12,10 +12,6 @@ ls ~/.ssh  两个文件id_rsa和id_rsa.pub
 cat ~/.ssh/id_rea.pub 查看秘钥
 ssh-keygen 生成秘钥
 ```
-<<<<<<< HEAD
-=======
-echo "deb [ arch=amd64 ] https://repo.mongodb.org/apt/ubuntu bionic/mongodb-org/4.2 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-4.2.list
->>>>>>> 72fb4a97f483cd64995fa71bf398b9778141c7f8
 
 ## 基本命令
 ```
@@ -196,7 +192,7 @@ git push origin master --force // 再推送到远程仓库
 
 ## view origin branch
 ```js
-git branch -a 
+git branch -a
 ```
 
 
@@ -205,7 +201,7 @@ git branch -a
 git push origin --delete [branch_name]
 ```
 
-## fetch 
+## fetch
 ```js
 git fetch --all // 拉去所有分支
 ```

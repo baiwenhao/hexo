@@ -5,30 +5,6 @@ abbrlink: 53d0684b
 date: 2017-02-07 11:44:11
 ---
 
-## 搬瓦工
-```
-ssh root@104.225.233.146 -p 26800
-
-本地拷贝远程文件,本地拷远程顺序颠倒一下
-scp -P 26800 root@104.225.233.208:/root/gradle-2.4-all.zip ./
-scp -P 26800 ./vuejs_note.zip root@104.225.233.208:/root/
-
-shadowsockes
-104.225.233.1469:10586
-aes-256-cfb
-
-ubuntu 安装 apt-get install git
-```
-
-卸载
-```js
-./shadowsocks-go.sh uninstall
-启动：/etc/init.d/shadowsocks start
-停止：/etc/init.d/shadowsocks stop
-重启：/etc/init.d/shadowsocks restart
-状态：/etc/init.d/shadowsocks status
-```
-
 ## telnet
 ```
 netstat -nat | grep 3306
@@ -98,9 +74,6 @@ enabled=1
 yum install -y mongodb-org
 ```
 
-## centOS安装nginx
-
-
 ## 移动文件
 ```
 mv file1 file2
@@ -165,13 +138,111 @@ history |grep yarn
 ## 开启权限打开app
 sudo spctl --master-disable
 
-## 安装shadowsocks
-https://www.4spaces.org/install-shadowsocks-on-centos-7/
+## 搬瓦工
+```
+ssh root@104.225.233.200 -p 26800
 
-## 安装v2ray
-https://www.4spaces.org/build-v2ray-from-0-to-1/
+本地拷贝远程文件,本地拷远程顺序颠倒一下
+scp -P 26800 root@104.225.233.208:/root/gradle-2.4-all.zip ./
+scp -P 26800 ./vuejs_note.zip root@104.225.233.208:/root/
 
-命令
-http·://yarnpkg.com/en/docs/cli/add
-安装
-https://github.com/yarnpkg/yarn/issues/1139
+ubuntu 安装
+apt-get install git
+apt-get install curl
+
+```
+
+## v2ray
+```
+systemctl start v2ray
+systemctl stop v2ray
+service v2ray status
+
+server
+ExecStart=/usr/local/bin/v2ray -config /usr/local/etc/v2ray/config.json
+```
+https://github.com/v2fly/fhs-install-v2ray/blob/master/README.md
+```
+{
+    "log": {
+        "access": "/var/log/v2ray/access.log",
+        "error": "/var/log/v2ray/error.log",
+        "loglevel": "warning"
+    },
+    "inbound": {
+        "port": 12345,
+        "protocol": "vmess",
+        "settings": {
+            "clients": [
+                {
+                    "id": "d75015f7-c5ca-6992-349e-f04345ccc95f",
+                    "level": 1,
+                    "alterId": 100
+                }
+            ]
+        },
+        "streamSettings": {
+            "network": "tcp"
+        },
+        "detour": {
+            "to": "vmess-detour-276786"
+        }
+    },
+    "outbound": {
+        "protocol": "freedom",
+        "settings": {}
+    },
+    "inboundDetour": [
+        {
+            "protocol": "vmess",
+            "port": "10000-10010",
+            "tag": "vmess-detour-276786",
+            "settings": {},
+            "allocate": {
+                "strategy": "random",
+                "concurrency": 5,
+                "refresh": 5
+            },
+            "streamSettings": {
+                "network": "kcp"
+            }
+        }
+    ],
+    "outboundDetour": [
+        {
+            "protocol": "blackhole",
+            "settings": {},
+            "tag": "blocked"
+        }
+    ],
+    "routing": {
+        "strategy": "rules",
+        "settings": {
+            "rules": [
+                {
+                    "type": "field",
+                    "ip": [
+                        "0.0.0.0/8",
+                        "10.0.0.0/8",
+                        "100.64.0.0/10",
+                        "127.0.0.0/8",
+                        "169.254.0.0/16",
+                        "172.16.0.0/12",
+                        "192.0.0.0/24",
+                        "192.0.2.0/24",
+                        "192.168.0.0/16",
+                        "198.18.0.0/15",
+                        "198.51.100.0/24",
+                        "203.0.113.0/24",
+                        "::1/128",
+                        "fc00::/7",
+                        "fe80::/10"
+                    ],
+                    "outboundTag": "blocked"
+                }
+            ]
+        }
+    }
+}
+```
+
