@@ -25,7 +25,7 @@ control + r 函数跳转
 control + option + F 格式化js  ( alignment)
 ```
 
-## 编译nodejs
+## build js
 自定制的文件保存在Preferences/Browse Packages/User
 Tools > Build System > new build system
 /Users/baiwenhao/Library/Application\ Support/Sublime\ Text\ 3/Packages/User/javascript.sublime-build
@@ -35,6 +35,31 @@ Tools > Build System > new build system
   "cmd": ["node", "$file"],"selector": "source.js"
 }
 ```
+
+## build es6
+全局安装babel
+```
+npm i -g babel-cli
+
+{
+    "working_dir": "${project_path:${folder}}",
+    "selector": "source.js",
+    "encoding": "utf-8",
+    "shell": true,
+    "windows": {
+        "cmd": ["taskkill", "/f", "/im", "node.exe", ">nul", "2>nul", "&", "babel-node", "$file"]
+    },
+    "osx": {
+        "cmd": ["killall node >/dev/null 2>&1; babel-node \"$file\""]
+    },
+    "linux": {
+        "cmd": ["killall node >/dev/null 2>&1; babel-node \"$file\""]
+    }
+}
+
+```
+ps: https://www.cnblogs.com/52cik/p/sublime-text-run-es6.html
+
 
 ## 配置文件
 ```js

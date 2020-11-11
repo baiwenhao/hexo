@@ -28,50 +28,12 @@ unzip -v new.zip 查看
 unzip -t new.zip 完整
 ```
 
-## centOS install
+## centOs install soft
 ```
-yum install git
-```
-
-## 解决 nvm command not found问题
-安装地址 https://github.com/nvm-sh/nvm
-
-进入.nvm文件夹，新建.bash_profile：
-```js
-touch .bash_profile // 新建文件
-open .bash_profile // 打开文件
-```
-
-copy 一下内容
-```js
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
-```
-
-属性
-```js
-source .bash_profile
-```
-
-卸载
-```js
-nvm use system
-$ npm uninstall -g a_module
-```
-
-## centOS安装yarn
-```js
-yum -y update
-touch /etc/yum.repos.d/mongodb-org.repo
-vi /etc/yum.repos.d/mongodb-org.repo
-
-[mongodb-org]
-name=MongoDB Repository
-baseurl=http://mirrors.aliyun.com/mongodb/yum/redhat/7Server/mongodb-org/3.2/x86_64/
-gpgcheck=0
-enabled=1
-
-yum install -y mongodb-org
+yum install -y git // install git
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.0/install.sh | bash // https://github.com/nvm-sh/nvm
+curl -o- -L https://yarnpkg.com/install.sh | bash // install yarn
+// source /root/.bashrc  nvm and yarn 安装目录 刷新 source
 ```
 
 ## 移动文件
@@ -153,96 +115,47 @@ apt-get install curl
 ```
 
 ## v2ray
+基础命令
 ```
 systemctl start v2ray
 systemctl stop v2ray
+systemctl status v2ray
 service v2ray status
 
-server
-ExecStart=/usr/local/bin/v2ray -config /usr/local/etc/v2ray/config.json
+vi /usr/local/etc/v2ray/config.json
+netstat -apn | grep v2ray
 ```
+
+ExecStart=/usr/local/bin/v2ray -config /usr/local/etc/v2ray/config.json
+
 https://github.com/v2fly/fhs-install-v2ray/blob/master/README.md
 ```
 {
-    "log": {
-        "access": "/var/log/v2ray/access.log",
-        "error": "/var/log/v2ray/error.log",
-        "loglevel": "warning"
-    },
-    "inbound": {
-        "port": 12345,
-        "protocol": "vmess",
-        "settings": {
-            "clients": [
-                {
-                    "id": "d75015f7-c5ca-6992-349e-f04345ccc95f",
-                    "level": 1,
-                    "alterId": 100
-                }
-            ]
-        },
-        "streamSettings": {
-            "network": "tcp"
-        },
-        "detour": {
-            "to": "vmess-detour-276786"
-        }
-    },
-    "outbound": {
-        "protocol": "freedom",
-        "settings": {}
-    },
-    "inboundDetour": [
+  "log": {
+    "loglevel": "warning"
+  },
+  "inbound": {
+    "protocol": "vmess",
+    "port": 1234,
+    "listen": "104.225.233.200",
+    "settings": {
+      "clients": [
         {
-            "protocol": "vmess",
-            "port": "10000-10010",
-            "tag": "vmess-detour-276786",
-            "settings": {},
-            "allocate": {
-                "strategy": "random",
-                "concurrency": 5,
-                "refresh": 5
-            },
-            "streamSettings": {
-                "network": "kcp"
-            }
+          "id": "f8e1b20a-e33f-470e-8133-ccad21a83ea",
+          "alterId": 2,
+          "level": 1
         }
-    ],
-    "outboundDetour": [
-        {
-            "protocol": "blackhole",
-            "settings": {},
-            "tag": "blocked"
-        }
-    ],
-    "routing": {
-        "strategy": "rules",
-        "settings": {
-            "rules": [
-                {
-                    "type": "field",
-                    "ip": [
-                        "0.0.0.0/8",
-                        "10.0.0.0/8",
-                        "100.64.0.0/10",
-                        "127.0.0.0/8",
-                        "169.254.0.0/16",
-                        "172.16.0.0/12",
-                        "192.0.0.0/24",
-                        "192.0.2.0/24",
-                        "192.168.0.0/16",
-                        "198.18.0.0/15",
-                        "198.51.100.0/24",
-                        "203.0.113.0/24",
-                        "::1/128",
-                        "fc00::/7",
-                        "fe80::/10"
-                    ],
-                    "outboundTag": "blocked"
-                }
-            ]
-        }
+      ]
+    },
+    "streamSettings": {
+      "network": "tcp"
     }
+  },
+  "inboundDetour": [],
+  "outbound": {
+    "protocol": "freedom",
+   "settings": {}
+  }
 }
 ```
 
