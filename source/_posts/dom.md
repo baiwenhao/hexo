@@ -5,8 +5,6 @@ abbrlink: 59b49683
 date: 2017-02-07 15:17:54
 ---
 
-https://ma-light-app.obs.cn-north-1.myhuaweicloud.com/dev/poc/test.html
-
 ## window
 ```js
 window.innerHeight() 包括滚动条高度

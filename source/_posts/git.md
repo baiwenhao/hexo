@@ -89,7 +89,7 @@ git revert HEAD^撤销上上次提交
 
 ## 重写历史记录
 ```
-git commit --amend
+git commit --amend // 提交的commit，不合规可以修改
 git rebase 
 git reset
 git reflog
