@@ -29,13 +29,12 @@ git config --global alias.st status 设置快捷键st
 ```
 git init 初始化一个目录
 git add a 添加到暂存区
-git reset HEAD a 历史记录里面已经没有a了
+git reset HEAD a 删除暂存区的文件 .代表全部
 git checkout a 还原一个文件
 git checkout . 删除未提交的文件
 git checkout -- fliename 恢复删除的文件
 git rm --cached a 删除暂存区里的a
 git commit -m "Initial commit" 暂存区的文件提交到历史记录
-git commit -m "modify a" 把修改的a提交到历史记录
 git rm a 同时删除暂存区和历史记录的a
 git rm img -r -f 删除img文件夹及文件
 git rm img -f 删除一个文件
@@ -89,9 +88,9 @@ git revert HEAD^撤销上上次提交
 
 ## 重写历史记录
 ```
-git commit --amend // 提交的commit，不合规可以修改
+git commit --amend // 修改之前的commit注释
 git rebase 
-git reset
+git reset commit_id // 撤销commit，同时保留commit修改, git log 查看
 git reflog
 ```
 

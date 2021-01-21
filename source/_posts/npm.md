@@ -98,6 +98,8 @@ yarn remove
 yarn upgrade vue-template-compiler@2.6.10
 https://learnku.com/articles/15976/yarn-accelerate-and-modify-mirror-source-in-china
 
+## 查看全局包
+npm list -g --depth 0
 
 ## 删除全局包
 npm uninstall -g vue-cli
