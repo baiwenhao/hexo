@@ -62,8 +62,6 @@ npm upgrade --global yarn
 查看npm源
 npm config get registry
 
-临时使用源
-npm --registry https://registry.npm.taobao.org install express
 
 发布包
 ```
@@ -107,5 +105,31 @@ npm install -g @vue/cli
 yarn global remove vue-cli
 yarn global add @vue/cli
 
+## 查看node安装的位置
+```
+npm root -g
+
+Mac 下默认的全局路径是:
+/usr/local/lib/node_modules
+
+Ubuntu 下默认的全局路径是:
+/usr/lib/node_modules
+
+npm ls -g --depth 0 | grep packageName
+--depth 0 仅查看一级目录
+
+npm ls -g
+查看安装的所以全局包
+
 npm config
 https://www.npmjs.cn/getting-started/updating-global-packages/
+```
+
+## 临时使用
+```
+npm install pack -g --registry=http://192.168.30.69:7001/
+npm --registry https://registry.npm.taobao.org install express
+
+```
+
+
