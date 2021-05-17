@@ -8,13 +8,9 @@ date: 2017-02-07 11:19:11
 sudo chown -R $USER /usr/local/Cellar/  
 
 ##### 添加全局变量
-<<<<<<< HEAD
-sudo nano ~/.bash_profile
-=======
 ```
 sudo nano ~/.bash_profile;
 ```
->>>>>>> c209ea7aefc390d8a72212500beb4fdac0cfee65
 
 ##### chrome插件
 一键禁用所有扩展-加强版
@@ -49,15 +45,19 @@ sudo spctl --master-disable
 安装 xcode-select --install
 等待 brew update
 
-## Terminal command
+## Terminal command (sublime and vscode)
 ```
 vi ~/.bash_profile
 alias subl=\''/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl'\'
-subl .
 
 command + shift + p
 install code ...
-code .
+```
+
+## font location
+```
+/Users/wenhao/Library/Fonts
+~/Library/Fonts
 ```
 
 ## sublime
@@ -166,13 +166,18 @@ https://www.kancloud.cn/digest/sublime-text-complete-guide/61433
 https://www.bbsmax.com/A/6pdDZrkJw3/
 
 ## zsh
+安装zsh，切换zsh，安装必要字体(https://github.com/powerline/fonts)，安装onmyzsh，
+
 ```
+
+cat /etc/shells // 查看终端shell 
+sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)" // install on my zsh
 subl ~/.zshrc
 source ~/.zshrc
 ZSH_THEME="agnoster"
 
 prompt_context() {
-  emojis=("⚡️" "🔥" "💀" "👑" "😎" "🐸" "🐵" "🦄" "🌈" "🍻" "🚀" "💡" "🎉" "🔑" "🚦" "🌙")
+  emojis=("🔥" "😎" "🦄" "🌈" "🍻" "🎉" "🔑" "🌙")
   RAND_EMOJI_N=$(( $RANDOM % ${#emojis[@]} + 1))
   prompt_segment black default "${emojis[$RAND_EMOJI_N]} "
 }
@@ -180,7 +185,21 @@ prompt_context() {
 prompt_dir() {
   prompt_segment blue $CURRENT_FG '%1~'
 }
+
+chsh -s /bin/bash // 还原 bash
 ```
+
+detail 
+https://zhuanlan.zhihu.com/p/66226220
+
+color presets 导入进去
+https://github.com/mbadolato/iTerm2-Color-Schemes
+
+font ttf 安装
+https://github.com/ryanoasis/nerd-fonts#option-4-homebrew-fonts
+
+语法高亮插件
+https://github.com/zsh-users/zsh-syntax-highlighting/blob/master/INSTALL.md
 
 ## 架构图软件
 Axure Graffle
@@ -201,3 +220,11 @@ export PATH=/usr/local/mongodb/bin:$PATH
 source .bash_profile
 mongod -version
 ```
+
+待查看
+https://zhuanlan.zhihu.com/p/34497527
+
+ 
+
+
+
