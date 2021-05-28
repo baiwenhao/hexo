@@ -23,6 +23,7 @@ cmd + shift + t 恢复刚才关闭的窗口
 control + g 行跳转
 control + r 函数跳转
 control + option + F 格式化js  ( alignment)
+Ctrl+shift+P组合键 // 安装插件 install package control 或者 remove
 ```
 
 ## build js
@@ -32,7 +33,8 @@ Tools > Build System > new build system
 
 ```json
 {
-  "cmd": ["node", "$file"],"selector": "source.js"
+  "cmd": ["node", "$file"],
+  "selector": "source.js"
 }
 ```
 
@@ -106,34 +108,41 @@ ps: https://www.cnblogs.com/52cik/p/sublime-text-run-es6.html
 
 ## 插件
 ```js
-SyncedSideBar 支持当前文件在左侧面板中定位
-autofilename 标签匹配提示路径
-DocBlockr 代码注释 
-SideBarFolders 管理文件夹 
-javascript Next ES6 语法高亮
-caniuse 扩展右键菜单css
-Terminal 右键使用终端
-allAutocomplete  匹配的提示词 
-html-css-js Prettify 格式化代码 
-auto-save  保存
-bracketHighlighter 标签闭合提示
-sideBarEnhancements 增强右键菜单 
-{ "keys": ["ctrl+shift+c"], "command": "copy_path" } // 保存当前文件路径
+// 快捷键
+{ "keys": ["ctrl+shift+c"], "command": "copy_path" }
 
 // 配置文件 Preferences > Package Setting
 {
   "bootstrapped": true,
   "in_process_packages": [],
   "installed_packages": [
-    "AutoFileName",
-    "HTML-CSS-JS Prettify",
-    "JavaScriptNext - ES6 Syntax",
+    "allAutocomplete", // 匹配的提示词 
+    "caniuse", // 扩展右键菜单css
+    "AutoFileName", // 标签匹配提示路径 比如src要引入一个文件
+    "HTML-CSS-JS Prettify", // 格式化代码
+    "JavaScriptNext - ES6 Syntax", // 语法高亮
     "SideBarEnhancements",
-    "SideBarFolders",
-    "SyncedSideBar",
-    "Terminal",
-    "Vue Syntax Highlight"
+    "SideBarFolders", // 管理文件夹
+    "DocBlockr", // 代码注释 
+    "SyncedSideBar", // 支持当前文件在左侧面板中定位
+    "Terminal", // 右键使用终端
+    "Vue Syntax Highlight",
+    "auto-save", // 自动保存
+    "bracketHighlighter", // 标签闭合提示，高亮显示
+    "sideBarEnhancements", // 增强右键菜单
+    "fileHeader", // 给文件添加作者时间 FileHeader\template\header 自己配置
   ]
+}
+```
+
+```
+// fileHdader
+{
+    "Default": {
+        "author":"Ding Jianlong",
+        "last_modified_by":"Ding Jianlong",
+        "email":"123@51015.cn"
+    }
 }
 ```
 

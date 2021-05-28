@@ -14,13 +14,11 @@ logappend = true   #写日志方式默认追加
 fork = true   #后台启动
 auth = false   #是否启动验证 window 下无效
 
-<<<<<<< HEAD
-=======
+
 ## 查看端口
 ps -e | grep mongod
 
 ## directory
->>>>>>> 72fb4a97f483cd64995fa71bf398b9778141c7f8
 /usr/local/Cellar #brew 安装的目录
 ubantu /var/lib/mongodb
 
