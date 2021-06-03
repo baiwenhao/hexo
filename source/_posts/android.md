@@ -13,7 +13,7 @@ https://gitlab-rd0.maezia.com/eziash/fueling/ezia-fueling-fe-fueling
 加油
 违章
 
-洗车保险，违章，加油
+// 洗车保险，违章，加油
 https://gitlab-rd0.maezia.com/eziash/fueling/ezia-fueling-fe-fueling/-/tree/develop
 https://gitlab-rd0.maezia.com/eziash/fueling/ezia-fueling-fe-fueling
 https://gitlab-rd0.maezia.com/svecocns/hu/android/svecocns-hu-android-fueling // 37
@@ -21,6 +21,13 @@ https://gitlab-rd0.maezia.com/svecocns/hu/android/svecocns-hu-android-fueling //
 ## 权限
 ```java
 <uses-permission android:name="android.permission.INTERNET" />
+```
+
+## 申明一个函数
+```java
+public void setPopupType(int popupType) {
+    this.popupType = popupType;
+}
 ```
 
 ## Layout
@@ -101,6 +108,15 @@ android:layout_marginRight 右偏移的值
 
 ## Components
 ```java
+// include
+<include
+    android:id="@+id/navi_title"
+    layout="@layout/nav"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent" />
+
+
 // guideline
 <androidx.constraintlayout.widget.Guideline
     android:id="@+id/Guideline_left"
@@ -129,6 +145,7 @@ android:layout_marginRight 右偏移的值
     android:layout_height="wrap_content"
     android:orientation="vertical"
     app:layout_constraintGuide_percent="0.96" />
+
 
 // TextView
 <TextView
@@ -160,6 +177,7 @@ android:layout_marginRight 右偏移的值
     // android:ellipsize="marquee"
     // android:focusableInTouchMode="true"
 
+
 // EditText
 <EditText
         app:layout_constraintTop_toTopOf="parent"
@@ -183,6 +201,7 @@ editText.addTextChangedListener(new TextWatcher() { // 绑定事件
     public void afterTextChanged(Editable s) {}
 });
 
+
 // Button
 <Button
     android:id="@+id/button2"
@@ -196,9 +215,11 @@ editText.addTextChangedListener(new TextWatcher() { // 绑定事件
     app:layout_constraintStart_toStartOf="parent"
     android:layout_gravity="bottom" />
 
+
 // Intent
 Intent intent = new Intent(Test.this, MainActivity.class);
 startActivity(intent);
+
 
 // Toast
 public class TestActivity extends AppCompatActivity {
@@ -222,6 +243,7 @@ public class TestActivity extends AppCompatActivity {
 }
 // https://blog.csdn.net/duwangthefirst/article/details/80264155
 
+
 // checkbox 类似的组件ToggleButto，Switch
 <CheckBox
     android:id="@+id/c_1"
@@ -244,6 +266,7 @@ c1.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
     }
 });
 
+
 // ImageView
 // scaleType
 // fitXY 撑满控件，宽高可能发生改变
@@ -260,29 +283,45 @@ c1.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
     />
 // 加载第三方库 https://github.com/bumptech/glide
 // https://www.youtube.com/watch?v=dTeUSZ6lB84
-
-
-// ImageView 靠右
-<ImageView
-    android:id="@+id/imageView"
-    android:layout_width="60dp"
-    android:layout_height="0dp"
-    android:contentDescription="@string/app_name"
-    app:layout_constraintTop_toTopOf="parent"
-    app:layout_constraintBottom_toTopOf="@+id/top"
-    app:layout_constraintStart_toEndtOf="parent"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:srcCompat="@drawable/refresh" />
 // app:layout_constraintDimensionRatio
 // android:visibility
 
 
+
+// RecyclerView 相对复杂的组件
+// RecyclerView.Adapter 处理数据集合并负责绑定视图
+// ViewHolder
+// 1 引入类
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.recyclerview.widget.StaggeredGridLayoutManager;
+
+private RecyclerView recyclerView;
+private ArrayList<ItemClass> list2 = new ArrayList<>();
+
+// 2 创建布局
+recyclerView = findViewById(R.id.id_RecyclerView);
+recyclerView.setHasFixedSize(true)
+// 当我们确定Item的改变不会影响RecyclerView的宽高的时候可以设置setHasFixedSize(true)，
+// 并通过Adapter的增删改插方法去刷新RecyclerView，而不是通过notifyDataSetChanged()
+// 其实可以直接设置为true，当需要改变宽高的时候就用notifyDataSetChanged() 去整体刷新一下
+StaggeredGridLayoutManager layoutManager = new StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.VERTICAL);
+layoutManager.setOrientation(StaggeredGridLayoutManager.HORIZONTAL);
+recyclerView.setLayoutManager(layoutManager);
+
+// 3 构建数据
+list2.add(new ItemClass("一品漫城", "浦星公路"); // 类要提前写好，ItemClass.java
+MyAdapter adapter = new MyAdapter(list2);
+recyclerView.setAdapter(adapter); // 也是判断页面加载完成的时机
+
+// ItemClass 的实现
+
+// MyAdapter 的实现
+
+// https://www.jianshu.com/p/f1999c3f6a26
 // recyclerView https://developer.android.com/guide/topics/ui/layout/recyclerview?hl=zh-cn
 // RecyclerView.LayoutManager 布局管理
 // https://developer.android.com/guide/topics/ui/layout/recyclerview?hl=zh-cn
 
-// RecyclerView.Adapter 处理数据集合并负责绑定视图
-// ViewHolder
 
 // WebView to do
 WebView web;
@@ -291,9 +330,6 @@ webSettings.setJavaScriptEnabled(true);
 web.setWebViewClient(new Callback());
 web.loadUrl("http://www.baidu.com");
 ```
-
-## drawable
-
 
 ## MainActivity.java
 生命周期
