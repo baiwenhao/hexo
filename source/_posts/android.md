@@ -13,10 +13,10 @@ https://gitlab-rd0.maezia.com/eziash/fueling/ezia-fueling-fe-fueling
 加油
 违章
 
-// 洗车保险，违章，加油
-https://gitlab-rd0.maezia.com/eziash/fueling/ezia-fueling-fe-fueling/-/tree/develop
-https://gitlab-rd0.maezia.com/eziash/fueling/ezia-fueling-fe-fueling
-https://gitlab-rd0.maezia.com/svecocns/hu/android/svecocns-hu-android-fueling // 37
+Log.d(),i(),w(),e()
+
+## openJDK mac的位置，需要填到 project structure 里
+/usr/local/Cellar/openjdk@8/1.8.0+282/libexec/openjdk.jdk
 
 ## 权限
 ```java
@@ -81,6 +81,8 @@ android:layout_marginRight 右偏移的值
 ### LinearLayout
 ```java
 
+
+
 ```
 
 ## style
@@ -104,6 +106,9 @@ android:layout_marginRight 右偏移的值
         <corners android:radius="5dp" />
     </shape>
 </item>
+
+// textStyle 加粗斜体
+// textAlignment 文本对齐方式
 ```
 
 ## Components
@@ -190,6 +195,7 @@ android:layout_marginRight 右偏移的值
         android:inputType="textPassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
+
 editText.addTextChangedListener(new TextWatcher() { // 绑定事件
     @Override
     public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
@@ -217,8 +223,16 @@ editText.addTextChangedListener(new TextWatcher() { // 绑定事件
 
 
 // Intent
-Intent intent = new Intent(Test.this, MainActivity.class);
+// 在当前类里点击跳转
+Intent intent = new Intent(Test.this, Test2.class); // current page, next page
 startActivity(intent);
+// 在跳转的类里触发方法跳转
+public static void actionStart(Context context, String data1, String data2) {
+    Intent intent = new Intent(context, Test2.class);
+    intent.putExtra("param1", data1);
+    intent.putExtra("param2", data2); // 不知道如何接收 传递过来的对象
+    context.startActivity(intent);
+}
 
 
 // Toast
@@ -281,10 +295,10 @@ c1.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
     android:src="@drawable/ic_img_01"
     android:scaleType="centerCrop"
     />
-// 加载第三方库 https://github.com/bumptech/glide
-// https://www.youtube.com/watch?v=dTeUSZ6lB84
-// app:layout_constraintDimensionRatio
-// android:visibility
+// 加载一张网络加载第三方库 https://github.com/bumptech/glide
+Glide.with(this)
+.load("http://www.baidu.com/img/PCtm_d9c8750bed0b3c7d089fa7d55720d6cf.png")
+.into(imageView);
 
 
 
@@ -333,6 +347,12 @@ web.loadUrl("http://www.baidu.com");
 
 ## MainActivity.java
 生命周期
+onCreate
+onStart
+onResume
+onPause
+onStop
+onDestroy
 ```java
 package com.example.myapplication;
 import androidx.appcompat.app.AppCompatActivity;
@@ -460,3 +480,136 @@ public class ShadowCommonDialog {
 }
 ```
 
+
+## adb
+https://www.yeshen.com/faqs/H15tDZ6YW
+
+## android第一行代码 第二版源码
+https://www.jianshu.com/p/fe8515dc8e34?utm_campaign=maleskine&utm_content=note&utm_medium=seo_notes&utm_source=recommendation
+
+
+
+## 自定义右三个点的 菜单
+
+
+## 修复bug
+adapter/SelectGasNoAdapter.java
+holder.rbOilName.setText(); // "#"
+
+detail/DetailViewModel.java
+oilList.add(oilInfo.getOilName()); // getOilNo()
+
+## interface
+```js
+// 列表接口
+// https://partner-gw-test.mos.csvw.com/mos3x/mobility-asia/order/fueling/api/v1/fueling/operate/gasStation
+{
+  tspTraceId: 'fueling',
+  tspDid: 'fueling',
+  tspToken: 'Bearer eyJraWQiOiI1NyIsImFsZyI6IkVTMjU2In0.eyJzdWIiOiIxNjUwMzg4NTk3NjYyNzc3MzQ0Iiwic2NwIjpbIm5hdmlnYXRpb24iXSwidmVyIjoiMS4wIiwiaXNzIjoibW9zLmNzdncuY29tIiwiY2NoIjoiaHUiLCJ0eXAiOiJBVCIsImhvcyI6Ik1BIiwicm9sIjoiU0VDT05EQVJZX1VTRVIiLCJzdHlwIjoiVDMiLCJhdWQiOiJhdXRvbmF2aS5jb20iLCJ2aW4iOiIwZGE2MGJjZTk5YjQwOWVjMjhhYjJhYWY5YTkwNzZhMSIsInRudCI6IlZXIiwiZXhwIjoxNjIzMTMxNjYzLCJpYXQiOjE2MjMwNDUyNjMsInJ0LWlkIjoiIiwibGNzIjpbXSwianRpIjoiOGU5ZGI4NTYtZmVmZC00MzQ4LWIyZGQtNzgwZGI1ZWU4YjAwIn0.r3978POnQU0cClMjzhm0mI1WXCj217ObqXi9hptK3SSQfTi2G_P48PjXd6f1XKvq54g-ncoKEZOzCNbqs3KGNw'
+}
+{
+  coordType: 'gcj02',
+  latitude: 39.91469598397799,
+  longitude: 116.43934999451277,
+  pageNo: 1,
+  pageSize: 3,
+  phone: '13817384752',
+  radius: 10000,
+  sort: 'distance',
+  status: 'all',
+  userId: '1650388597662777344'
+}
+
+// 加油 响应体
+// cookie
+HWWAFSESID=d3f5b8ebbdb2328c2e
+HWWAFSESTIME=1623060162703
+request-id: 25efc614078322afbe897f9d6281a67a
+{
+  "data": {
+    "list": [{
+      "address": "北京市东城区测试8号至10号活动的油站",
+      "dataSource": "chezhubang",
+      "dataSourceID": "030002",
+      "distance": "0.29",
+      "gasName": "测试8号至10号活动的油站",
+      "gasNo": "CS000001152",
+      "latitude": 39.914104,
+      "longitude": 116.43603,
+      "maId": "687b1f170512489e",
+      "oilPriceList": [{
+          "gunNos": [{ "gunNo": "1" }, { "gunNo": "2" }],
+          "oilName": "101#",
+          "oilNo": "99",
+          "priceGun": "8.77",
+          "priceOfficial": "8.88",
+          "priceSp": "7.82"
+        },
+        {
+          "gunNos": [{ "gunNo": "3" }],
+          "oilName": "98#",
+          "oilNo": "98",
+          "priceGun": "8.01",
+          "priceOfficial": "8.01",
+          "priceSp": "7.06"
+        }
+      ],
+      "tel": []
+    }],
+    "pageNo": 1,
+    "pageSize": 3,
+    "totalSize": 1
+  },
+  "errorCode": "000000",
+  "respCode": 0,
+  "respMsg": "SUCCESS"
+}
+
+// 加油站详情接口 and 去加油接口 同一个接口
+// https://partner-gw-test.mos.csvw.com/mos3x/mobility-asia/order/fueling/api/v1/fueling/operate/detail
+{
+  gasNo: 'CS000001152',
+  maId: '687b1f170512489e',
+  phone: '13817384752',
+  userId: '1650388597662777344',
+  vendorName: ''
+}
+// 响应体
+{
+  "data": {
+    "address": "北京市东城区测试8号至10号活动的油站",
+    "gasName": "测试8号至10号活动的油站",
+    "gasNo": "CS000001152",
+    "latitude": 39.914104,
+    "longitude": 116.43603,
+    "maId": "687b1f170512489e",
+    "oilInfoList": [{
+      "gunNos": [{ "gunNo": "1" }, { "gunNo": "2" }],
+      "oilName": "101#",
+      "oilNo": "99",
+      "priceGun": "8.77",
+      "priceGunPoor": "0.95",
+      "priceOfficial": "8.88",
+      "priceOfficialPoor": "1.06",
+      "priceSp": "7.82"
+    }, {
+      "gunNos": [{ "gunNo": "3" }],
+      "oilName": "98#",
+      "oilNo": "98",
+      "priceGun": "8.01",
+      "priceGunPoor": "0.95",
+      "priceOfficial": "8.01",
+      "priceOfficialPoor": "0.95",
+      "priceSp": "7.06"
+    }],
+    "payWayList": [
+      { "payWay": "1", "payWayName": "支付宝支付" },
+      { "payWay": "2", "payWayName": "微信支付" }
+    ]
+  },
+  "errorCode": "000000",
+  "respCode": 0,
+  "respMsg": "SUCCESS"
+}
+```
