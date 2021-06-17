@@ -1,14 +1,31 @@
 ---
 title: ADB
+abbrlink: 82de9458
 date: 2021-06-07 17:36:02
 tags:
 ---
 
-## mac 设置
+## mac 设置外置网卡
 ```
 IP: 192.168.1.5
 子网掩码: 255.255.255.0
 路由器: 192.168.1.4
+
+adb remount // 开启权限
+
+// install uninstall 的方式
+// 连接不上
+ssh root@192.168.1.4
+pwd: root
+cd /var/
+enable_androidDB.sh
+
+adb connect 192.168.1.4:5555
+adb install -t /Users/wenhao/workSpace/ezia-fueling-fe-fueling/app/build/outputs/apk/debug/app-debug.apk
+
+// 重启
+adb shell
+reboot
 ```
 
 ## 基本命令
@@ -51,3 +68,4 @@ adb logcat -c
 保存日志
 adb logcat -v time >D:\log.txt
 ```
+
