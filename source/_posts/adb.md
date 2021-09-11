@@ -11,10 +11,7 @@ IP: 192.168.1.5
 子网掩码: 255.255.255.0
 路由器: 192.168.1.4
 
-adb remount // 开启权限
-
 // install uninstall 的方式
-// 连接不上
 ssh root@192.168.1.4
 pwd: root
 cd /var/
@@ -61,11 +58,21 @@ adb install -t /Users/wenhao/workSpace/ezia-fueling-fe-fueling/app/build/outputs
 
 冷启动
 adb shell am start -S -W com.maezia.fawmqb.carwash/com.ezia.fawmqb.carwash.main.MainActivity
+```
 
-清除缓存
+### log
 adb logcat -c
+adb logcat >log.txt
 
 保存日志
 adb logcat -v time >D:\log.txt
-```
+
+### push
+adb push /app-debug.apk system/priv-app/
+adb push system/priv-app/fueling.apk ./
+
+### 提权限 安装删除权限
+ssh 连接上
+cd /var/
+sh disable-dm-verity.sh
 

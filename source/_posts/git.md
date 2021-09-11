@@ -30,9 +30,6 @@ git config --global alias.st status 设置快捷键st
 git init 初始化一个目录
 git add a 添加到暂存区
 git reset HEAD a 删除暂存区的文件 .代表全部
-git checkout a 还原一个文件
-git checkout . 删除未提交的文件
-git checkout -- fliename 恢复删除的文件
 git rm --cached a 删除暂存区里的a
 git commit -m "Initial commit" 暂存区的文件提交到历史记录
 git rm a 同时删除暂存区和历史记录的a
@@ -237,5 +234,10 @@ git remote add origin git@gitlab-rd.maezia.com:cdc/cdc/cdc-cdc-fe-web.git
 git push -u origin --all
 git push -u origin --tags
 
-
-
+## checkout http://www.srcmini.com/15342.html
+git checkout 切换分支
+git checkout -b 创建并切换
+git fetch --all
+git checkout a 还原一个文件
+git checkout . 删除未提交的文件
+git checkout -- fliename 恢复删除的文件

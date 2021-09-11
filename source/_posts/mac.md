@@ -120,6 +120,7 @@ mongod -version
 https://zhuanlan.zhihu.com/p/34497527
 
 
-
+## openJDK mac的位置，需要填到 project structure
+/usr/local/Cellar/openjdk@8/1.8.0+282/libexec/openjdk.jdk
 
 

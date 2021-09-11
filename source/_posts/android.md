@@ -4,37 +4,32 @@ abbrlink: 92bcb62d
 date: 2021-05-24 13:18:32
 ---
 
-把 commonlib 或者直接用 account sdk, car service 引进来，网络你们可以自己请求或者用 retrofit 抄项目代码都行
+## java
+implements 可以继承多个类
 
-### 加油站信息
-上海市嘉定区祁连山南路 2180号
-
-### 插件
+## 插件
 Alibaba Java Coding Guidelines
+Log.i("RxJava",s+","+Thread.currentThread().getName()); // 查看当前线程
+runOnUiThread(new Runnable() { // 切换到主线程
+    @Override
+    public void run() {
+        changeViewStateByNetState(NET_STATE_ERROR);
+    }
+});
 
-https://gitlab-rd0.maezia.com/eziash/fueling/ezia-fueling-fe-fueling
+## java 对比字符串
+http://c.biancheng.net/view/5808.html
+String token;
+String url = chain.request().url().toString();
+if (url.endsWith("/operate/gasStation")) {
+    token = CommonUtils.getToken(context, SERVICE_ID_GAS_STATION);
+} else {
+    token = CommonUtils.getToken(context, SERVICE_ID);
+}
 
-洗车(一汽 faw)
-停车(上汽 svw)
-保险
-加油
-违章
-
-Log.d()
-Log.i()
-Log.w()
-Log.e()
-
-### openJDK mac的位置，需要填到 project structure
-/usr/local/Cellar/openjdk@8/1.8.0+282/libexec/openjdk.jdk
-
-### jacoco 导出文件
-RUN > Generate Coverage Report > 选择 jacoco 导出的文件，选择导出的目录
-
-### Manifest
+## Manifest
 ```java
-<uses-permission android:name="android.permission.INTERNET" />
-
+<uses-permission android:name="android.permission.INTERNET" /> // 权限
 <application
     android:allowBackup="true" // 允许备份
     android:supportsRtl="true" // 从右到左的布局
@@ -44,18 +39,25 @@ RUN > Generate Coverage Report > 选择 jacoco 导出的文件，选择导出的
     <activity
         android:launchMode="singleTask" // 启动模式, standard 默认标准启动模式
         android:screenOrientation="fullSensor" // 屏幕中的显示的方向，由方向传感器决定
+        // android:screenOrientation="portrait" 竖屏锁定
+        // android:screenOrientation="landscape" 横屏锁定
     />
 </ application>
 ```
 
-### 申明一个函数
+## MainActivity
 ```java
-public void setPopupType(int popupType) {
-    this.popupType = popupType;
+@Override
+protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    setContentView(R.layout.activity_main);
+    if (savedInstanceState != null) { // 相当于 sessionStorage
+        String val = savedInstanceState.getString("KEY", "");
+    }
 }
 ```
 
-### Layout
+## Layout
 1368 * 700
 ```java
 // 约束布局
@@ -72,7 +74,7 @@ public void setPopupType(int popupType) {
     app:layout_constraintTop_toTopOf="@id/top">
 ```
 
-### RelativeLayout
+// RelativeLayout
 ```java
 // 相对于给定ID
 android:layout_above 控件的底部置于给定ID的控件之上
@@ -103,12 +105,13 @@ android:layout_marginLeft 左偏移的值
 android:layout_marginRight 右偏移的值
 ```
 
-### LinearLayout
+// LinearLayout
 ```java
-```
 
-### Style
-```java
+// FrameLayout 帧布局
+
+
+// Style 样式
 <stroke android:width="2dp" android:color="#f0f" /> // 描边
 <size android:width="50dp" android:height="50dp" /> // 大小
 <solid android:color="@android:color/white"/> // 填充色
@@ -131,6 +134,7 @@ android:layout_marginRight 右偏移的值
 
 // textStyle 加粗斜体
 // textAlignment 文本对齐方式
+rb200.setTextColor(Color.parseColor("#FFF"));
 
 android:visibility="invisible" // 不可见
 android:visibility="visible" // 可见
@@ -140,10 +144,13 @@ btn.setVisibility(View.GONE);
 btn.setVisibility(View.VISIBLE);
 btn.setVisibility(View.INVISIBLE);
 
-```
+// 文字在控件中的对齐方式
+android:gravity = "center_vertical|center_horizontal"
+// 控件在布局中的对齐方式
+android:layout_gravity = "center"
+// 禁用滑动到底部的特效
+android:overScrollMode="never"
 
-### include
-```java
 // include
 <include
     android:id="@+id/navi_title"
@@ -151,42 +158,21 @@ btn.setVisibility(View.INVISIBLE);
     app:layout_constraintEnd_toEndOf="parent"
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintTop_toTopOf="parent" />
-```
 
-### guideline
-```
-
-// guideline
+// guiline
 <androidx.constraintlayout.widget.Guideline
-    android:id="@+id/Guideline_left"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:orientation="horizontal"
-    app:layout_constraintGuide_percent="0.04" />
-
-<androidx.constraintlayout.widget.Guideline
-    android:id="@+id/Guideline_right"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:orientation="horizontal"
-    app:layout_constraintGuide_percent="0.96" />
-
-<androidx.constraintlayout.widget.Guideline
-    android:id="@+id/Guideline_top"
+    android:id="@+id/guideline"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    app:layout_constraintGuide_percent="0.04" />
-
+    app:layout_constraintGuide_percent="0.5" />
 <androidx.constraintlayout.widget.Guideline
-    android:id="@+id/Guideline_bottom"
+    android:id="@+id/v1"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
-    app:layout_constraintGuide_percent="0.96" />
+    android:orientation="horizontal"
+    app:layout_constraintGuide_percent="0.25" />
 
-
-// TextView
 <TextView
     android:id="@+id/textView"
     android:layout_width="wrap_content"
@@ -217,7 +203,6 @@ btn.setVisibility(View.INVISIBLE);
     // android:focusableInTouchMode="true"
 
 
-// EditText
 <EditText
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -225,7 +210,7 @@ btn.setVisibility(View.INVISIBLE);
         android:background="#ddd"
         android:id="@+id/edit"
         android:hint="请输入密码"
-        android:maxLines="1"
+        android:maxLines="2"
         android:inputType="textPassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
@@ -240,9 +225,11 @@ editText.addTextChangedListener(new TextWatcher() { // 绑定事件
     @Override
     public void afterTextChanged(Editable s) {}
 });
+String inputText = editText.getText().toString(); // 获取文本
+Toast.makeText(FirstActivity.this, inputText, Toast.LENGTH_SHORT).show(); // 弹出
 
 
-// Button
+// button
 <Button
     android:id="@+id/button2"
     android:layout_width="wrap_content" // match_parent
@@ -290,7 +277,7 @@ public class TestActivity extends AppCompatActivity {
     android:text="android"
     android:textSize="20sp" />
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:state_checked="false" android:drawable="@drawable/ic_img_01"></item>
+    <item android:state_checked="false" android:drawable="@drawable/ic_img_01"></item> // 图片资源
     <item android:state_checked="true" android:drawable="@drawable/ic_img_02"></item>
 </selector>
 c1 = findViewById(R.id.c_1);
@@ -307,58 +294,8 @@ WebSettings webSettings = web.getSettings();
 webSettings.setJavaScriptEnabled(true);
 web.setWebViewClient(new Callback());
 web.loadUrl("http://www.baidu.com");
-```
 
-### RecyclerView
-RecyclerView.Adapter 处理数据集合并负责绑定视图
-
-```java
-// 0 layout
-android:overScrollMode="never"
-
-// 1 build.gradle 加入类包
-implementation 'androidx.recyclerview:recyclerview:1.1.0'
-
-// 2 引入类
-import androidx.recyclerview.widget.RecyclerView;
-import androidx.recyclerview.widget.StaggeredGridLayoutManager;
-
-private RecyclerView recyclerView;
-private ArrayList<ItemClass> list2 = new ArrayList<>();
-
-// 3 创建布局
-recyclerView = findViewById(R.id.id_RecyclerView);
-recyclerView.setHasFixedSize(true); // 避免重新计算大小
-recyclerView.setNestedScrollingEnabled(false); // 取消 recyclerView 单独滑动效果 https://blog.csdn.net/tran_sient/article/details/103606709
-// 当我们确定Item的改变不会影响RecyclerView的宽高的时候可以设置setHasFixedSize(true)，
-// 并通过Adapter的增删改插方法去刷新RecyclerView，而不是通过notifyDataSetChanged()
-// 其实可以直接设置为true，当需要改变宽高的时候就用notifyDataSetChanged() 去整体刷新一下
-
-StaggeredGridLayoutManager layoutManager = new StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.VERTICAL);
-layoutManager.setOrientation(StaggeredGridLayoutManager.HORIZONTAL);
-recyclerView.setLayoutManager(layoutManager);
-
-// LinearLayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
-// recyclerView.setLayoutManager(layoutManager);
-
-// 4 构建数据
-list2.add(new ItemClass("一品漫城", "浦星公路"); // 类要提前写好，ItemClass.java
-MyAdapter adapter = new MyAdapter(list2);
-recyclerView.setAdapter(adapter); // 也是判断页面加载完成的时机
-
-// ItemClass 的实现
-
-// MyAdapter 的实现
-NearbyAdapter mAdapter;
-
-// https://www.jianshu.com/p/f1999c3f6a26
-// recyclerView https://developer.android.com/guide/topics/ui/layout/recyclerview?hl=zh-cn
-// RecyclerView.LayoutManager 布局管理
-// https://developer.android.com/guide/topics/ui/layout/recyclerview?hl=zh-cn
-```
-
-### ImageView
-```java
+// ImageView
 private ImageView img; // img 变量
 img = findViewById(R.id.img);
 img.getBackground().setTint(initColor);
@@ -376,69 +313,103 @@ img.getBackground().setTint(initColor);
     android:src="@drawable/ic_img_01"
     android:scaleType="centerCrop"
     />
+imageView.setImageResource(R.drawable.img); // 本地图片
 // 加载一张网络加载第三方库 https://github.com/bumptech/glide
 Glide.with(this)
 .load("http://www.baidu.com/img/PCtm_d9c8750bed0b3c7d089fa7d55720d6cf.png")
 .into(imageView);
 
-```
-
-### View
-```java
+// view
 <View
     android:id="@+id/popupMain"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/black_60"
     android:elevation="2dp"/> // 类似于 z-index
-```
 
-### Intent
-```java
-// 常用方式
-Intent intent = new Intent(Test.this, Test2.class); // current page, next page
+// Intent
+Intent intent = new Intent(A.this, B.class); // current A, next B
 startActivity(intent);
 
 /*
-    传递数据
-    test2.actionStart(test.this, 'd1', 'd2') 提供给 test 调用
+    1 传递数据 方式
 */
-public static void actionStart(Context context, String data1, Int data2, Boolean data3) {
-    Intent intent = new Intent(context, Test2.class); // 跳转的类 Test2
-    intent.putExtra("uid", data1);
-    intent.putExtra("count", data2);
-    intent.putExtra("state", data3);
-    context.startActivity(intent); // 启动 activity
+B.actionStart(A.this, 9527, 'wenhao') // A 调用
+public static void actionStart(Context context, int uid, String name, Boolean state) { // B 提供
+    Intent intent = new Intent(context, B.class);
+    intent.putExtra("uid", uid);
+    intent.putExtra("name", name);
+    intent.putExtra("state", name);
+    context.startActivity(intent);
 }
+// onCreate B 获取
 Intent intent = getIntent();
-String uid = intent.getStringExtra("uid");
-Int count = intent.getIntExtra("count");
-Boolean state = intent.getBooleanExtra("state");
-Log.d("SecondActivity", uid);
+String name = intent.getStringExtra("name");
+int uid = intent.getIntExtra("uid", 0);
+Boolean state = intent.getBooleanExtra("state", false);
 
-// setComponent 其实和第一种方法一样的
+/*
+    2 setComponent 方式
+*/
 Intent intent = new Intent();
-intent.setClass(Test2.this, MainActivity.class);
-// 或者 intent.setClassName(this, "com.example.app.SecondActivity");
-// 或者 intent.setClassName(this.getPackageName(),"com.example.app.SecondActivity");
+intent.setClass(A.this, B.class);
+startActivity(intent);
+// category 可以是多个
+<action android:name="com.example.appandroidtest.ACTION_START"/>
+<category android:name="android.intent.category.DEFAULT"/>
+<category android:name="android.intent.category.MY_DEFAULT"/>
+Intent intent = new Intent("com.example.appandroidtest.ACTION_START");
+intent.addCategory("android.intent.category.MY_DEFAULT");
 startActivity(intent);
 
 /*
-   拨打电话 10010
-   2 种方式
+    3 返回数据给上一个活动
+    用 forResult 来启动，在设置回调方法 onActivityResult
+*/
+Intent intent = new Intent(A.this, B.class);
+startActivityForResult(intent, 1);
+// 监听返回来的函数
+protected void onActivityResult(int requestCode, int resultCode, Intent data) { // requestCode, resultCode, data
+    super.onActivityResult(requestCode, resultCode, data);
+    switch (requestCode) {
+        case 1:
+            if (resultCode == RESULT_OK) {
+                String returnedData = data.getStringExtra("data_return");
+                Log.d(Tag,"no");
+            }
+            break;
+        default:
+    }
+    Log.d(Tag, "result");
+}
+// 活动页面 跳转回来的方法
+setResult(RESULT_OK, intent);
+public void onBackPressed() { // 用户点击物理按钮返回 监听事件
+    Intent intent = new Intent();
+    intent.putExtra("data return", "Hello FirstActive");
+    setResult(RESULT_OK, intent);
+    finish();
+}
+
+/*
+   4 webview 方式
+*/
+Intent intent = new Intent(Intent.ACTION_VIEW);
+intent.setData(Uri.parse("http://www.baidu.com"));
+startActivity(intent);
+
+/*
+    iphone 方式
+    电话需要加上权限 <uses-permission id="android.permission.CALL_PHONE" />
 */
 Uri uri = Uri.parse("tel:10010");
-Intent intent = new Intent(Intent.ACTION_DIAL, uri);
+Intent intent = new Intent(Intent.ACTION_DIAL, uri); // Intent.ACTION_CALL
 startActivity(intent);
-// 直接拨打电话，需要加上权限 <uses-permission id="android.permission.CALL_PHONE" />
-Uri callUri = Uri.parse("tel:10010");
-Intent intent = new Intent(Intent.ACTION_CALL, callUri);
-
 
 /*
-    发彩信
+    5 发彩信 方式
+    给10010发送内容为“Hello”的短信
 */
-// 给10010发送内容为“Hello”的短信
 Uri uri = Uri.parse("smsto:10010");
 Intent intent = new Intent(Intent.ACTION_SENDTO, uri);
 intent.putExtra("sms_body", "Hello");
@@ -451,15 +422,13 @@ intent.putExtra(Intent.EXTRA_STREAM, uri);
 intent.setType("image/png");
 
 /*
-    打开浏览器
+    6 打开浏览器
 */
 Uri uri = Uri.parse("https://www.baidu.com");
 Intent intent = new Intent(Intent.ACTION_VIEW, uri);
 startActivity(intent);
 
-/*
-    图片
-*/
+// 图片
 Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
 intent.setType("image/*");
 startActivityForResult(intent, 2);
@@ -492,15 +461,17 @@ startActivity(intent);
 
 // https://www.jianshu.com/p/67d99a82509b
 ```
+### 启动模式
+android:launchMode="singleTask" // singleInstance 允许第三方调用共享活动
 
 ### MainActivity.java
 生命周期
-onCreate
-onStart
-onResume
-onPause
-onStop
-onDestroy
+onCreate 完成初始化操作
+onStart 活动从不可见转变为可见调用 onRestart 活动重新被启动调用
+onResume 活动准备和用户交互调用
+onPause 活动准备启动或者恢复一个活动
+onStop 活动不可见调用
+onDestroy 活动在销毁前调用，释放内存操作
 
 ```java
 package com.example.myapplication;
@@ -576,6 +547,20 @@ public class MainActivity extends AppCompatActivity {
 }
 ```
 
+
+### progressBar
+```java
+if (progressBar.getVisibility() == View.GONE) {
+    progressBar.setVisibility(View.VISIBLE);
+} else {
+    progressBar.setVisibility(View.GONE);
+}
+```
+
+
+### ProgressDialog 103
+
+
 ### okhttp
 ```java
 implementation "com.squareup.retrofit2:retrofit:2.8.0"
@@ -611,6 +596,7 @@ https://www.jianshu.com/p/fe8515dc8e34?utm_campaign=maleskine&utm_content=note&u
 
 ### 自定义右上角菜单
 ```java
+// res 下创建 menu 文件夹 main.xml
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:id="@+id/add_item" android:title="Add"/>
@@ -644,10 +630,87 @@ ActivityCollector.finishAll();
 android.os.Process.killProcess(android.os.Process.myPid());
 ```
 
-### java 语法
+### 标题栏 隐藏
 ```java
-equals
+ActionBar actionbar = getSupportActionBar();
+if (actionbar != null) {
+    actionbar.hide();
+}
 ```
 
 ### learned
 https://www.cnblogs.com/xgjblog/p/13042321.html
+
+
+### okhttp
+implementation "com.squareup.retrofit2:retrofit:2.8.0"
+implementation "com.squareup.retrofit2:converter-gson:2.8.0"
+implementation "com.squareup.okhttp3:logging-interceptor:4.4.1"
+implementation "com.squareup.retrofit2:adapter-rxjava2:2.6.0"
+implementation "io.reactivex.rxjava2:rxjava:2.1.10"
+implementation "io.reactivex.rxjava2:rxandroid:2.0.2"
+
+### 监听网络状态
+```java
+private IntentFilter intentFilter;
+private NetworkChangeReceiver networkChangeReceiver;
+
+@Override
+protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    setContentView(R.layout.activity_main);
+
+    intentFilter = new IntentFilter();
+    intentFilter.addAction("android.net.conn.CONNECTIVITY_CHANGE");
+    networkChangeReceiver = new NetworkChangeReceiver();
+    registerReceiver(networkChangeReceiver, intentFilter);
+}
+
+class NetworkChangeReceiver extends BroadcastReceiver {
+    @Override
+    public void onReceive(Context context, Intent intent) {
+        Toast.makeText(context, "network changes", Toast.LENGTH_SHORT).show();
+    }
+}
+
+@Override
+protected void onDestroy() {
+    super.onDestroy();
+    unregisterReceiver(networkChangeReceiver); // 动态注册的广播记得取消注册
+}
+// <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+// 监听系统开机广播
+// <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+
+
+// TabLayout
+<com.google.android.material.tabs.TabLayout
+    android:id="@+id/menu"
+    android:layout_width="200dp"
+    app:tabMode="scrollable" // 滚动条
+    app:tabContentStart="100dp" // mrl
+    android:layout_height="match_parent"
+    tools:ignore="MissingConstraints">
+    <com.google.android.material.tabs.TabItem
+        android:text="凯"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/item" />
+</com.google.android.material.tabs.TabLayout>
+
+// ScrollView
+
+// ScrollView add border style
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <solid
+        android:color="@android:color/transparent"/>
+    <stroke
+        android:width="2dp"
+        android:color="#000000"/>
+</shape>
+
+// HorizontalScrollView
+// https://codechina.csdn.net/mirrors/soulrelay/VerticalViewPagerWithTabLayout
+```
