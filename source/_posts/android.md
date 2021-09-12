@@ -714,3 +714,27 @@ protected void onDestroy() {
 // HorizontalScrollView
 // https://codechina.csdn.net/mirrors/soulrelay/VerticalViewPagerWithTabLayout
 ```
+
+
+
+
+```
+
+
+```java
+// 0 layout
+android:overScrollMode="never"
+
+// 1 build.gradle 加入类包
+implementation 'androidx.recyclerview:recyclerview:1.1.0'
+
+
+
+
+// LinearLayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
+// recyclerView.setLayoutManager(layoutManager);
+
+
+```
+
+### ImageView
