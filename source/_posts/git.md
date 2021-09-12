@@ -241,12 +241,3 @@ git fetch --all
 git checkout a 还原一个文件
 git checkout . 删除未提交的文件
 git checkout -- fliename 恢复删除的文件
-
-
-# host
-140.82.114.4     github.com
-199.232.69.194   github.global.ssl.fastly.net
-185.199.108.153  assets-cdn.github.com
-185.199.109.153  assets-cdn.github.com
-185.199.110.153  assets-cdn.github.com
-185.199.111.153  assets-cdn.github.com
