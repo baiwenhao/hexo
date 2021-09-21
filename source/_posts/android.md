@@ -172,7 +172,7 @@ android:overScrollMode="never"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
     app:layout_constraintGuide_percent="0.25" />
-
+@android:color/transparent
 <TextView
     android:id="@+id/textView"
     android:layout_width="wrap_content"
@@ -738,3 +738,28 @@ implementation 'androidx.recyclerview:recyclerview:1.1.0'
 ```
 
 ### ImageView
+
+
+### 动态设置shape
+TextView textView = new TextView(this);
+GradientDrawable drawable = new GradientDrawable();
+drawable.setCornerRadius(5);
+drawable.setStroke(1, Color.parseColor("#cccccc"));
+drawable.setColor(Color.parseColor("#eeeeee"));
+textView.setBackgroundDrawable(drawable);
+
+https://www.jianshu.com/p/2467444d2664
+
+### study
+public int randomColor()
+{
+ Random random= new Random();
+ return Color.argb(255, random.nextInt(256), random.nextInt(256),
+ random.nextInt(256));
+}
+
+### 不透明度设置
+https://www.jianshu.com/p/4c2b121accb6
+
+### 层级不能被覆盖，背景色不准确
+android:elevation="15dp"
