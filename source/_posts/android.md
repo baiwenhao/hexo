@@ -763,3 +763,42 @@ https://www.jianshu.com/p/4c2b121accb6
 
 ### 层级不能被覆盖，背景色不准确
 android:elevation="15dp"
+
+### android 的滚动监听
+```java
+scrollView.setOnScrollChangeListener(new onScrollChangeListener() {
+    @SuppressWarnings("deprecation")
+    @Override
+    public void onScroll(int left, int top, int oldLeft, int oldTop) {
+        // TODO Auto-generated method stub
+        int height = titleView.getHeight();
+
+        top = top - 100;
+        if ((oldTop - top) < 0) {
+            float f = (top + 0f) / height;
+            if (Math.abs((f - pf)) >= 0.01) {
+                if (f > 1) {
+                    f = 1f;
+                }
+                if (f < 0) {
+                    f = 0;
+                }
+                titleHeadIv.setAlpha((f) * 1);  //void android.view.View.setAlpha(float alpha)只能是0~1的小数
+                pf = f;
+            }
+        } else if ((oldTop - top) > 0) {
+            float f = (top + 0f) / height;
+            if (Math.abs((f - pf)) >= 0.01) {
+                if (f > 1) {
+                    f = 1f;
+                }
+                if (f < 0) {
+                    f = 0;
+                }
+                titleHeadIv.setAlpha((f) * 1);
+                pf = f;
+            }
+        }
+    }
+});
+```
