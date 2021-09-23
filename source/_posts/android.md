@@ -802,3 +802,62 @@ scrollView.setOnScrollChangeListener(new onScrollChangeListener() {
     }
 });
 ```
+
+## ListView is Adapter
+```java
+
+```
+
+## set color
+```java
+<.......android:color="#FFFFFF"/>
+
+tv.setTextColor(0xFFFFFF);
+
+tv.setTextColor(Color.GRAY);
+tv.setTextColor(Color.rgb(255, 255, 255));
+
+tv.setTextColor(Color.parseColor("#FF0000"));
+
+tv.setTextColor(getResources().getColor(R.color.colorPrimary));
+
+```
+
+## infomation
+http://www.srcmini.com/5449.html
+
+<gradient
+        android:type="linear"
+        android:startColor="#27ae60"
+        android:endColor="@android:color/transparent"/>
+
+补间动画
+https://www.bilibili.com/video/BV1bf4y1Y7EZ?from=search&seid=15683082301982834925&spm_id_from=333.337.0.0
+
+自定义动画
+https://www.bilibili.com/video/BV1rx41147Pg?from=search&seid=3697484557680656398&spm_id_from=333.337.0.0
+
+
+鲤鱼动画
+https://www.cnblogs.com/yunser/p/canvas-fish.html
+https://www.youtube.com/watch?v=HtwDXRWjMcU
+git push --set-upstream origin master
+
+canvas
+https://www.bilibili.com/video/BV1Qv411s7sh?p=2
+
+鲤鱼
+https://www.bilibili.com/video/BV1DD4y1o7vw/?spm_id_from=333.788.b_7265636f5f6c697374.35
+
+自定义textview
+https://www.bilibili.com/video/BV1tJ411e7zM/?spm_id_from=333.788.b_7265636f5f6c697374.26
+
+viewGroup
+https://www.bilibili.com/video/BV1dA41177WY/?spm_id_from=333.788.b_7265636f5f6c697374.12
+
+有点啰嗦
+https://www.bilibili.com/video/BV15K411L7gU?p=3&spm_id_from=pageDriver
+
+可以用
+https://www.twle.cn/l/yufei/android/android-basic-selfadapter.html
+
