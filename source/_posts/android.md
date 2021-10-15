@@ -4,7 +4,193 @@ abbrlink: 92bcb62d
 date: 2021-05-24 13:18:32
 ---
 
-## java
+## shape
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<shape
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape=["rectangle" | "oval" | "line" | "ring"]      //共有4种类型，矩形（默认）/椭圆形/直线形/环形
+    // 以下4个属性只有当类型为环形时才有效
+    android:innerRadius="dimension"     //内环半径
+    android:innerRadiusRatio="float"    //内环半径相对于环的宽度的比例，比如环的宽度为50,比例为2.5,那么内环半径为20
+    android:thickness="dimension"   //环的厚度
+    android:thicknessRatio="float"     //环的厚度相对于环的宽度的比例
+    android:useLevel="boolean">    //如果当做是LevelListDrawable使用时值为true，否则为false.
+
+    <corners    //定义圆角
+        android:radius="dimension"      //全部的圆角半径
+        android:topLeftRadius="dimension"   //左上角的圆角半径
+        android:topRightRadius="dimension"  //右上角的圆角半径
+        android:bottomLeftRadius="dimension"    //左下角的圆角半径
+        android:bottomRightRadius="dimension" />    //右下角的圆角半径
+
+    <gradient   //定义渐变效果
+        android:type=["linear" | "radial" | "sweep"]    //共有3中渐变类型，线性渐变（默认）/放射渐变/扫描式渐变
+        android:angle="integer"     //渐变角度，必须为45的倍数，0为从左到右，90为从上到下
+        android:centerX="float"     //渐变中心X的相当位置，范围为0～1
+        android:centerY="float"     //渐变中心Y的相当位置，范围为0～1
+        android:startColor="color"      //渐变开始点的颜色
+        android:centerColor="color"     //渐变中间点的颜色，在开始与结束点之间
+        android:endColor="color"    //渐变结束点的颜色
+        android:gradientRadius="float"  //渐变的半径，只有当渐变类型为radial时才能使用
+        android:useLevel=["true" | "false"] />  //使用LevelListDrawable时就要设置为true。设为false时才有渐变效果
+
+    <padding    //内部边距
+        android:left="dimension"
+        android:top="dimension"
+        android:right="dimension"
+        android:bottom="dimension" />
+
+    <size   //自定义的图形大小
+        android:width="dimension"
+        android:height="dimension" />
+
+    <solid  //内部填充颜色
+        android:color="color" />
+
+    <stroke     //描边
+        android:width="dimension"   //描边的宽度
+        android:color="color"   //描边的颜色
+        // 以下两个属性设置虚线
+        android:dashWidth="dimension"   //虚线的宽度，值为0时是实线
+        android:dashGap="dimension" />      //虚线的间隔
+</shape>
+```
+
+## animate
+Animation animation = AnimationUtils.loadAnimation(context, R.anim.scale);
+animation.setFillAfter(true);
+```xml
+<!-- AlphaAnimation -->
+<alpha xmlns:android="http://schemas.android.com/apk/res/android"
+    android:interpolator="@android:anim/accelerate_decelerate_interpolator"
+    android:fromAlpha="1.0"
+    android:toAlpha="0.1"
+    android:duration="2000"/>
+<!-- ScaleAnimation -->
+<scale xmlns:android="http://schemas.android.com/apk/res/android"
+    android:interpolator="@android:anim/accelerate_interpolator"
+    android:fillAfter="true"
+    android:fillBefore="true"
+    android:fromXScale="0.2"
+    android:toXScale="1.5"
+    android:fromYScale="0.2"
+    android:toYScale="1.5"
+    android:pivotX="50%"
+    android:pivotY="50%"
+    android:repeatCount="-1"
+    android:repeatMode="reverse"
+    android:startOffset="2000"
+    android:duration="2000"/>
+<!-- TranslateAnimation -->
+<translate xmlns:android="http://schemas.android.com/apk/res/android"
+    android:interpolator="@android:anim/accelerate_decelerate_interpolator"
+    android:fromXDelta="0"
+    android:toXDelta="320"
+    android:fromYDelta="0"
+    android:toYDelta="0"
+    android:duration="2000"/>
+<!-- RotateAnimation -->
+<rotate xmlns:android="http://schemas.android.com/apk/res/android"
+    android:interpolator="@android:anim/accelerate_decelerate_interpolator"
+    android:fromDegrees="0"
+    android:toDegrees="360"
+    android:duration="1000"
+    android:repeatCount="1"
+    android:repeatMode="reverse"/>
+<!-- AnimationSet -->
+<set xmlns:android="http://schemas.android.com/apk/res/android"
+    android:interpolator="@android:anim/decelerate_interpolator"
+    android:shareInterpolator="true" >
+    <scale
+        android:duration="2000"
+        android:fromXScale="0.2"
+        android:fromYScale="0.2"
+        android:pivotX="50%"
+        android:pivotY="50%"
+        android:toXScale="1.5"
+        android:toYScale="1.5" />
+    <rotate
+        android:duration="1000"
+        android:fromDegrees="0"
+        android:repeatCount="1"
+        android:repeatMode="reverse"
+        android:toDegrees="360" />
+    <translate
+        android:duration="2000"
+        android:fromXDelta="0"
+        android:fromYDelta="0"
+        android:toXDelta="320"
+        android:toYDelta="0" />
+    <alpha
+        android:duration="2000"
+        android:fromAlpha="1.0"
+        android:toAlpha="0.1" />
+
+</set>
+```
+```java
+AlphaAnimation alphaAnimation = new AlphaAnimation(0,1);
+alphaAnimation.setDuration(3000);
+
+ /*
+ *  创建一个旋转动画对象
+ *  入参列表含义如下：
+ *  1.fromDegrees：从哪个角度开始旋转
+ *  2.toDegrees：旋转到哪个角度结束
+ *  3.pivotXType：旋转所围绕的圆心的x轴坐标的类型，有ABSOLUT绝对坐标、RELATIVE_TO_SELF相对于自身坐标、RELATIVE_TO_PARENT相对于父控件的坐标
+ *  4.pivotXValue：旋转所围绕的圆心的x轴坐标,0.5f表明是以自身这个控件的一半长度为x轴
+ *  5.pivotYType：y轴坐标的类型
+ *  6.pivotYValue：y轴坐标
+ */
+RotateAnimation rotateAnimation = new RotateAnimation(0,360, Animation.RELATIVE_TO_SELF,0.5f,Animation.RELATIVE_TO_SELF,0.5f);
+rotateAnimation.setDuration(3000);
+
+/*
+ *  创建一个缩放效果的动画
+ *  入参列表含义如下：
+ *  fromX：x轴的初始值
+ *  toX：x轴缩放后的值
+ *  fromY：y轴的初始值
+ *  toY：y轴缩放后的值
+ *  pivotXType：x轴坐标的类型，有ABSOLUT绝对坐标、RELATIVE_TO_SELF相对于自身坐标、RELATIVE_TO_PARENT相对于父控件的坐标
+ *  pivotXValue：x轴的值，0.5f表明是以自身这个控件的一半长度为x轴
+ *  pivotYType：y轴坐标的类型
+ *  pivotYValue：轴的值，0.5f表明是以自身这个控件的一半长度为y轴
+ */
+ScaleAnimation scaleAnimation = new ScaleAnimation(0,0.1f,0,0.1f,Animation.RELATIVE_TO_SELF,0.5f,Animation.RELATIVE_TO_SELF,0.5f);
+scaleAnimation.setDuration(3000);
+
+/*
+ *  创建一个移动动画效果
+ *  入参的含义如下：
+ *  fromXType：移动前的x轴坐标的类型
+ *  fromXValue：移动前的x轴的坐标
+ *  toXType：移动后的x轴的坐标的类型
+ *  toXValue：移动后的x轴的坐标
+ *  fromYType：移动前的y轴的坐标的类型
+ *  fromYValue：移动前的y轴的坐标
+ *  toYType：移动后的y轴的坐标的类型
+ *  toYValue：移动后的y轴的坐标
+ */
+TranslateAnimation translateAnimation = new TranslateAnimation(Animation.RELATIVE_TO_SELF,0,Animation.RELATIVE_TO_SELF,0.5f,Animation.RELATIVE_TO_SELF,0,Animation.RELATIVE_TO_SELF,0.5f);
+translateAnimation.setDuration(3000);
+
+TranslateAnimation translate = new TranslateAnimation(0,0, start, end);
+translate.setDuration(100);
+translate.setFillAfter(true);
+
+TranslateAnimation(Context context, AttributeSet attrs)
+TranslateAnimation(float fromXDelta, float toXDelta, float fromYDelta, float toYDelta)
+TranslateAnimation(int fromXType, float fromXValue, int toXType, float toXValue, int fromYType, float fromYValue, int toYType, float toYValue)
+
+/*
+* 多动画
+*/
+AnimationSet animationSet = new AnimationSet(true);
+```
+
+## class
 implements 可以继承多个类
 
 ## 插件
@@ -118,19 +304,6 @@ android:layout_marginRight 右偏移的值
 <gradient android:centerColor="#00ff00" android:endColor="#0000ff" android:startColor="#ff0000" android:type="linear" /> // 渐变色
 <corners android:radius="10dp"/> // 圆角
 <padding android:bottom="2dp" android:left="2dp" android:right="2dp" android:top="2dp"/>
-
-<item android:state_pressed="true"> // 按压的时候
-    <shape>
-        <solid android:color="#FF9900" />
-        <corners android:radius="5dp" />
-    </shape>
-</item>
-<item android:state_pressed="false"> // 默认状态
-    <shape>
-        <solid android:color="#FF9900" />
-        <corners android:radius="5dp" />
-    </shape>
-</item>
 
 // textStyle 加粗斜体
 // textAlignment 文本对齐方式
@@ -811,16 +984,11 @@ scrollView.setOnScrollChangeListener(new onScrollChangeListener() {
 ## set color
 ```java
 <.......android:color="#FFFFFF"/>
-
 tv.setTextColor(0xFFFFFF);
-
 tv.setTextColor(Color.GRAY);
 tv.setTextColor(Color.rgb(255, 255, 255));
-
 tv.setTextColor(Color.parseColor("#FF0000"));
-
 tv.setTextColor(getResources().getColor(R.color.colorPrimary));
-
 ```
 
 ## infomation

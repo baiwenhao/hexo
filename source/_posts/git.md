@@ -241,3 +241,6 @@ git fetch --all
 git checkout a 还原一个文件
 git checkout . 删除未提交的文件
 git checkout -- fliename 恢复删除的文件
+
+## 取消代理
+git config --global --unset http.proxy
