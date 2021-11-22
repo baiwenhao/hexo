@@ -244,3 +244,10 @@ git checkout -- fliename 恢复删除的文件
 
 ## 取消代理
 git config --global --unset http.proxy
+
+## Tag
+git tag // show all tag
+git tag -l // 某个版本的tag
+git tag -a v1.0.0 // create tag
+git tag -d name // del local tag
+git push origin :refs/tags/v1.0.0 // del origin tag

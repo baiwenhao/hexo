@@ -64,6 +64,11 @@ document.documentElement.scrollTop || document.body.scrollTop 滚动条顶部距
 document.documentElement.clientHeight 可视区域高度（不带滚动条）
 ```
 
+## 事件源
+```js
+e.pageX
+```
+
 ## 兼容
 ```js
 document.compatMode
