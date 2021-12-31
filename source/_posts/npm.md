@@ -132,4 +132,8 @@ npm --registry https://registry.npm.taobao.org install express
 
 ```
 
-
+## 缓存
+yarn cache list // 已缓存包的列表
+yarn cache dir // cache缓存文件目录路径
+yarn cache clean [package] // package 不存在就全部
+yarn cache clean --force // 清除npm缓存
