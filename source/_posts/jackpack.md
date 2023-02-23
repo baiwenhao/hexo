@@ -1,5 +1,6 @@
 ---
 title: jackpack
+abbrlink: dfd09edc
 date: 2021-08-18 09:26:22
 tags:
 ---

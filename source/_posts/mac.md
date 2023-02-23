@@ -124,3 +124,12 @@ https://zhuanlan.zhihu.com/p/34497527
 /usr/local/Cellar/openjdk@8/1.8.0+282/libexec/openjdk.jdk
 
 
+# zshrc
+```
+# nvm
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+
+# subl
+alias subl=\''/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl'\'
+```

@@ -32,9 +32,16 @@ Tools > Build System > new build system
 /Users/baiwenhao/Library/Application\ Support/Sublime\ Text\ 3/Packages/User/javascript.sublime-build
 
 ```json
+// 常规
 {
   "cmd": ["node", "$file"],
   "selector": "source.js"
+}
+// nvm build config
+{
+    "cmd": ["/Users/wenhao/.nvm/versions/node/v14.17.0/bin/node", "$file", "$file_base_name"],
+    "working_dir": "${project_path:${folder}}",
+    "selector": "*.js"
 }
 ```
 
@@ -58,12 +65,11 @@ npm i -g babel-cli
         "cmd": ["killall node >/dev/null 2>&1; babel-node \"$file\""]
     }
 }
-
 ```
 ps: https://www.cnblogs.com/52cik/p/sublime-text-run-es6.html
 
 
-## 配置文件
+## 配置文件 settings > settings
 ```js
 {
   "folder_exclude_patterns": [ // 搜索排除, 在项目中也看不见
@@ -105,30 +111,37 @@ ps: https://www.cnblogs.com/52cik/p/sublime-text-run-es6.html
 }
 ```
 
-
-## 插件
 ```js
-// 快捷键
-{ "keys": ["ctrl+shift+c"], "command": "copy_path" }
+// 在项目中隐藏的文件
+{
+  "folder_exclude_patterns": [ ".git", "node_modules" ],
+}
+```
 
-// 配置文件 Preferences > Package Setting
+## 快捷键
+```js
+// Settings > Bindings
+{ "keys": ["ctrl+shift+c"], "command": "copy_path" }
+```
+
+## 插件列表
+```js
+// Preferences > Package Setting
 {
   "bootstrapped": true,
   "in_process_packages": [],
   "installed_packages": [
-    "allAutocomplete", // 匹配的提示词 
-    "caniuse", // 扩展右键菜单css
+    "allAutocomplete", // 搜索所有打开的文件来寻找匹配的提示词
     "AutoFileName", // 标签匹配提示路径 比如src要引入一个文件
     "HTML-CSS-JS Prettify", // 格式化代码
     "JavaScriptNext - ES6 Syntax", // 语法高亮
-    "SideBarEnhancements",
     "SideBarFolders", // 管理文件夹
     "DocBlockr", // 代码注释 
     "SyncedSideBar", // 支持当前文件在左侧面板中定位
     "Terminal", // 右键使用终端
     "Vue Syntax Highlight",
     "auto-save", // 自动保存
-    "bracketHighlighter", // 标签闭合提示，高亮显示
+    "bracketHighlighter", // 标签闭合提示，在行number高亮显示
     "sideBarEnhancements", // 增强右键菜单
     "fileHeader", // 给文件添加作者时间 FileHeader\template\header 自己配置
   ]
@@ -136,12 +149,12 @@ ps: https://www.cnblogs.com/52cik/p/sublime-text-run-es6.html
 ```
 
 ```
-// fileHdader
+// fileHdader config > package setting
 {
     "Default": {
-        "author":"Ding Jianlong",
-        "last_modified_by":"Ding Jianlong",
-        "email":"123@51015.cn"
+        "author":"wenhao",
+        "last_modified_by":"wenhao",
+        "email":"123@qq.cn"
     }
 }
 ```
