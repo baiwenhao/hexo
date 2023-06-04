@@ -5,7 +5,7 @@ abbrlink: 65b69107
 date: 2017-02-07 11:19:16
 ---
 
-## nginx mac
+## mac
 ```
 安装
 brew install nginx 安装
@@ -14,7 +14,7 @@ brew update nginx 更新
 brew cleanup 清理
 brew info nginx 依赖
 
-2. config
+2. location
 /usr/local/etc/nginx/nginx.conf
 /usr/local/Cellar/nginx/1.8.0/html
 
@@ -24,6 +24,7 @@ nginx -s reopen 重启
 nginx -s stop 停止
 nginx -s quit 退出
 nginx -t 测配
+ps -ef | grep nginx 查看nginx进程
 
 4. 配置
 server {
@@ -104,6 +105,9 @@ gzip_disable "MSIE [1-6]\.";
 
 测试
 curl -I -H "Accept-Encoding: gzip, deflate" "http://www.slyar.com/blog/"
+
+## 静态
+
 
 ## 参考
 https://www.digitalocean.com/community/tutorials/understanding-nginx-server-and-location-block-selection-algorithms
