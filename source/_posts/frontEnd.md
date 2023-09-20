@@ -279,3 +279,124 @@ https://github.com/windiest/Front-end-tutorial/blob/master/README.md
 
 ### 过瘾吗 再来张
 ![logo](闭包/1.jpg)
+
+## 动态更新模版
+完成了之前没完成的功能
+1.新建定时任务
+2.不定时请求OBS的配置文件即开关
+3.开关打开更细流程，读取OBS桶里的html模版，不要忘记添加时间戳，（过滤url为obs外网路径，不影响现有架构发布流程）fs调用writeFileSync写入文件并存储到views目录下即可，模版名不可重复，可以添加时间戳
+4.刷新页面读取新模版返回浏览器
+
+```js
+// 定时任务
+module.exports = app => {
+  return {
+    schedule: {
+      interval: '1m',
+      type: 'all',
+      immediate: true,
+    },
+    async task() {
+      const env = app.config.env;
+      // if (env === 'sit' || env === 'uat' || env === 'prod') return false
+      const url = app.config.rtg;
+      const obs = app.config.obs;
+      const Bucket = app.config.bucket;
+      const tail = new Date().getTime();
+      const result = await axios.get(url + '/config/rtg-' + env + '.json?n=' + tail);
+
+      if (result && result.data && result.data.static) {
+        const res = await axios.get(url + '/rtg/main.html?n=' + tail);
+        if (!res || !res.data) return
+        result.data.static = false;
+        result.data.template = 'home_' + tail + '.nj';
+        // process.env.tail = tail;
+        const __url = path.join(__dirname, '../view/home_' + tail + '.nj');
+        const tpl = res.data.replace(/\/\/{&&ENV&&}.stmaezia.com\/rtg\/dashboard\/parent/g, 'https://cdc-obs.maezia.com/rtg');
+        fs.writeFileSync(__url, tpl, null, 2);
+        const client = new ObsClient(obs);
+        await client.putObject({
+          Bucket,
+          Key: 'config/rtg-' + env + '.json',
+          Body: JSON.stringify(result.data),
+        });
+      }
+    },
+  }
+}
+```
+
+```js
+// 入口模版
+import { Controller } from '../../framework';
+import axios from 'axios';
+
+export default class HomeController extends Controller {
+    public async index() {
+        const { ctx } = this;
+        const user = ctx.user;
+        const url = this.app.config.authority;
+        const params = {
+            serviceName: 'RTG',
+            extUid: '',
+            uid: '',
+        };
+
+        console.log(user);
+
+        if (!user.maUserName) {
+            console.log('--- login ---')
+            return ctx.redirect('/login');
+        }
+
+        if (user.maUserId.length >= 30) {
+            params.extUid = user.maUserId;
+        } else {
+            params.uid = user.maUserId;
+        }
+
+        const res = await axios({
+            url,
+            method: 'get',
+            params,
+        });
+
+        console.log(res.data);
+
+        let data = {
+            maUserId: user.maUserId,
+            maUserName: user.maUserName,
+            anonymous: JSON.stringify({}),
+            accessMap: JSON.stringify({}),
+            permissions: JSON.stringify(res.data),
+            env: this.app.config.env,
+            from: user.from,
+            email: user.email,
+            // publicPath: '/',
+            authority: this.app.config.authority,
+            remoteHost: this.app.config.remoteHost,
+            cas: this.app.config.login.sources[0].base_url,
+        };
+
+        data = Object.assign(data, user);
+
+        if (this.app.config.env === 'local') {
+            await ctx.render('home_local.nj', data);
+        } else {
+            const tail = process.env.tail
+            if (tail) {
+                console.log('--- load template ---', tail + '.nj');
+                await ctx.render('home_' + tail + '.nj', data);
+            } else {
+                await ctx.render('home_' + this.app.config.env + '.nj', data);
+            }
+        }
+    }
+
+    public async sayHello() {
+        this.ctx.body = { content: 'Hello, World' };
+    }
+
+}
+
+```

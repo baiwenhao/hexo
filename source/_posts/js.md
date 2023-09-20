@@ -43,15 +43,9 @@ var a = 2
 })
 ```
 
-
-
-
 ## 闭包
 当函数而已记住并访问所在作用域,函数在当前作用域外执行,就产生了闭包
 try{throw 2;}catch(err){console.log(2)}
-
-
-
 
 ## 属性描述符
 ```js
@@ -216,5 +210,19 @@ object 对象 o
 regular 正则  r
 string 字符串  s
 
+## 打印
+```
+console.assert(!true, 'This is not true') 错误答应
+console.profile('神机妙算')
+console.profileEnd('神机妙算')
+console.time()
+console.timeEnd()
+console.count() 统计函数执行的次数
+console.table()
+console.info()
+console.warn()
+console.error()
+console.log('%c Welcome to XIYU! ','color:#1e80ff;font-size:20px;background:#fff;padding:8px;');
+```
 
 

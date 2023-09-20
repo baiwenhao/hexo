@@ -231,20 +231,6 @@ window.addEventListener("message", receiveMessage, false);
 </script>
 ```
 
-## 打印
-```
-console.assert(!true, 'This is not true') 错误答应
-console.profile('神机妙算')
-console.profileEnd('神机妙算')
-console.time()
-console.timeEnd()
-console.count() 统计函数执行的次数
-console.table()
-console.info()
-console.warn()
-console.error()
-```
-
 ## 拖拽
 event.dataTransfer.files
 

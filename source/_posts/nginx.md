@@ -107,3 +107,19 @@ curl -I -H "Accept-Encoding: gzip, deflate" "http://www.slyar.com/blog/"
 
 ## 参考
 https://www.digitalocean.com/community/tutorials/understanding-nginx-server-and-location-block-selection-algorithms
+
+## 处理跨域
+```js
+location /api {
+    proxy_pass https://www.hahah.com;  #代理的域名
+    add_header 'Access-Control-Allow-Origin' '*';
+    add_header 'Access-Control-Allow-Credentials' 'true';
+}
+location ~* \.(eot|otf|ttf|woff|woff2)$ {
+    add_header Access-Control-Allow-Origin *;
+}
+location ~* \.(ttf|ttc|otf|eot|woff|font.css)$ {
+    add_header Access-Control-Allow-Origin "http://localhost:7001";
+}
+```
+或者字体 to base64 https://transfonter.org

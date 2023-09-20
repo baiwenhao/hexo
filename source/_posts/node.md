@@ -244,9 +244,71 @@ querystring.stringify(info)
 ```
 
 ## momentjs
-moment().format('YYYY-MM-DD') // http://momentjs.com/docs/
+moment().format('YYYY-MM-DD')
+http://momentjs.com/docs/
 
 ## gd-gif
 nodejs 生成验证码
 
+## process 进程对象
+```js
+// argv // 以数组形式返回nodejs的执行脚本参数
+// platform // 运行的操作系统平台
+// version/versions // 当前node的版本号/node及相关宝的版本号
+// cwd() 当前工作目录
+/*
+  返回当前进程的所有命令行参数，返回值是数组
+  node scripts/build.js dev
+  ['node 命令行路径', '执行文件的路径', 'dev']
+ */
+import { argv } from 'node:process'
+process.argv
+
+/*
+  包含用户环境的对象，返回值如下
+  {
+    NVM_INC: '/Users/a6xsfmd/.nvm/versions/node/v14.17.0/include/node',
+    npm_package_engines_npm: '>= 3.0.0',
+    npm_package_devDependencies_lint_staged: '^8.2.1',
+    MANPATH: '/Users/a6xsfmd/.nvm/versions/node/v14.17.0/share/man:/opt/homebrew/share/man::',
+    npm_package_devDependencies_stylelint_config_recommended: '^2.2.0',
+    npm_package_scripts_mapi_server: 'mapi server -k d7818d78773a7f22ed789e2cb3b25783',
+    TERM_PROGRAM: 'Hyper',
+    NODE: '/Users/a6xsfmd/.nvm/versions/node/v14.17.0/bin/node',
+    INIT_CWD: '/Users/a6xsfmd/ma_workspace/rtg-rtg-dashboard-parent/client',
+    npm_package_devDependencies_typescript: '^3.5.2',
+    SHELL: '/bin/sh',
+    TERM: 'xterm-256color'
+  }
+ */
+
+import { env } from 'node:process'
+env.foo = 'bar' // window 不区分大小写，important 只允许字符串
+process.env
+
+```
+
+## 全局对象
+1.global // 类似window对象, 别名是GLOBAL，适合较小应用
+2.module.export // exports.company = 'Google' 适合大型应用
+```js
+console.log(Object.getOwnPropertyNames(global)) // 所有属性
+```
+
+## egg render
+```js
+const data = { name: 'egg', appName: 123 };
+ctx.body = await ctx.renderString(html, {
+    env: 'local',
+    maUserName: 'admin',
+    permissions: "['role:user', 'user:004']"
+},  {
+  viewEngine: 'nunjucks',
+})
+// render(name, locals) 渲染模板文件, 并赋值给 ctx.body
+// renderView(name, locals) 渲染模板文件, 仅返回不赋值
+// renderString(tpl, locals) 渲染模板字符串, 仅返回不赋值
+```
+
+## Content-Security-Policy （Missing header information）
 
