@@ -14,18 +14,19 @@ GET /api/http.html HTTP/1.1 发起请求 
 Host: nodejs.org 两个回车发送请求 
 ```
 
-## 杀端口
+## kill port
 ```
 lsof -i tcp:3888 //查看
 kill -9 26019 //杀端口
 ```
 
-## zip压缩解压
+## zip
 ```
-zip -r 1 2 new 压12
-unzip new.zip 解压
-unzip -v new.zip 查看
-unzip -t new.zip 完整
+apt-get install unzip || yum install unzip                 // 安装
+zip -q -r electron.zip /root/document/electron-quick-start // 压缩
+unzip new.zip                                              // 解压
+unzip -v new.zip                                           // 查看
+unzip -t new.zip                                           // 完整
 ```
 
 ## centOs install soft
@@ -104,8 +105,10 @@ sudo spctl --master-disable
 ```
 ssh root@104.225.233.200 -p 26800
 
-本地拷贝远程文件,本地拷远程顺序颠倒一下
+// 本地拉取远程文件
 scp -P 26800 root@104.225.233.208:/root/gradle-2.4-all.zip ./
+
+// 本地上传到远端
 scp -P 26800 ./vuejs_note.zip root@104.225.233.208:/root/
 
 ubuntu 安装

@@ -1,5 +1,5 @@
 ---
-title: npm and yarn
+title: npm
 abbrlink: 99791dcb
 date: 2017-02-07 11:19:11
 ---
@@ -14,9 +14,6 @@ devDependencies开发环境依赖包
 
 查看包的package.json
 npm view ejs
-
-帮助信息
-npm help
 
 查看包依赖关系
 npm view ejs dependencies
@@ -37,14 +34,12 @@ npm outdated
 npm update ejs
 npm update -g ejs
 
-卸载
+## 卸载
 npm uninstall ejs
 npm uninstall -g pjs
 
-包安装路径
+## 全局包安装路径
 npm root
-
-全局包安装路径
 npm root -g
 
 查看配置信息
