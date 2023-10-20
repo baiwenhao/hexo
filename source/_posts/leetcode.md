@@ -4,7 +4,7 @@ abbrlink: 6096f3d5
 date: 2017-02-09 18:45:41
 ---
 
-### 1 第一题
+### one
 ```
 var twoSum = function(nums, target) {
   for(var i = 0, len = nums.length; i < len; i++) {
