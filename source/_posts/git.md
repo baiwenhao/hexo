@@ -254,3 +254,7 @@ git push origin :refs/tags/v1.0.0 // del origin tag
 
 Error in the HTTP2 framing layer
 FATAL Something's wrong. Maybe you can find the solution here: https://hexo.io/docs/troubleshooting.html
+
+## 强制推送
+git push -f origin
+

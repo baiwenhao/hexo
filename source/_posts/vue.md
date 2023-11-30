@@ -333,4 +333,5 @@ vivoX7 5.1.1
 li 标签默认有上边距 设置display flex
 唤起输入框 input可能被挡住，兼容性写法 document.body || document.documentElement
 
-
+### element font to base64
+/Users/a6xsfmd/ma_workspace/rtg-rtg-dashboard-parent/client/node_modules/element-theme-chalk/src/icon.scss

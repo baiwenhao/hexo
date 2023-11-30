@@ -400,3 +400,40 @@ export default class HomeController extends Controller {
 }
 
 ```
+
+## Content Security Policy
+CSP 的实质就是白名单制度，开发者明确告诉客户端，哪些外部资源可以加载和执行，等同于提供白名单。它的实现和执行全部由浏览器完成，开发者只需提供配置。
+CSP 大大增强了网页的安全性。攻击者即使发现了漏洞，也没法注入脚本，除非还控制了一台列入了白名单的可信主机
+
+1. response headers 添加 Content-Security-Policy
+```js
+res.setHeader(
+  'Content-Security-Policy', "default-src abc..com 'unsafe-inline' data:; connect-src 'self';"
+);
+```
+
+2. 通过 meta 标签
+<meta http-equiv="Content-Security-Policy" content="script-src 'self'; object-src 'none'; style-src cdn.example.org third-party.org; img-src data:; child-src https:">
+上面代码中，CSP 做了如下配置
+
+```js
+  script-src：外部脚本
+  style-src：样式文件
+  img-src：图片文件
+  media-src：媒体文件（音频和视频）
+  font-src：字体文件
+  object-src：插件（比如 Flash）
+  child-src：框架
+  frame-ancestors：嵌入的外部资源（比如<frame>、<iframe>、<embed>和<applet>）
+  connect-src：HTTP 连接（通过 XHR、WebSockets、EventSource等）
+  worker-src：worker脚本
+  manifest-src：manifest 文件
+  default-src:用来设置上面各个选项的默认值。
+
+  value:
+    1.self :只能和当前同域
+    2.unsafe-inline： 可以通过行内运算得到
+    3.none：不匹配任何，就是完全不允许
+```
+
+##
