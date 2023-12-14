@@ -145,3 +145,6 @@ solution: charles resource folder 的权限
 sudo chown -R root "/Applications/Charles.app/Contents/Resources"
 sudo chmod -R u+s "/Applications/Charles.app/Contents/Resources"
 ```
+
+## Activate Charles
+<a href="https://www.java.com/en/download/">安装java8</a>, 运行kenjar.jar, 生成key, 填入Help注册, 随后提示注册成功
