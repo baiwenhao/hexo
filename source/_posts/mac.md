@@ -133,3 +133,15 @@ export NVM_DIR="$HOME/.nvm"
 # subl
 alias subl=\''/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl'\'
 ```
+
+## Charles MacOs Proxy
+Charles cannot configure your proxy settings while it is on a read-only volume.
+Perhaps you are running Charles from the disk image?
+If so, please copy Charles to the Applications folder and run it again.
+Otherwise please ensure that Charles is running on a volume that is read-write and try again.
+
+solution: charles resource folder 的权限
+```
+sudo chown -R root "/Applications/Charles.app/Contents/Resources"
+sudo chmod -R u+s "/Applications/Charles.app/Contents/Resources"
+```
