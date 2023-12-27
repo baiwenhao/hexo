@@ -370,11 +370,11 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 https://gist.github.com/allenm/5e22379cb8055f4402bcd417f682ae8f //dingding
 
 ## xss 攻击
-
-
 面试题
 ##### http://javascript-puzzlers.herokuapp.com/
 ##### https://github.com/qiu-deqing/FE-interview#%E7%BC%96%E5%86%99javascript%E6%B7%B1%E5%BA%A6%E5%85%8B%E9%9A%86%E5%87%BD%E6%95%B0deepclone
 
+## Object.defineProperty
+vue 双向绑定的核心原理就是使用了 Object.defineProperty() 方法来监听数据的变化
 
 
