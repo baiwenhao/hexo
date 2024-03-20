@@ -296,6 +296,7 @@ console.log(Object.getOwnPropertyNames(global)) // 所有属性
 ```
 
 ## egg render
+
 ```js
 const data = { name: 'egg', appName: 123 };
 ctx.body = await ctx.renderString(html, {
@@ -309,6 +310,4 @@ ctx.body = await ctx.renderString(html, {
 // renderView(name, locals) 渲染模板文件, 仅返回不赋值
 // renderString(tpl, locals) 渲染模板字符串, 仅返回不赋值
 ```
-
-## Content-Security-Policy （Missing header information）
 

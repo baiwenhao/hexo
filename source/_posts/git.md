@@ -245,6 +245,14 @@ git checkout -- fliename 恢复删除的文件
 ## 取消代理
 git config --global --unset http.proxy
 
+### 检查
+git config --global --get http.proxy
+git config --global --get https.proxy
+
+### 重置
+git config --global --unset http.proxy
+git config --global --unset https.proxy
+
 ## Tag
 git tag // show all tag
 git tag -l // 某个版本的tag
@@ -257,4 +265,6 @@ FATAL Something's wrong. Maybe you can find the solution here: https://hexo.io/d
 
 ## 强制推送
 git push -f origin
+
+
 

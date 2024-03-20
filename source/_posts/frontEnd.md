@@ -392,14 +392,16 @@ export default class HomeController extends Controller {
             }
         }
     }
-
     public async sayHello() {
         this.ctx.body = { content: 'Hello, World' };
     }
-
 }
-
 ```
+
+## Subresource Integrity 子资源完整性校验 (SRI)
+vue.config中添加两个参数:
+
+https://blog.csdn.net/qq_40774743/article/details/108259153
 
 ## Content Security Policy
 CSP 的实质就是白名单制度，开发者明确告诉客户端，哪些外部资源可以加载和执行，等同于提供白名单。它的实现和执行全部由浏览器完成，开发者只需提供配置。
@@ -407,9 +409,7 @@ CSP 大大增强了网页的安全性。攻击者即使发现了漏洞，也没�
 
 1. response headers 添加 Content-Security-Policy
 ```js
-res.setHeader(
-  'Content-Security-Policy', "default-src abc..com 'unsafe-inline' data:; connect-src 'self';"
-);
+res.setHeader('Content-Security-Policy', "default-src abc..com 'unsafe-inline' data:; connect-src 'self';");
 ```
 
 2. 通过 meta 标签
@@ -436,4 +436,76 @@ res.setHeader(
     3.none：不匹配任何，就是完全不允许
 ```
 
+3. samesite
+SameSite=None：无论是否跨站都会发送 Cookie
+SameSite=Lax：允许部分第三方请求携带 Cookie
+SameSite=Strict：仅允许同站请求携带 Cookie，即当前网页 URL 与请求目标 URL 完全一致
 
+
+```
+# 中等漏洞
+1. SRI (Subresource Integrity) 的检查
+   integrity: true,
+   crossorigin: 'anonymous'
+
+   /login 杭州修复
+
+2. “Content-Security-Policy”头缺失
+   /login 杭州修复
+
+3. httpOnly
+   csrf-token BFF 端无法修复，包含 /login
+   HWWAFSESID and HWWAFSESTIME IT yangbowen提交工单，由华为后台修复
+
+4. 具有不安全、不正确或缺少 SameSite 属性的 Cookie
+   https://support.huaweicloud.com/waf_faq/waf_01_0121.html (Secure)
+   https://support.huaweicloud.com/waf_faq/waf_01_0347.html (HWWAFSESID)
+
+   4.1 HWWAFSESID
+   4.2 csrf-token
+   4.3 MA_SESS
+   4.4 HWWAFSESTIME
+   4.5 samesite
+   4.6 samesite.sig
+   4.7 http
+   4.8 secure
+   4.9 secure.sig
+
+5. 加密会话（SSL）Cookie 中缺少 Secure 属性
+
+   5.1 samesite
+   5.2 HWWAFSESID
+   5.3 csrf-token
+   5.4 HWWAFSESTIME
+   5.5 MA_SESS
+   5.6 secure
+   5.7 samesite.sig
+   5.8 MA_LOGIN_SOURCE
+   5.9 secure.sig
+
+6. 发现可高速缓存的 SSL 页面
+   /logig 杭州
+
+7. 在应用程序中发现不必要的 Http 响应头 301 and 302
+   Server: CloudWAF
+
+8. 检测到 SHA-1 密码套件 (较弱的密码套)
+   TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA
+   TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA
+
+   TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384,
+   TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384,
+   TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256,
+   TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256,
+   TLS_RSA_WITH_AES_256_GCM_SHA384,
+   TLS_RSA_WITH_AES_128_GCM_SHA256,
+   TLS_RSA_WITH_AES_256_CBC_SHA256,
+   TLS_RSA_WITH_AES_128_CBC_SHA256
+
+9. 监测到隐藏目录
+   /login 杭州
+
+10. "Referral Policy" Security 头缺失
+   9.1 /login
+   9.2 /
+```
