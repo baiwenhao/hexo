@@ -335,3 +335,5 @@ li 标签默认有上边距 设置display flex
 
 ### element font to base64
 /Users/a6xsfmd/ma_workspace/rtg-rtg-dashboard-parent/client/node_modules/element-theme-chalk/src/icon.scss
+ eco
+client/node_modules/element-ui/lib/theme-chalk/index.css

@@ -436,7 +436,7 @@ res.setHeader('Content-Security-Policy', "default-src abc..com 'unsafe-inline' d
     3.none：不匹配任何，就是完全不允许
 ```
 
-3. samesite
+3. SameSite
 SameSite=None：无论是否跨站都会发送 Cookie
 SameSite=Lax：允许部分第三方请求携带 Cookie
 SameSite=Strict：仅允许同站请求携带 Cookie，即当前网页 URL 与请求目标 URL 完全一致
@@ -508,4 +508,13 @@ SameSite=Strict：仅允许同站请求携带 Cookie，即当前网页 URL 与�
 10. "Referral Policy" Security 头缺失
    9.1 /login
    9.2 /
+```
+
+### ele组件
+```js
+this.$message({
+  message: '这是一条消息',
+  customClass: 'high-zindex',
+  duration: '5000'
+});
 ```

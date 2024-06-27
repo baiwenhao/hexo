@@ -210,7 +210,8 @@ object 对象 o
 regular 正则  r
 string 字符串  s
 
-## 打印
+## console
+不支持属性 width and height so padding 和 line-height 替代
 ```
 console.assert(!true, 'This is not true') 错误答应
 console.profile('神机妙算')
@@ -222,7 +223,36 @@ console.table()
 console.info()
 console.warn()
 console.error()
+
 console.log('%c Welcome to XIYU! ','color:#1e80ff;font-size:20px;background:#fff;padding:8px;');
+console.log('%c想要加入稀土掘金？投递简历：https://job.toutiao.com/s/idq6X5rb', 'color:#1e80ff;');
+/* --- style --- */
+console.log(
+  "Multiple styles: %cred %corange",
+  "color: red",
+  "color: orange",
+  "Additional unformatted message",
+);
+
+/* --- img --- */
+console.log('%c ', 'padding-left: 50px; line-height: 50px; background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASAAAAEgCAMAAAAjXV6yAAAANlBMVEVHcEwzMjQvJjgxJDcvJDgwJThRNTmfxWgy2SbD9nmh8GaOP121TVnCPS/qRCvtXj3ym2j2tXmABwdyAAAABXRSTlMABTvE+i919boAAAMySURBVHgB7dzLTsNmFIXR+BqKYwLv/7KlUsWkZ9P+lS3H1vrIFEssHXmyFW6vVdcP47RB49B3tysECBAgQIAAAQIECBAgQIAAAQIECBAgQIAAATqeog7Qz6mEhrmtiwJ1/RC6h95C1wUaq6b5/kfZewKarws0VQH6HWgG5IJyLsgFuSAX5IJckAtyQYBckAtyQS7IBbkgF+SCAAHq6rYDGqsC0AX2r6UVaAj13cn3r7fQew10n+uG4N91Z9+/WoHyuyZ07pfxhkCtEoAAAQIECBAgQIAAAQIECBAgQIAAAQIE6LL71/5AdWfZvxLQdK997qEANA19qDvJ/jUGn3l5lC1zaKob83B4iv1rbAeaprn4+aWx6hWBplAz0AYBAgQIECBAgAABAgQIECBAVwACBAgQIECAAHV1LwhUd5r/f7j8pfGPzzdQmDXmto7ay/L3v9bQsnNr6KC9LH//a/2oe4RaIR6hj7r1oK9q5q395YCmqkOBAAECBAgQIEAhQA0+gAAt1wRyQYAAAQIECBAgQIC6sisA1e29fy0J6Pl4Pn4+WWhzoOa9bOf9K/p8hh7fv/HfP+2172U7718R6Kvs8/lxQFvtZfllfAGgqepCQIAAAQIECBAgQIAAAQIECBAgQIAAAQIECNAzFIFCVwWK+9dX6DP0vCzQ1yYB+g4QIECAAAECBAgQIECAAAECBAgQIECAAAECZPZZTz8cbkbxqFtMz4AA/b8AAQIECBAgQIAAAQIECBAgQIAAAQIECBCgEKC/+5f9C1AOECBAgAABAgQIECBAgAABAgQIECBAgAABAgQI0AooXEroykCAAAECBAgQIECAAAECBAgQIECAAAECBAgQoLLzA41VCSjXD6FlLWt2W0Ot+1eUCA2hVqCuDw1zXetfNofWrS6lbujruuyTjYqa300ZaMrP2fddE7pt0hWAbjsFCBAgQIAAAQIECBAgQNsHCBAgQIAAAQIEqKwdKD/n+P0rt/Velmt9ztLYENobqG0vyw1tz8ntvn/tuZfl4j6Vn5Nr3L8OqRkonPqGQFtKAAIECBAgQIAAAQIECBAgQIAAAQIECBCg4wME6E+7tQcAK80eGwAAAABJRU5ErkJggg==) 100% / contain no-repeat;');
+
+/* --- html and svg --- */
+console.log('%c ', `
+line-height:100px;
+padding-left:400px;
+background-repeat:no-repeat;
+background-image:url("data:image/svg+xml,<svg viewBox='0 0 400 100' xmlns='http://www.w3.org/2000/svg'><style>path{stroke-dasharray: 400;animation: dash 10s linear;}@keyframes dash {to {stroke-dashoffset: 2000;}}</style><path d='M 0 50 Q 50 100 100 50 T 200 50 T 300 50 T 400 50 T 500 50' stroke='black' fill='transparent' stroke-width='10'></path></svg>")
+`)
+
+/* --- animate --- */
+console.log('%c ', `
+line-height:100px;
+padding-left:100px;
+background-repeat:no-repeat;
+background-image:url("data:image/svg+xml,<svg width='100' height='100' xmlns='http://www.w3.org/2000/svg'><style>@keyframes spin {0% { transform: rotate(0deg); background: green; border-radius: 5px; }50% { transform: rotate(180deg); background: red; border-radius: 20px; }100% { transform: rotate(360deg); background: green; border-radius: 5px; }}.square {width: 50px;height: 50px;position: relative;left: 25px;top: 25px;background-color: red;animation: spin 2s linear infinite;}</style><foreignObject width='100' height='100'><div xmlns='http://www.w3.org/1999/xhtml' class='square'></div></foreignObject></svg>")
+`)
+
 ```
 
 
