@@ -6,6 +6,7 @@ tags:
 ---
 
 ## EGG
+
 ```js
 // 开启
 config.security = {
@@ -28,7 +29,15 @@ config.onerror = {
 };
 ```
 
-## 缺少SameSite的Cookie
+## SameSite
 SameSite=None：无论是否跨站都会发送 Cookie
 SameSite=Lax：允许部分第三方请求携带 Cookie
 SameSite=Strict：仅允许同站请求携带 Cookie，即当前网页 URL 与请求目标 URL 完全一致
+  https 成功 http 不行
+
+## Secure
+Cookie 只有在 HTTPS 协议下才会发送给服务
+true, false
+
+## HttpOnly
+Cookie 将无法被 JavaScript 访问，从而避免 XSS 攻击

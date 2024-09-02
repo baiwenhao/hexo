@@ -68,6 +68,12 @@ http://nodejs.cn/api/path.html#path_path_posix
 http://wiki.jikexueyuan.com/project/nodejs/path.html
 http://www.jianshu.com/p/d2c96d295d48
 
+## nvm
+https://github.com/nvm-sh/nvm/blob/master/README.md
+```
+nvm alias default 16.14.2
+```
+
 ## url
 url.parse()
 
