@@ -337,3 +337,19 @@ li 标签默认有上边距 设置display flex
 /Users/a6xsfmd/ma_workspace/rtg-rtg-dashboard-parent/client/node_modules/element-theme-chalk/src/icon.scss
  eco
 client/node_modules/element-ui/lib/theme-chalk/index.css
+
+
+### vue-cli
+```js
+// install
+yarn global add @vue/cli
+npm i -g @vue-cli
+
+// check
+vue --version
+
+// create
+vue create vue-demo
+cd vue-demo
+yarn run serve
+```
