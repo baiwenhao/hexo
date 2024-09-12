@@ -5,7 +5,6 @@ abbrlink: 69c3279c
 date: 2017-02-07 11:18:58
 ---
 
-
 ## 秘钥
 ```
 ls ~/.ssh  两个文件id_rsa和id_rsa.pub
@@ -50,6 +49,7 @@ git checkout dev 切换分支
 git merge test 合并分支
 git merge --abort 放弃合并
 git branch -d name 删除本地分支
+git branch -M main 创建并切换
 ```
 
 ## 查看对比历史记录
@@ -112,14 +112,12 @@ ssh-keygen 生成秘钥
 cat ~/.ssh/id_rsa.pub
 ```
 
-
 ## 拉取子模块一直要输入密码
 ```
 进入工程里git submodule init 查看子模块，进SourceTree右键点击子模块，
 更改源URL,加上自己的用户名 baiwnehao.sh@，然后 键入git submodule update
 .gitmodules不要提交就可以
 ```
-
 
 ## 恢复备份数据
 ```
@@ -129,13 +127,11 @@ git stash pop 读取最近保存的内容
 git stash clear 清空git栈
 ```
 
-
 ## 本地仓库关联远程仓库
 ```js
 git remote add origin git@github.com:baiwenhao/baiwenhao.github.com.git
 git remote set-url origin git@github.com:ppreyer/first_app.git
 ```
-
 
 ## 这是全局忽略设置
 ```
@@ -143,14 +139,12 @@ $ git check-ignore -v index.html
 /Users/baiwenhao/.gitignore_global:11:index.html  index.html
 ```
 
-
 ## 错误
 ```
 error: The requested URL returned error: 403 Forbidden while accessing
 nano .git/comfig  #然后添加url前面添加账户名称
 url = https://baiwenhao@github.com/baiwenhao/vue_note.git
 ```
-
 
 ## del commit
 ```
@@ -185,12 +179,10 @@ git reset --hard develop // 将本地的旧分支 master 重置成 develop
 git push origin master --force // 再推送到远程仓库
 ```
 
-
 ## view origin branch
 ```js
 git branch -a
 ```
-
 
 ## delete origin branch
 ```js
@@ -265,6 +257,3 @@ FATAL Something's wrong. Maybe you can find the solution here: https://hexo.io/d
 
 ## 强制推送
 git push -f origin
-
-
-

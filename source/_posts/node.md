@@ -317,3 +317,45 @@ ctx.body = await ctx.renderString(html, {
 // renderString(tpl, locals) 渲染模板字符串, 仅返回不赋值
 ```
 
+### npm and yarn
+du -sh 查看当前文件大小
+npm root -g // 安装路径 or which node
+npm ls -g // 查看安装的所以全局包
+npm list -g --depth 0
+npm config ls // 查看配置信息
+npm config ls -l
+npm view egg repository.url // 查看包的源文件地址
+npm view ejs // 查看包的package.json
+
+npm config get registry
+npm install pack -g --registry=http://192.168.30.69:7001/
+npm --registry https://registry.npm.taobao.org install express // 临时
+
+yarn add egg --save
+yarn add egg-scripts --dev
+yarn bin
+yarn ls
+yarn remove
+yarn upgrade vue-template-compiler@2.6.10
+
+yarn cache list // 已缓存包的列表
+yarn cache dir // cache缓存文件目录路径
+yarn cache clean [package] // package 不存在就全部
+yarn cache clean --force // 清除npm缓存
+
+yarn config get registry
+yarn config set registry https://registry.yarnpkg.com
+
+发布包
+```
+站在使用者的角度，掌握上述章节的内容已经足够了，但当我们开发出好玩的项目而且又想和大家分享时，那么下面的内容就不得不了解了！
+  1. 注册一个registry帐号， npm adduser ，然后根据引导输入帐号、密码和邮箱地址。
+  2. 登录registry帐号， npm login ，登录信息会保存在客户端。
+  3. 发布项目， npm publish 。（建议发布版本从1.0.0开始）
+
+经过上述步骤我们就可发布模块了。但这个时候你也许会考虑到项目中部分目录和文件不应该被发布出去，应该有一个像.gitignore的文件来配置这些排除项。看来你猜对了，那就是.npmignore文件，不过npm做得更灵活一些！
+  
+  1. 默认不带.npmignore文件，若项目中带.gitignore则使用.gitignore文件内容的配置项
+  2. 若带.npmignore文件则不使用.gitignore文件中的配置项
+  3. 即使配置.npmignore文件，也无法排除package.json和README.*文件
+```

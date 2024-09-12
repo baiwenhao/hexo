@@ -334,10 +334,10 @@ li 标签默认有上边距 设置display flex
 唤起输入框 input可能被挡住，兼容性写法 document.body || document.documentElement
 
 ### element font to base64
-/Users/a6xsfmd/ma_workspace/rtg-rtg-dashboard-parent/client/node_modules/element-theme-chalk/src/icon.scss
- eco
-client/node_modules/element-ui/lib/theme-chalk/index.css
-
+```js
+/node_modules/element-ui/lib/theme-chalk/index.css
+/node_modules/element-theme-chalk/src/icon.scss
+```
 
 ### vue-cli
 ```js
@@ -352,4 +352,10 @@ vue --version
 vue create vue-demo
 cd vue-demo
 yarn run serve
+
+// build
+"build:prod": "vue-cli-service build --no-clean" // 覆盖
+
+// server
+"sit": "./scripts/env.js egg-bin dev --env=sit -p 7001",
 ```
