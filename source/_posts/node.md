@@ -331,6 +331,8 @@ npm config get registry
 npm install pack -g --registry=http://192.168.30.69:7001/
 npm --registry https://registry.npm.taobao.org install express // 临时
 
+npm publish // 发布
+
 yarn add egg --save
 yarn add egg-scripts --dev
 yarn bin

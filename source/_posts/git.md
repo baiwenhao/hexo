@@ -68,7 +68,6 @@ git diff --color-words 差异的单词
 git diff --word-diff
 ```
 
-
 ## 撤销修改
 ```
 git reset --hard HEAD 撤销全部
@@ -233,9 +232,6 @@ git fetch --all
 git checkout a 还原一个文件
 git checkout . 删除未提交的文件
 git checkout -- fliename 恢复删除的文件
-
-## 取消代理
-git config --global --unset http.proxy
 
 ### 检查
 git config --global --get http.proxy
