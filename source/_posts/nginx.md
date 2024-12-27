@@ -8,15 +8,18 @@ date: 2017-02-07 11:19:16
 ## mac
 ```
 安装
-brew install nginx 安装
-brew uninstall nginx卸载
-brew update nginx 更新
-brew cleanup 清理
-brew info nginx 依赖
+brew install nginx   安装
+brew uninstall nginx 卸载
+brew update nginx    更新
+brew cleanup         清理
+brew info nginx      依赖
+
 
 2. location
 /usr/local/etc/nginx/nginx.conf
 /usr/local/Cellar/nginx/1.8.0/html
+/opt/homebrew/etc/nginx/nginx.conf 配置路径
+
 
 3. 命令
 nginx -s reload 重载
@@ -25,6 +28,7 @@ nginx -s stop 停止
 nginx -s quit 退出
 nginx -t 测配
 ps -ef | grep nginx 查看nginx进程
+
 
 4. 配置
 server {
@@ -40,7 +44,10 @@ server {
     add_header Access-Control-Allow-Origin *;
     alias /Users/baiwenhao/work/static/$2/dist/$4;
   }
+
+  # include /Users/a6xsfmd/ckp_web_ui/client/*.conf;
 }
+
 
 5. 本地代理
 设置host
@@ -48,16 +55,19 @@ server {
 127.0.0.1        house-test-water.oss.aliyuncs.com
 配置nginx 代理到本地静态路径
 启动nginx
+
 ```
 
 ```js
 server {
   listen 8088;
   server_name localhost *.iwjw.com;
+
   location / {
     root html;
     index index.html index.htm;
   }
+
   location ~* /(resource/)?([a-z,-]*)(_.*)?/(.*)_\d.*.(css|js){
     add_header Access-Control-Allow-Origin *;
     alias /Users/baiwenhao/work/static/$2/dist/$4.$5;
@@ -127,3 +137,20 @@ location ~* \.(ttf|ttc|otf|eot|woff|font.css)$ {
 }
 ```
 或者字体 to base64 https://transfonter.org
+
+## Proxy
+```
+location / {
+    root   /usr/share/nginx/html;
+    index  main.html main.htm;
+    add_header Access-Control-Allow-Origin *;
+}
+
+location ^~/apiKeys/ {
+  proxy_pass http://dev-ckp-bff-service:8081;
+  proxy_set_header Host $host;
+  proxy_set_header X-Real-IP $remote_addr;
+  proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+  proxy_set_header X-Forwarded-Proto $scheme;
+}
+```

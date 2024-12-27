@@ -36,3 +36,5 @@ https://www.cnblogs.com/xxx91hx/p/5192760.html
 | <a href="http://runjs.cn/square">runjs</a> | &nbsp; | &nbsp; |
 | :-- | :-- | :--- |
 
+## mac system
+https://sysin.org/blog/macOS-Big-Sur/

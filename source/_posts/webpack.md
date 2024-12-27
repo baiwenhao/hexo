@@ -30,3 +30,36 @@ console.log('--- publicPath url ---')
 console.log(window.static_url)
 if (window.static_url) __webpack_public_path__ = window.static_url // eslint-disable-line
 ```
+
+## Copy tempalte for debug
+```js
+const CopyPlugin = require('copy-webpack-plugin')
+// "@vue/cli-service": "4.4.4", 下依赖了 copy-webpack-plugin
+configureWebpack: {
+  // provide the app's title in webpack's name field, so that
+  // it can be accessed in index.html to inject the correct title.
+  name: name,
+  resolve: {
+    alias: {
+      '@': resolve('src')
+    }
+  },
+  plugins: [new CopyPlugin([{ from: resolve('build/main.html') }])]
+},
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset=utf-8>
+    <meta http-equiv=X-UA-Compatible content="IE=edge,chrome=1">
+    <meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <link rel=icon href=/favicon.ico> <title>debug</title>
+  </head>
+
+  <body>
+    <div id=app></div>
+    <script src=//localhost:9528/static/js/chunk-vendors.js></script>
+    <script src=//localhost:9528/static/js/app.js></script>
+  </body>
+</html>
+```
