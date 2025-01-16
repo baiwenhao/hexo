@@ -508,13 +508,7 @@ SameSite=Strict：仅允许同站请求携带 Cookie，即当前网页 URL 与�
 10. "Referral Policy" Security 头缺失
    9.1 /login
    9.2 /
+to do
+Referrer Policy: strict-origin-when-cross-origin
 ```
 
-### ele组件
-```js
-this.$message({
-  message: '这是一条消息',
-  customClass: 'high-zindex',
-  duration: '5000'
-});
-```
