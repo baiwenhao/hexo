@@ -137,20 +137,3 @@ location ~* \.(ttf|ttc|otf|eot|woff|font.css)$ {
 }
 ```
 或者字体 to base64 https://transfonter.org
-
-## Proxy
-```
-location / {
-    root   /usr/share/nginx/html;
-    index  main.html main.htm;
-    add_header Access-Control-Allow-Origin *;
-}
-
-location ^~/apiKeys/ {
-  proxy_pass http://dev-ckp-bff-service:8081;
-  proxy_set_header Host $host;
-  proxy_set_header X-Real-IP $remote_addr;
-  proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-  proxy_set_header X-Forwarded-Proto $scheme;
-}
-```

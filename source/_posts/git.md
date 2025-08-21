@@ -5,7 +5,7 @@ abbrlink: 69c3279c
 date: 2017-02-07 11:18:58
 ---
 
-## 秘钥
+## Key
 ```
 ls ~/.ssh  两个文件id_rsa和id_rsa.pub
 cat ~/.ssh/id_rea.pub 查看秘钥
@@ -103,13 +103,6 @@ git pull origin dev
 git remote rm origin
 git remote add origin
 
-
-## 钥匙
-```
-ls ~/.ssh 查看秘钥 id_rsa id_rsa.put
-ssh-keygen 生成秘钥
-cat ~/.ssh/id_rsa.pub
-```
 
 ## 拉取子模块一直要输入密码
 ```
