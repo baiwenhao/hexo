@@ -5,14 +5,11 @@ date: 2017-02-17 17:22:10
 tags:
 ---
 
-#### 最爱的编辑器没有之一
+## install code to path
+command + shift + P 键入 shell command
 
-## 命令行启动
-command + shift + p 键入 shell command
-
-## 快捷键
-Ctrl+Shift+N 打开一个新窗口
-Ctrl+Shift+W 关闭窗口
+## Shortcut key
+control + shift + G 查看冲突文件
 
 ## 光标
 选中当前行 Ctrl+i
