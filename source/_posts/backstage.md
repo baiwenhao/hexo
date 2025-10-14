@@ -21,3 +21,9 @@ yarn new --select plugin // create plugin
 配置身份验证：集成 GitHub、Google 或 Okta 等身份提供商。
 注册你自己的服务：为你团队的一个真实服务创建一个 catalog-info.yaml 文件，并将其导入到你的目录中。
 尝试脚手架：修改一个现有的软件模板，或者创建一个新的，用于自动化你们团队的项目创建流程。
+
+## error record
+```js
+// 数据路连接问题
+Failed to connect to the database to make sure that 'backstage_plugin_app' exists, AggregateError
+```
