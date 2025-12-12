@@ -5,10 +5,10 @@ date: 2025-09-20 11:28:45
 tags: fe
 ---
 
-## Terminal
+## study
 ```js
 npx @backstage/create-app@latest // create project
-yarn new --select plugin // create plugin 
+yarn new --select plugin // create plugin   
 ```
 
 <a href="https://backstage.io/docs/" target="_blank">官方文档</a>
@@ -26,4 +26,11 @@ yarn new --select plugin // create plugin
 ```js
 // 数据路连接问题
 Failed to connect to the database to make sure that 'backstage_plugin_app' exists, AggregateError
+
+// portal 需要添加权限 
+Authentication failed, AADSTS65005: The application '255a48c3-eb8b-4484-afec-4782995f123f' asked for scope 'user_impersonation' that doesn't exist. Trace ID: 495ffcad-eade-4240-8288-b82e68e14800 Correlation ID: 88caba0c-3915-4257-9db5-ab50d49570d6 Timestamp: 2025-10-14 06:02:31Z
+
+// 用户没有登录权限
+Authentication failed, AADSTS65005: The application '255a48c3-eb8b-4484-afec-4782995f123f' asked for scope 'Mxp.Users' that doesn't exist. Trace ID: 645796d4-ac28-400e-b750-6a6240974200 Correlation ID: fe600c8f-5f0c-4514-934d-8df2ad322beb Timestamp: 2025-10-14 06:01:34Z
 ```
+
