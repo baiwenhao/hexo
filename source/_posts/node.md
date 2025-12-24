@@ -72,6 +72,8 @@ http://www.jianshu.com/p/d2c96d295d48
 https://github.com/nvm-sh/nvm/blob/master/README.md
 ```
 nvm alias default 16.14.2
+nvm alias default node // 当前版本设置默认状态
+nvm version default
 ```
 
 ## url

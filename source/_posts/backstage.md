@@ -5,25 +5,143 @@ date: 2025-09-20 11:28:45
 tags: fe
 ---
 
-## study
+## environment and script
 ```js
-npx @backstage/create-app@latest // create project
-yarn new --select plugin // create plugin   
+// 简单项目
+npx @backstage/create-app@latest --skip-install simple-backstage
+npx backstage-cli --version
+
+// 试运行
+node -e "require('isolated-vm')"
+
+// 启动
+"start:frontend": "yarn workspace app start",
+"start:backend": "yarn workspace backend start",
 ```
 
-<a href="https://backstage.io/docs/" target="_blank">官方文档</a>
-<a href="https://backstage.io/plugins/" target="_blank">插件市场</a>
+## FE 
+```js
+// ui
+@backstage/core-components 
+@mui/material
 
-## task
-阅读官方文档：这是最全面的资源。https://backstage.io/docs/
-探索现有插件：访问 Backstage 插件市场 看看社区已经构建了什么，并学习如何将它们集成到你的应用中
-添加一个真实的后端：将默认的 SQLite 数据库转换为 PostgreSQL 以用于生产环境。
-配置身份验证：集成 GitHub、Google 或 Okta 等身份提供商。
-注册你自己的服务：为你团队的一个真实服务创建一个 catalog-info.yaml 文件，并将其导入到你的目录中。
-尝试脚手架：修改一个现有的软件模板，或者创建一个新的，用于自动化你们团队的项目创建流程。
+// 创建实例
+import { createApp } from '@backstage/app-defaults' 
+{
+	apis: [],
+	components: {},
+	plugins: [],
+	config: {},
+	bindRoutes,
+	theme: []
+}
+// 实例调用
+app.createRoot() 
+
+// style
+import { makeStyles } from '@mui/styles'
+const useStyles = makeStyles({
+  root: {
+    padding: '16px',
+  },
+  button: {
+    marginTop: '16px',
+  },
+})
+
+const classes = useStyles()
+className={classes.button} // 组件里面使用 
+
+// backstage UI
+import {
+  // 页面布局组件
+  Page, Header, Content, TabbedLayout,
+  
+  // 卡片组件
+  InfoCard, Table, Status, StatusOK, StatusError,
+  
+  // 导航
+  Sidebar, SubmenuItem,
+  
+  // 数据展示
+  DependencyGraph, MarkdownContent,
+  
+  // 表单
+  Select, CodeSnippet, ErrorPanel,
+  
+  // 反馈
+  Progress, ResponseErrorPanel,
+} from '@backstage/core-components';
+
+// MUI
+import {
+  // 基础组件
+  Button, TextField, Card, CardContent,
+  
+  // 布局
+  Grid, Container, Box, Paper,
+  
+  // 导航
+  Tabs, Tab, Drawer,
+  
+  // 反馈
+  Dialog, Snackbar, Alert,
+  
+  // 数据展示
+  Table, TableBody, TableCell, TableContainer,
+} from '@mui/material';
+
+```
+
+## create fe plugin
+```ts
+// 选择 fe-plugin, 输入名称 dashboard
+yarn new or yarn backstage-cli new
+
+// App.tsx 
+/*
+	全局组件 AlertDisplay
+	根布局 Root 组件
+	路由配置 FlatRoutes
+	插件集成 导入和配置各种插件页面
+	认证和状态管理 通过上下文提供认证状态
+*/
+import { DashboardPage } from '@internal/backstage-plugin-dashboard'; 
+<Route path="/dashboard" element={<DashboardPage />} />
+
+// Root.tsx
+/*
+	定义整体布局 SidebarPage + Sidebar
+	导航菜单管理 SidebarItem + SidebarGroup
+	插件集成入口 添加插件导航项
+	用户身份管理 UserSettingsSignInAvatar
+	搜索功能集成 SidebarSearchModal
+	主题样式控制 自定义样式类
+*/
+<SidebarItem icon={HomeIcon} to="/dashboard" text="dashboard" />
+
+// 可以进入插件单独启动
+yarn start
+
+// 配置软件模板来创建页面
+```
+
+## request
+```js
+// configApi 读取 app-config.yaml
+// FetchApi 内置方法
+```
+
+## icon
+```js
+import CategoryIcon from '@material-ui/icons/Category';
+import {
+  CatalogIcon
+} from '@backstage/core-components';
+```
 
 ## error record
-```js
+```java
 // 数据路连接问题
 Failed to connect to the database to make sure that 'backstage_plugin_app' exists, AggregateError
 
@@ -34,3 +152,18 @@ Authentication failed, AADSTS65005: The application '255a48c3-eb8b-4484-afec-478
 Authentication failed, AADSTS65005: The application '255a48c3-eb8b-4484-afec-4782995f123f' asked for scope 'Mxp.Users' that doesn't exist. Trace ID: 645796d4-ac28-400e-b750-6a6240974200 Correlation ID: fe600c8f-5f0c-4514-934d-8df2ad322beb Timestamp: 2025-10-14 06:01:34Z
 ```
 
+## Net work
+```js
+// 查找占用端口的进程
+lsof -i :3000
+
+// 杀死占用进程
+kill -9 $(lsof -t -i:3000)
+
+// 或者换个端口启动
+PORT=3001 yarn start
+```
+
+
+<a href="https://backstage.io/docs/" target="_blank">官方文档</a>
+<a href="https://backstage.io/plugins/" target="_blank">插件市场</a>
