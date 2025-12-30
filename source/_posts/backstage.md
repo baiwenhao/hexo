@@ -17,6 +17,10 @@ node -e "require('isolated-vm')"
 // 启动
 "start:frontend": "yarn workspace app start",
 "start:backend": "yarn workspace backend start",
+
+// 查看转发规则
+curl -v http://localhost:3000/api/catalog/entities
+curl -v http://localhost:7007/api/catalog/entities 
 ```
 
 ## FE 
@@ -126,10 +130,38 @@ yarn start
 // 配置软件模板来创建页面
 ```
 
-## request
+## template
 ```js
-// configApi 读取 app-config.yaml
-// FetchApi 内置方法
+// metadata 原数据
+// spec 规格
+// @backstage/plugin-scaffolder 负责解析 template 实体
+TextField
+```
+
+## Define the API
+```ts
+// 1. 定义数据类型
+export interface ExampleItem {
+  id: string;
+  title: string;
+  description?: string;
+  owner: string;
+  createdAt: string;
+}
+
+// 2. 定义API接口
+import { createApiRef } from '@backstage/core-plugin-api';
+
+export interface ExampleApi {
+  getItems(options?: { limit?: number; offset?: number }): Promise<ExampleItem[]>; // 查询列表
+  getItemById(id: string): Promise<ExampleItem>; // 查询详情
+}
+
+// 3. 创建全局可引用的 API Ref（就像一个唯一钥匙）
+export const exampleApiRef = createApiRef<ExampleApi>({
+  id: 'plugin.example.service', // 唯一标识符
+});
+
 ```
 
 ## icon
