@@ -131,11 +131,12 @@ yarn start
 ```
 
 ## template
+请求 yaml 文件由 backend plugin @backstage/plugin-catalog-backend 来处理
 ```js
 // metadata 原数据
 // spec 规格
 // @backstage/plugin-scaffolder 负责解析 template 实体
-TextField
+
 ```
 
 ## Define the API
@@ -195,7 +196,6 @@ kill -9 $(lsof -t -i:3000)
 // 或者换个端口启动
 PORT=3001 yarn start
 ```
-
 
 <a href="https://backstage.io/docs/" target="_blank">官方文档</a>
 <a href="https://backstage.io/plugins/" target="_blank">插件市场</a>
