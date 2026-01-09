@@ -197,5 +197,57 @@ kill -9 $(lsof -t -i:3000)
 PORT=3001 yarn start
 ```
 
-<a href="https://backstage.io/docs/" target="_blank">官方文档</a>
-<a href="https://backstage.io/plugins/" target="_blank">插件市场</a>
+## React Component
+```ts
+// 1. 紧凑写法
+export default function item({ 
+  createdAt, 
+  onSelect,
+}: { 
+  createdAt: string; 
+  onSelect: () => void;
+}) { 
+  return ( // 内联类型解构
+    <span onClick={onSelect}>
+      Created At: {new Date(createdAt).toLocaleDateString('en-GB')}
+    </span>
+  );
+}
+
+// 2. 可复用
+interface DateProps { 
+  createdAt: string;
+}
+export default function item({ createdAt }: DateProps) { // 使用类型别名
+  return <span>Created At: {new Date(createdAt).toLocaleDateString('en-GB'，)}</span>;
+}
+
+// 2.1 更灵活
+type Props = {
+  createdAt: string;  // 必选属性
+  title?: string;     // 可选属性
+};
+export default function MyComponent({ createdAt, title, count }: Props) {
+  return (
+    <div>
+      {title && <h2>{title}</h2>}
+      <span>Created: {new Date(createdAt).toLocaleDateString()}</span>
+    </div>
+  );
+}
+
+// 3. 适合复杂场景
+export default function item(props: { createdAt: string }) { 
+  const { createdAt } = props;  // 在这里解构
+  return <span>Created At: {new Date(createdAt).toLocaleDateString('en-GB')}</span>;
+}
+
+// 4. 泛型约束
+export default function item<T extends { createdAt: string }>({ createdAt }: T) {
+  return <span>Created At: {new Date(createdAt).toLocaleDateString('en-GB')}</span>;
+}
+
+// 组件里直接使用
+import item from './WorkspaceListItemDate';
+<item createdAt={item.createdAt || ''} />
+```
