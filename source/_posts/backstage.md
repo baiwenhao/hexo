@@ -197,5 +197,105 @@ kill -9 $(lsof -t -i:3000)
 PORT=3001 yarn start
 ```
 
-<a href="https://backstage.io/docs/" target="_blank">官方文档</a>
-<a href="https://backstage.io/plugins/" target="_blank">插件市场</a>
+## How to write react components?
+```tsx
+// 1. 紧凑写法
+export default function test({ 
+  createdAt,
+  onSelect,
+}: { 
+  createdAt: string;
+  onSelect: () => void;
+}) { 
+  return (
+    <button onClick={onSelect}>Created At: {createdAt}</button>
+  );
+}
+
+// 2. 可复用
+interface testProps { 
+  createdAt: string;
+  disabled?: boolean;
+}
+export default function test({ createdAt, disabled }: testProps) { // 为了函数内部方便引用
+  return <button disabled={disabled}>Created At: {createdAt}</button>;
+}
+
+type testProps = {
+  createdAt: string;  
+};
+export default function test({ createdAt }: testProps) {
+  return (
+      <span>Created: {createdAt}</span>
+  );
+}
+
+// 3. 适合复杂场景
+export default function test(props: { createdAt: string }) { 
+  const { createdAt } = props;  
+  return <span>Created At: {createdAt}</span>;
+}
+
+
+// 4. 泛型约束
+export default function test<T extends { createdAt: string }>({ createdAt }: T) {
+  return <span>Created At: {new Date(createdAt).toLocaleDateString('en-GB')}</span>;
+}
+interface Props {
+  createdAt: string;
+}
+const test: React.FC<Props> = ({ createdAt }) => {
+  return (
+    <span className="mega-workspace-list-item-date">
+      Created At: {new Date(createdAt).toLocaleDateString('en-GB')}
+    </span>
+  );
+};
+
+export default test; // import test from './test'; 
+// export const test ... 
+// import { test } from './test'
+// <item createdAt={item.createdAt || ''} />
+```
+
+## 数据渲染
+```tsx
+{list?.length > 0 ? (
+  <ul>
+    {list.map(item => <li key={item.id}>{item.name}</li>)}
+  </ul>
+) : (
+  <p>no data</p>
+)}
+// 等价的写法
+{list?.length > 0 && (
+  <div>显示列表内容</div>
+)}
+
+{!list?.length && (
+  <div>显示空状态</div>
+)}
+
+// if else 写法
+if (list?.length > 0) {
+  return <div>有数据</div>;
+}
+return <div>无数据</div>;
+
+// 使用变量
+const hasItems = list?.length > 0;
+return (
+  <div>
+    {hasItems ? (
+      <List items={list} />
+    ) : (
+      <EmptyState />
+    )}
+  </div>
+);
+```
+
+## Common components
+```tsx
+
+```
